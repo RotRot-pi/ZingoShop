@@ -56,7 +56,7 @@ class Crud {
             urlLink,
           ),
           body: data);
-      print("response in crud:$response");
+      print("response in crud:${response.statusCode}");
       if (response.statusCode >= 200 && response.statusCode < 300) {
         print("response.statusCode:${response.statusCode}");
         try {

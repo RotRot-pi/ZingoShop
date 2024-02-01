@@ -13,7 +13,7 @@ class CustonTextFormAuth extends StatelessWidget {
   final bool? obscureText;
   final void Function()? onIconTap;
   const CustonTextFormAuth({
-    Key? key,
+    super.key,
     this.inputType,
     this.iconData,
     this.obscureText,
@@ -22,7 +22,7 @@ class CustonTextFormAuth extends StatelessWidget {
     required this.labeltext,
     required this.controller,
     required this.validator,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

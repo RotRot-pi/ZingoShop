@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
+  goTologin();
   goVerifySignUpCode();
+  showPassword();
 }
 
 class SignUpControllerImpl extends SignUpController {
@@ -18,6 +20,7 @@ class SignUpControllerImpl extends SignUpController {
   late TextEditingController phoneController;
   late TextEditingController passwordController;
   final formKey = GlobalKey<FormState>();
+  bool val = true;
   List signupData = [];
 
   @override
@@ -33,9 +36,10 @@ class SignUpControllerImpl extends SignUpController {
         phoneController.text,
       );
       requestStatus = handelingData(response);
-
+      print("requestStatus:$requestStatus");
       if (requestStatus == RequestStatus.success) {
         if (response['status'] == 'success') {
+          print('go');
           goVerifySignUpCode();
           //signupData.addAll(response['data']);
         }
@@ -58,6 +62,11 @@ class SignUpControllerImpl extends SignUpController {
   }
 
   @override
+  goTologin() {
+    Get.offNamed(AppRoutes.login);
+  }
+
+  @override
   void onInit() {
     usernameController = TextEditingController();
     emailController = TextEditingController();
@@ -74,5 +83,11 @@ class SignUpControllerImpl extends SignUpController {
     passwordController.dispose();
 
     super.dispose();
+  }
+
+  @override
+  showPassword() {
+    val == false ? val = true : val = false;
+    update();
   }
 }
