@@ -12,7 +12,7 @@ import 'package:ecommercecourse/view/widgets/auth/customtextformauth.dart';
 import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({Key? key}) : super(key: key);
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +54,7 @@ class ResetPasswordScreen extends StatelessWidget {
               if (val != controller.passwordController.text) {
                 return "35".tr;
               }
+              return null;
             },
             hinttext: "43".tr,
             iconData: Icons.email_outlined,

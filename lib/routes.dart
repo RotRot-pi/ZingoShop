@@ -1,5 +1,4 @@
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
-import 'package:ecommercecourse/test.dart';
 import 'package:get/get.dart';
 
 import 'package:ecommercecourse/core/constants/routes_name.dart';
@@ -10,6 +9,8 @@ List<GetPage> getPages = [
   //   name: '/',
   //   page: () => Test(),
   // )
+
+  // ========================= Auth ========================= //
   GetPage(
       name: AppRoutes.language,
       page: () => const LanguageScreen(),
@@ -50,4 +51,10 @@ List<GetPage> getPages = [
     name: AppRoutes.verifySignUpCode,
     page: () => const VerifySignUpCode(),
   ),
+
+  // ========================= Home ========================= //
+  GetPage(
+    name: AppRoutes.home,
+    page: () => const HomeScreen(),
+  )
 ];

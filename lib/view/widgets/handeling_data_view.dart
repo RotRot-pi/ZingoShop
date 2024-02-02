@@ -46,8 +46,8 @@ class HandelingDataView extends StatelessWidget {
         return Center(
             child: Lottie.asset(AppImageAssets.noData,
                 width: 250, animate: false));
-      default:
-        return Container(color: Colors.purple);
+      case RequestStatus.notInitialized:
+        return widget;
     }
   }
 

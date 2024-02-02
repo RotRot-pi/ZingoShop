@@ -6,8 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomButtomAuth extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
-  const CustomButtomAuth({Key? key, required this.text, this.onPressed})
-      : super(key: key);
+  const CustomButtomAuth({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {

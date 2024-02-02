@@ -10,7 +10,7 @@ import 'package:ecommercecourse/view/widgets/auth/customtextbodyauth.dart';
 import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
 
 class VerifyCodeScreen extends StatelessWidget {
-  const VerifyCodeScreen({Key? key}) : super(key: key);
+  const VerifyCodeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

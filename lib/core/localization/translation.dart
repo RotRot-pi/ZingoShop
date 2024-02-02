@@ -46,6 +46,7 @@ class AppTranslation extends Translations {
           "warning": "تحذير",
           "user_not_found": "المستخدم غير موجود",
           "user_already_exist": "المستخدم موجود بالفعل",
+          "verification_code_not_correct": "رمز التحقق غير صحيح",
           "email_or_password_incorrect":
               "البريد الإلكتروني او كلمة المرور غير صحيحة",
           "reset_password": "اعادة تعيين كلمة المرور",
@@ -104,6 +105,7 @@ class AppTranslation extends Translations {
           "warning": "Warning",
           "user_not_found": "User Not Found",
           "user_already_exist": "User Already Exist",
+          "verification_code_not_correct": "Verification Code Not Correct",
           "email_or_password_incorrect": "Email Or Password Incorrect",
           "reset_password": "Reset Password",
           "enter_new_password": "Enter New Password",

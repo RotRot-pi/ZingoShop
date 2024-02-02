@@ -1,4 +1,5 @@
 class AppRoutes {
+  // ======================== Auth ======================== //
   static const String onboarding = '/onboarding';
   static const String login = '/login';
   static const String signup = '/signup';
@@ -10,4 +11,7 @@ class AppRoutes {
   static const String successPasswordReset = '/successPasswordReset';
   static const String checkEmail = '/checkEmail';
   static const String verifySignUpCode = '/verifySignUpCode';
+
+  // ======================== Home ======================== //
+  static const String home = '/home';
 }

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomSwitchAuthText extends StatelessWidget {
   const CustomSwitchAuthText(
-      {Key? key, required this.text, required this.buttonText, this.onTap})
-      : super(key: key);
+      {super.key, required this.text, required this.buttonText, this.onTap});
   final String text;
   final String buttonText;
   final Function()? onTap;

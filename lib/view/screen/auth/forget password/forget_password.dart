@@ -12,7 +12,7 @@ import 'package:ecommercecourse/view/widgets/auth/customtextformauth.dart';
 import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({Key? key}) : super(key: key);
+  const ForgetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ForgetPasswordScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
-        title: Text('14'.tr,
+        title: Text('forget_password'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -34,23 +34,23 @@ class ForgetPasswordScreen extends StatelessWidget {
             AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
         child: ListView(children: [
           AppSpacing.addHeigh(h24),
-          CustomTextTitleAuth(text: "14".tr),
+          CustomTextTitleAuth(text: "forget_password".tr),
           AppSpacing.addHeigh(h12),
-          CustomTextBodyAuth(text: "29".tr),
+          CustomTextBodyAuth(text: "email_verification_instructions".tr),
           AppSpacing.addHeigh(h24),
           CustonTextFormAuth(
             controller: controller.emailController,
             validator: (val) {
               return validateAuthInputs(val!, 25, 8, AuthInputType.email);
             },
-            hinttext: "12".tr,
+            hinttext: "enter_email".tr,
             iconData: Icons.email_outlined,
-            labeltext: "18".tr,
+            labeltext: "email".tr,
             // mycontroller: ,
           ),
           AppSpacing.addHeigh(h32),
           CustomButtomAuth(
-              text: "30".tr,
+              text: "check".tr,
               onPressed: () {
                 Get.toNamed(AppRoutes.verifyCode);
               }),

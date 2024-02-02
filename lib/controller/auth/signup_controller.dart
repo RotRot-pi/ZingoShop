@@ -14,7 +14,7 @@ abstract class SignUpController extends GetxController {
 
 class SignUpControllerImpl extends SignUpController {
   SignUpData singupData = SignUpData(crud: Get.find());
-  late RequestStatus requestStatus;
+  RequestStatus requestStatus = RequestStatus.notInitialized;
   late TextEditingController usernameController;
   late TextEditingController emailController;
   late TextEditingController phoneController;
@@ -28,7 +28,7 @@ class SignUpControllerImpl extends SignUpController {
     if (formKey.currentState!.validate()) {
       print("=========SignUp is valid=========");
       requestStatus = RequestStatus.loading;
-
+      update();
       var response = await singupData.postData(
         usernameController.text,
         emailController.text,
@@ -58,7 +58,8 @@ class SignUpControllerImpl extends SignUpController {
 
   @override
   goVerifySignUpCode() {
-    Get.offNamed(AppRoutes.verifySignUpCode);
+    Get.offNamed(AppRoutes.verifySignUpCode,
+        arguments: {'email': emailController.text});
   }
 
   @override

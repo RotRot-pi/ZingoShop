@@ -6,10 +6,10 @@ class LanguageButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const LanguageButton({
-    Key? key,
+    super.key,
     required this.language,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
