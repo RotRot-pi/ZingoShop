@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
       body: GetBuilder<LogInControllerImpl>(
         builder: (controller) => HandelingDataView(
             requestStatus: controller.requestStatus,
-            widget: LoginPage(controller: controller)),
+            child: LoginPage(controller: controller)),
       ),
     );
   }

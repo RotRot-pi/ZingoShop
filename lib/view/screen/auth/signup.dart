@@ -33,7 +33,7 @@ class SignUpScreen extends StatelessWidget {
       body: GetBuilder<SignUpControllerImpl>(
           builder: (controller) => HandelingDataView(
               requestStatus: controller.requestStatus,
-              widget: _SingupPage(
+              child: _SingupPage(
                 controller: controller,
               ))),
     );

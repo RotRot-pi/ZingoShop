@@ -18,7 +18,7 @@ class SuccessPasswordReset extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
-        title: Text('32'.tr,
+        title: Text('success'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -29,7 +29,7 @@ class SuccessPasswordReset extends StatelessWidget {
             AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
         child: Column(children: [
           AppSpacing.addHeigh(h24),
-          CustomTextTitleAuth(text: '36'.tr),
+          CustomTextTitleAuth(text: 'reset_password_success'.tr),
           AppSpacing.addSpace(),
           const Center(
             child: Icon(
@@ -42,7 +42,7 @@ class SuccessPasswordReset extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: CustomButtomAuth(
-                text: "31".tr,
+                text: "go_to_login".tr,
                 onPressed: () {
                   controller.goToLogin();
                 }),

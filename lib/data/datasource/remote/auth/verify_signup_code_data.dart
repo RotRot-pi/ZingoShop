@@ -10,12 +10,11 @@ class VerfiySinUpCodeData {
   });
 
   postData(String email, String verifyCode) async {
-    print("Code from post data :$verifyCode");
     var response = await crud.post(ApiLink.verifySignUpCode, {
       'email': email,
       'verifyCode': verifyCode,
     });
-    print("response data:$response");
+
     return response.fold((l) => l, (r) => r);
   }
 }

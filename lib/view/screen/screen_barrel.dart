@@ -3,7 +3,7 @@
 export 'onboarding.dart';
 export 'auth/login.dart';
 export 'auth/signup.dart';
-export 'auth/forget password/forget_password.dart';
+export 'auth/forget password/check_email.dart';
 export 'auth/forget password/reset_password.dart';
 export 'auth/forget password/verify_code.dart';
 export 'auth/success_sign_up.dart';

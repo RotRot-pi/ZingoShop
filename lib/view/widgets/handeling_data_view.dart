@@ -6,11 +6,11 @@ import 'package:lottie/lottie.dart';
 
 class HandelingDataView extends StatelessWidget {
   final RequestStatus requestStatus;
-  final Widget widget;
+  final Widget child;
   const HandelingDataView({
     super.key,
     required this.requestStatus,
-    required this.widget,
+    required this.child,
   });
 
   @override
@@ -23,7 +23,7 @@ class HandelingDataView extends StatelessWidget {
   Widget _handleRequestStatus(RequestStatus requestStatus) {
     switch (requestStatus) {
       case RequestStatus.success:
-        return widget;
+        return child;
       case RequestStatus.loading:
         return Center(child: Lottie.asset(AppImageAssets.loading, width: 150));
       case RequestStatus.offline:
@@ -47,7 +47,7 @@ class HandelingDataView extends StatelessWidget {
             child: Lottie.asset(AppImageAssets.noData,
                 width: 250, animate: false));
       case RequestStatus.notInitialized:
-        return widget;
+        return child;
     }
   }
 

@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/auth/forget password/reset_password_controller.dart';
 import 'package:ecommercecourse/core/functions/validate_auth_inputs.dart';
+import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,56 +17,84 @@ class ResetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImpl controller =
-        Get.put(ResetPasswordControllerImpl());
+    Get.put(ResetPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
-        title: Text('42'.tr,
+        title: Text('reset_password'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
                 .copyWith(color: AppColors.greyColor)),
       ),
-      body: Container(
-        padding:
-            AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
+      body: GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
+        return HandelingDataView(
+          requestStatus: controller.requestStatus,
+          child: ResetPasswordPage(controller: controller),
+        );
+      }),
+    );
+  }
+}
+
+class ResetPasswordPage extends StatelessWidget {
+  const ResetPasswordPage({
+    super.key,
+    required this.controller,
+  });
+  final ResetPasswordControllerImpl controller;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding:
+          AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
+      child: Form(
+        key: controller.formKey,
         child: ListView(children: [
           AppSpacing.addHeigh(h24),
-          CustomTextTitleAuth(text: "42".tr),
+          CustomTextTitleAuth(text: "reset_password".tr),
           AppSpacing.addHeigh(h12),
-          CustomTextBodyAuth(text: " 34".tr),
+          CustomTextBodyAuth(text: " enter_new_password".tr),
           AppSpacing.addHeigh(h24),
-          CustonTextFormAuth(
-            controller: controller.passwordController,
-            validator: (val) {
-              return validateAuthInputs(val!, 25, 8, AuthInputType.password);
-            },
-            hinttext: "13".tr,
-            iconData: Icons.email_outlined,
-            labeltext: "19".tr,
-            // mycontroller: ,
-          ),
+          GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
+            return CustonTextFormAuth(
+              controller: controller.passwordController,
+              validator: (val) {
+                return validateAuthInputs(val!, 25, 8, AuthInputType.password);
+              },
+              obscureText: controller.val,
+              onIconTap: () {
+                controller.showPassword();
+              },
+              inputType: AuthInputType.password,
+              hinttext: "enter_password".tr,
+              iconData: Icons.lock_outlined,
+              labeltext: "new_password".tr,
+              // mycontroller: ,
+            );
+          }),
           CustonTextFormAuth(
             controller: controller.confirmPasswordController,
             validator: (val) {
               if (val != controller.passwordController.text) {
-                return "35".tr;
+                return "new_password".tr;
               }
               return null;
             },
-            hinttext: "43".tr,
-            iconData: Icons.email_outlined,
-            labeltext: "44".tr,
+            inputType: AuthInputType.password,
+            obscureText: true,
+            hinttext: "confirm_new_password".tr,
+            iconData: Icons.lock_outline,
+            labeltext: "confirm_new_password".tr,
             // mycontroller: ,
           ),
           AppSpacing.addHeigh(h32),
           CustomButtomAuth(
-              text: "33".tr,
+              text: "save".tr,
               onPressed: () {
-                controller.goToSuccessPasswordReset();
+                controller.resetPassword();
               }),
           AppSpacing.addHeigh(h32),
         ]),

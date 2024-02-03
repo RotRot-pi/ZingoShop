@@ -39,6 +39,7 @@ class AppTranslation extends Translations {
           "enter_verification_code": "أدخل رمز التحقق",
           "email_verification_instructions":
               "يرجى إدخال عنوان بريدك الإلكتروني لتلقي رمز التحقق",
+          "email_not_exist": "البريد الإلكتروني غير موجود",
           "check": "تحقق",
           "go_to_login": "الذهاب لتسجيل الدخول",
           "success": "نجاح",
@@ -53,6 +54,11 @@ class AppTranslation extends Translations {
           "enter_new_password": "أدخل كلمة المرور الجديدة",
           "confirm_new_password": "تأكيد كلمة المرور الجديدة",
           "reset_password_success": "تمت اعادة تعيين كلمة المرور بنجاح",
+          "reset_password_fail":
+              "فشل في اعادة تعيين كلمة المرور,الرجاء المحاولة مرة أخرى",
+          "check_your_fields": "الرجاء التحقق من جميع الحقول",
+          "new_password_must_be_different":
+              "كلمة المرور الجديدة يجب أن تكون مختلفة",
           "home": "الرئيسية",
           "profile": "الملف الشخصي",
           "settings": "الاعدادات",
@@ -60,6 +66,7 @@ class AppTranslation extends Translations {
           "change_password": "تغيير كلمة المرور",
           "old_password": "كلمة المرور القديمة",
           "new_password": "كلمة المرور الجديدة",
+          "save": "حفظ",
         },
         "en": {
           "choose_language": "Choose Language",
@@ -98,6 +105,7 @@ class AppTranslation extends Translations {
           "enter_verification_code": "Enter Verification Code",
           "email_verification_instructions":
               "please Enter Your Email Address To Recive A verification code",
+          "email_not_exist": "Email Not Exist",
           "check": "check",
           "go_to_login": "Go To Login",
           "success": "Success",
@@ -111,6 +119,10 @@ class AppTranslation extends Translations {
           "enter_new_password": "Enter New Password",
           "confirm_new_password": "Confirm New Password",
           "reset_password_success": "Password Reset Successfully",
+          "reset_password_fail": "Password Reset Failed, Please Try Again",
+          "check_your_fields": "Please Check All Fields",
+          "new_password_must_be_different":
+              "New Password Must Be Different From Old Password",
           "home": "Home",
           "profile": "Profile",
           "settings": "Settings",
@@ -118,6 +130,7 @@ class AppTranslation extends Translations {
           "change_password": "Change Password",
           "old_password": "Old Password",
           "new_password": "New Password",
+          "save": "Save",
         }
       };
   // @override

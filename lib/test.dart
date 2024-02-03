@@ -18,7 +18,7 @@ class Test extends StatelessWidget {
           child: GetBuilder<TestController>(builder: (controller) {
             return HandelingDataView(
                 requestStatus: controller.requestStatus,
-                widget: ListView.builder(
+                child: ListView.builder(
                   itemCount: controller.data.length,
                   itemBuilder: ((context, index) => Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

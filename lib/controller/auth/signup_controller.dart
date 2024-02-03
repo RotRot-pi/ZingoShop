@@ -42,13 +42,13 @@ class SignUpControllerImpl extends SignUpController {
           print('go');
           goVerifySignUpCode();
           //signupData.addAll(response['data']);
+        } else {
+          Get.defaultDialog(
+            title: "warning".tr,
+            middleText: "user_already_exist".tr,
+          );
+          requestStatus;
         }
-      } else {
-        Get.defaultDialog(
-          title: "warning".tr,
-          middleText: "user_already_exist".tr,
-        );
-        requestStatus;
       }
       update();
     } else {

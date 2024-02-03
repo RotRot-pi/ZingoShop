@@ -30,7 +30,7 @@ class VerifySignUpCode extends StatelessWidget {
       body: GetBuilder<VerifySignUpCodeControllerImpl>(builder: (controller) {
         return HandelingDataView(
             requestStatus: controller.requestStatus,
-            widget: _VerifySignUpCodePage(controller: controller));
+            child: _VerifySignUpCodePage(controller: controller));
       }),
     );
   }

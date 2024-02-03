@@ -29,7 +29,7 @@ List<GetPage> getPages = [
   ),
   GetPage(
     name: AppRoutes.forgetPassword,
-    page: () => const ForgetPasswordScreen(),
+    page: () => const CheckEmailScreen(),
   ),
   GetPage(
     name: AppRoutes.resetPassword,

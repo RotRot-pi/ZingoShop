@@ -35,13 +35,13 @@ class LogInControllerImpl extends LogInController {
       if (requestStatus == RequestStatus.success) {
         if (response['status'] == 'success') {
           goToHomePage();
+        } else {
+          Get.defaultDialog(
+            title: "warning".tr,
+            middleText: "user_already_exist".tr,
+          );
+          requestStatus;
         }
-      } else {
-        Get.defaultDialog(
-          title: "warning".tr,
-          middleText: "user_already_exist".tr,
-        );
-        requestStatus;
       }
       update();
     } else {
