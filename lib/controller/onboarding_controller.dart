@@ -17,7 +17,7 @@ class OnboardingControllerImpl extends OnboardingController {
   nextPage() {
     currentPage++;
     if (currentPage > onboardingList.length - 1) {
-      _appServices.sharedPreferences.setBool('onboarding', true);
+      _appServices.sharedPreferences.setInt('step', 1);
       Get.offAllNamed(AppRoutes.login);
     } else {
       pageController.animateToPage(currentPage,
