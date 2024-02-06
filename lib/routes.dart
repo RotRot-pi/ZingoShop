@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
+import 'package:ecommercecourse/view/screen/home_screen.dart';
 import 'package:get/get.dart';
 
 import 'package:ecommercecourse/core/constants/routes_name.dart';

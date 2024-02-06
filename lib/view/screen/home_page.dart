@@ -10,36 +10,35 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     Get.put(HomeControllerImpl());
-    return Scaffold(
-      body: GetBuilder<HomeControllerImpl>(
-          builder: (controller) => HandelingDataView(
-              requestStatus: controller.requestStatus,
-              child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: ListView(
-                    children: [
-                      CustomAppBar(
-                          titleappbar: "Find Product",
-                          onPressedIcon: () {},
-                          onPressedSearch: () {}),
-                      const CustomCardHome(
-                          title: "A summer surprise", body: "Cashback 20%"),
-                      const ListCategoriesHome(),
-                      const SizedBox(height: 10),
-                      const CustomTitleHome(title: "Product for you"),
-                      const SizedBox(height: 10),
-                      const ListItemsHome(),
-                      const CustomTitleHome(title: "Offer"),
-                      const SizedBox(height: 10),
-                      const ListItemsHome()
-                    ],
-                  )))),
+    return GetBuilder<HomeControllerImpl>(
+      builder: (controller) => HandelingDataView(
+          requestStatus: controller.requestStatus,
+          child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: ListView(
+                children: [
+                  CustomAppBar(
+                      titleappbar: "Find Product",
+                      onPressedIcon: () {},
+                      onPressedSearch: () {}),
+                  const CustomCardHome(
+                      title: "A summer surprise", body: "Cashback 20%"),
+                  const ListCategoriesHome(),
+                  const SizedBox(height: 10),
+                  const CustomTitleHome(title: "Product for you"),
+                  const SizedBox(height: 10),
+                  const ListItemsHome(),
+                  const CustomTitleHome(title: "Offer"),
+                  const SizedBox(height: 10),
+                  const ListItemsHome()
+                ],
+              ))),
       // Add additional widgets here as per your requirements
     );
   }
