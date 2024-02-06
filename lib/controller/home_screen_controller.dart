@@ -15,6 +15,24 @@ class HomeScreenControllerImpl extends HomeScreenController {
     Center(child: Text('Account')),
     Center(child: Text('More')),
   ];
+  List bottomAppBarItems = [
+    {
+      "icon": Icons.home,
+      "name": "Home",
+    },
+    {
+      "icon": Icons.shopping_cart,
+      "name": "Cart",
+    },
+    {
+      "icon": Icons.person,
+      "name": "Account",
+    },
+    {
+      "icon": Icons.more,
+      "name": "More",
+    }
+  ];
   @override
   changePage(int index) {
     currentPageIndex = index;
