@@ -1,89 +1,98 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+
+import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:ecommercecourse/view/widgets/home/customappbar.dart';
+import 'package:ecommercecourse/view/widgets/home/customcardhome.dart';
+import 'package:ecommercecourse/view/widgets/home/customtitlehome.dart';
+import 'package:ecommercecourse/view/widgets/home/listcategorieshome.dart';
+import 'package:ecommercecourse/view/widgets/home/listitemshome.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-// Assuming you have a controller for home which is similar to login controller
-import 'package:ecommercecourse/core/constants/colors.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    HomeControllerImpl controller =
-        Get.put(HomeControllerImpl()); // Uncomment if you have a HomeController
+    Get.put(HomeControllerImpl());
     return Scaffold(
-      appBar: AppBar(
-        title: Text('home'.tr),
-        centerTitle: true,
-        backgroundColor: AppColors.primaryColor,
-      ),
-      body: Container(
-        child: ListView(children: [
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Row(children: [
-              Expanded(
-                  child: TextFormField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: "Find Product",
-                    hintStyle: TextStyle(fontSize: 18),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10)),
-                    filled: true,
-                    fillColor: Colors.grey[200]),
-              )),
-              SizedBox(width: 10),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10)),
-                width: 60,
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.notifications_active_outlined,
-                      size: 30,
-                      color: Colors.grey[600],
-                    )),
-              )
-            ]),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            child: Stack(children: [
-              Container(
-                alignment: Alignment.center,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.circular(20)),
-                child: const ListTile(
-                  title: Text("A summer surprise",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
-                  subtitle: Text("Cashback 20%",
-                      style: TextStyle(color: Colors.white, fontSize: 30)),
-                ),
-              ),
-              Positioned(
-                top: -20,
-                right: -20,
-                child: Container(
-                  height: 160,
-                  width: 160,
-                  decoration: BoxDecoration(
-                      color: AppColors.secondaryColor,
-                      borderRadius: BorderRadius.circular(160)),
-                ),
-              )
-            ]),
-          )
-        ]),
-      ),
+      body: GetBuilder<HomeControllerImpl>(
+          builder: (controller) => HandelingDataView(
+              requestStatus: controller.requestStatus,
+              child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: ListView(
+                    children: [
+                      CustomAppBar(
+                          titleappbar: "Find Product",
+                          onPressedIcon: () {},
+                          onPressedSearch: () {}),
+                      const CustomCardHome(
+                          title: "A summer surprise", body: "Cashback 20%"),
+                      const ListCategoriesHome(),
+                      const SizedBox(height: 10),
+                      const CustomTitleHome(title: "Product for you"),
+                      const SizedBox(height: 10),
+                      const ListItemsHome(),
+                      const CustomTitleHome(title: "Offer"),
+                      const SizedBox(height: 10),
+                      const ListItemsHome()
+                    ],
+                  )))),
       // Add additional widgets here as per your requirements
     );
   }
 }
+
+// class CustomListCategory extends StatelessWidget {
+//   const CustomListCategory({
+//     super.key,
+//     required this.controller,
+//   });
+
+//   final HomeControllerImpl controller;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       height: h100,
+//       child: ListView.separated(
+//         scrollDirection: Axis.horizontal,
+//         separatorBuilder: (context, index) => AppSpacing.addWidth(w16),
+//         itemCount: controller.categories.length,
+//         itemBuilder: (context, index) {
+//           print(
+//               "Image name :${controller.categories[index]['categories_image']}");
+//           return Container(
+//             margin: EdgeInsets.only(right: p8),
+//             child: Column(
+//               children: [
+//                 Container(
+//                   width: w56,
+//                   height: h56,
+//                   padding: EdgeInsets.all(p8),
+//                   decoration: BoxDecoration(
+//                       color: Colors.grey[200],
+//                       borderRadius: BorderRadius.circular(r12)),
+//                   child: SvgPicture.network(
+//                     "${ApiLink.categoriesImageFolder}${controller.categories[index]['categories_image']}",
+
+//                     // colorFilter:
+//                     //     ColorFilter.mode(AppColors.black, BlendMode.colorBurn),
+//                   ),
+//                 ),
+//                 AppSpacing.addHeigh(h8),
+//                 Text(controller.categories[index]['categories_name'],
+//                     style: TextStyle(
+//                         color: Colors.grey[600],
+//                         fontSize: s12,
+//                         fontWeight: FontWeight.bold)),
+//               ],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }

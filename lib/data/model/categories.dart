@@ -1,13 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
 class CategoriesModel {
-  List<Categories>? categories;
+  List<Category>? categories;
 
   CategoriesModel({this.categories});
 
   CategoriesModel.fromJson(Map<String, dynamic> json) {
     if (json['categories'] != null) {
-      categories = <Categories>[];
+      categories = <Category>[];
       json['categories'].forEach((v) {
-        categories!.add(Categories.fromJson(v));
+        categories!.add(Category.fromJson(v));
       });
     }
   }
@@ -21,40 +26,68 @@ class CategoriesModel {
   }
 }
 
-class Categories {
-  int? categoriesId;
-  String? categoriesName;
-  String? categoriesNameAr;
-  String? categoriesDatetime;
-  String? categoriesImage;
+class Category {
+  int categoriesId;
+  String categoriesName;
+  String categoriesNameAr;
+  String categoriesDatetime;
+  String categoriesImage;
+  Category({
+    required this.categoriesId,
+    required this.categoriesName,
+    required this.categoriesNameAr,
+    required this.categoriesDatetime,
+    required this.categoriesImage,
+  });
 
-  Categories(
-      {this.categoriesId,
-      this.categoriesName,
-      this.categoriesNameAr,
-      this.categoriesDatetime,
-      this.categoriesImage});
-
-  Categories.fromJson(Map<String, dynamic> json) {
-    categoriesId = json['categories_id'];
-    categoriesName = json['categories_name'];
-    categoriesNameAr = json['categories_name_ar'];
-    categoriesDatetime = json['categories_datetime'];
-    categoriesImage = json['categories_image'];
+  Category copyWith({
+    int? categoriesId,
+    String? categoriesName,
+    String? categoriesNameAr,
+    String? categoriesDatetime,
+    String? categoriesImage,
+  }) {
+    return Category(
+      categoriesId: categoriesId ?? this.categoriesId,
+      categoriesName: categoriesName ?? this.categoriesName,
+      categoriesNameAr: categoriesNameAr ?? this.categoriesNameAr,
+      categoriesDatetime: categoriesDatetime ?? this.categoriesDatetime,
+      categoriesImage: categoriesImage ?? this.categoriesImage,
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['categories_id'] = categoriesId;
-    data['categories_name'] = categoriesName;
-    data['categories_name_ar'] = categoriesNameAr;
-    data['categories_datetime'] = categoriesDatetime;
-    data['categories_image'] = categoriesImage;
-    return data;
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'categories_id': categoriesId,
+      'categories_name': categoriesName,
+      'categories_name_ar': categoriesNameAr,
+      'categories_datetime': categoriesDatetime,
+      'categories_image': categoriesImage,
+    };
+  }
+
+  factory Category.fromMap(Map<String, dynamic> map) {
+    return Category(
+      categoriesId: map['categories_id'] as int,
+      categoriesName: map['categories_name'] as String,
+      categoriesNameAr: map['categories_name_ar'] as String,
+      categoriesDatetime: map['categories_datetime'] as String,
+      categoriesImage: map['categories_image'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Category.fromJson(String source) =>
+      Category.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'Category(categories_id: $categoriesId, categories_name: $categoriesName, categories_name_ar: $categoriesNameAr, categories_datetime: $categoriesDatetime, categories_image: $categoriesImage)';
   }
 
   @override
-  bool operator ==(covariant Categories other) {
+  bool operator ==(covariant Category other) {
     if (identical(this, other)) return true;
 
     return other.categoriesId == categoriesId &&

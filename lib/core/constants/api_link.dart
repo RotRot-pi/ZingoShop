@@ -1,6 +1,9 @@
 class ApiLink {
   static String server = "http://10.0.2.2/ecommerce_from_host";
+  static String categoriesImageFolder = "$server/upload/categories/";
+  static String itemsImageFolder = "$server/upload/items/";
 
+  // ====================== Test ======================== //
   static String test = "$server/test.php";
 
   // ====================== Auth ===================== //

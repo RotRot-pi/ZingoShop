@@ -52,7 +52,24 @@ final double w32 = 32.w;
 final double w36 = 36.w;
 final double w40 = 40.w;
 final double w48 = 48.w;
+final double w56 = 56.w;
+final double w64 = 64.w;
+final double w80 = 80.w;
+final double w96 = 96.w;
 final double w100 = 100.w;
+final double w120 = 120.w;
+final double w140 = 140.w;
+final double w160 = 160.w;
+final double w180 = 180.w;
+final double w200 = 200.w;
+final double w220 = 220.w;
+final double w240 = 240.w;
+final double w260 = 260.w;
+final double w280 = 280.w;
+final double w300 = 300.w;
+final double w320 = 320.w;
+final double w340 = 340.w;
+final double w360 = 360.w;
 
 //height
 final double h4 = 4.h;
@@ -71,6 +88,26 @@ final double h56 = 56.h;
 final double h64 = 64.h;
 final double h80 = 80.h;
 final double h100 = 100.h;
+final double h120 = 120.h;
+final double h140 = 140.h;
+final double h160 = 160.h;
+final double h180 = 180.h;
+final double h200 = 200.h;
+final double h220 = 220.h;
+final double h240 = 240.h;
+final double h260 = 260.h;
+final double h280 = 280.h;
+final double h300 = 300.h;
+final double h320 = 320.h;
+final double h340 = 340.h;
+final double h360 = 360.h;
+final double h380 = 380.h;
+final double h400 = 400.h;
+final double h420 = 420.h;
+final double h440 = 440.h;
+final double h460 = 460.h;
+final double h480 = 480.h;
+final double h500 = 500.h;
 
 //padding
 final double p4 = 4.r;
@@ -102,6 +139,12 @@ final double r24 = 24.r;
 final double r28 = 28.r;
 final double r32 = 32.r;
 final double r72 = 72.r;
+final double r100 = 100.r;
+final double r120 = 120.r;
+final double r140 = 140.r;
+final double r160 = 160.r;
+final double r180 = 180.r;
+final double r200 = 200.r;
 
 class AppSpacing {
   static addHeigh(double heigh) {

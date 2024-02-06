@@ -55,6 +55,6 @@ List<GetPage> getPages = [
   // ========================= Home ========================= //
   GetPage(
     name: AppRoutes.home,
-    page: () => const HomeScreen(),
+    page: () => HomeScreen(),
   )
 ];

@@ -2,6 +2,8 @@ import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
+import 'package:ecommercecourse/data/model/categories.dart';
+import 'package:ecommercecourse/data/model/items.dart';
 import 'package:get/get.dart';
 
 abstract class HomeController extends GetxController {}
@@ -13,9 +15,8 @@ class HomeControllerImpl extends HomeController {
   late String username;
   late int id;
 
-  List categories = [];
-  //items ...
-
+  List<Category> categories = [];
+  List<Item> items = [];
   getData() async {
     requestStatus = RequestStatus.loading;
     print("status1:$requestStatus");
@@ -25,7 +26,14 @@ class HomeControllerImpl extends HomeController {
     if (requestStatus == RequestStatus.success) {
       print("response:$response ");
       if (response['status'] == 'success') {
-        categories.addAll(response['categories']);
+        response['categories'].forEach((element) {
+          categories.add(Category.fromMap(element));
+        });
+        response['items'].forEach((element) {
+          items.add(Item.fromMap(element));
+        });
+        print("categories:${categories}");
+        print("items:${items}");
       }
     } else {
       requestStatus;
@@ -41,6 +49,7 @@ class HomeControllerImpl extends HomeController {
   @override
   void onInit() {
     initialData();
+    getData();
     super.onInit();
   }
 }
