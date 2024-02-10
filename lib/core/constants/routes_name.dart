@@ -14,4 +14,6 @@ class AppRoutes {
 
   // ======================== Home ======================== //
   static const String home = '/home';
+
+  static const String items = '/items';
 }

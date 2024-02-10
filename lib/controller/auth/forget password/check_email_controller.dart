@@ -25,16 +25,15 @@ class CheckEmailControllerImpl extends CheckEmailController {
     print("email :${emailController.text}");
     requestStatus = handelingData(response);
     print("requestStatus:$requestStatus");
-    if (requestStatus == RequestStatus.success) {
-      if (response['status'] == 'success') {
-        goToVerifySignUpCode();
-      } else {
-        Get.defaultDialog(
-          title: "warning".tr,
-          middleText: "email_not_exist".tr,
-        );
-        requestStatus;
-      }
+    if (requestStatus == RequestStatus.success &&
+        response['status'] == 'success') {
+      goToVerifySignUpCode();
+    } else {
+      Get.defaultDialog(
+        title: "warning".tr,
+        middleText: "email_not_exist".tr,
+      );
+      requestStatus;
     }
     update();
   }

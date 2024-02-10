@@ -1,7 +1,7 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
-import 'package:ecommercecourse/view/widgets/home/customappbar.dart';
+import 'package:ecommercecourse/view/widgets/customappbar.dart';
 import 'package:ecommercecourse/view/widgets/home/customcardhome.dart';
 import 'package:ecommercecourse/view/widgets/home/customtitlehome.dart';
 import 'package:ecommercecourse/view/widgets/home/listcategorieshome.dart';
@@ -24,17 +24,19 @@ class HomePage extends StatelessWidget {
               child: ListView(
                 children: [
                   CustomAppBar(
-                      titleappbar: "Find Product",
+                      titleappbar: "find_product".tr,
                       onPressedIcon: () {},
                       onPressedSearch: () {}),
-                  const CustomCardHome(
-                      title: "A summer surprise", body: "Cashback 20%"),
+                  CustomCardHome(
+                      title: "a_summer_surprise".tr,
+                      body: "cashback_20%".tr,
+                      language: controller.language),
                   const ListCategoriesHome(),
                   const SizedBox(height: 10),
-                  const CustomTitleHome(title: "Product for you"),
+                  CustomTitleHome(title: "product_for_you".tr),
                   const SizedBox(height: 10),
                   const ListItemsHome(),
-                  const CustomTitleHome(title: "Offer"),
+                  CustomTitleHome(title: "offer".tr),
                   const SizedBox(height: 10),
                   const ListItemsHome()
                 ],

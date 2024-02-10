@@ -37,18 +37,17 @@ class SignUpControllerImpl extends SignUpController {
       );
       requestStatus = handelingData(response);
       print("requestStatus:$requestStatus");
-      if (requestStatus == RequestStatus.success) {
-        if (response['status'] == 'success') {
-          print('go');
-          goVerifySignUpCode();
-          //signupData.addAll(response['data']);
-        } else {
-          Get.defaultDialog(
-            title: "warning".tr,
-            middleText: "user_already_exist".tr,
-          );
-          requestStatus;
-        }
+      if (requestStatus == RequestStatus.success &&
+          response['status'] == 'success') {
+        print('go');
+        goVerifySignUpCode();
+        //signupData.addAll(response['data']);
+      } else {
+        Get.defaultDialog(
+          title: "warning".tr,
+          middleText: "user_already_exist".tr,
+        );
+        requestStatus;
       }
       update();
     } else {

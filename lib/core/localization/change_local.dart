@@ -19,7 +19,8 @@ class LocalizationController extends GetxController {
   @override
   void onInit() {
     String? sharedPrefLangague =
-        appServices.sharedPreferences.getString('langague');
+        appServices.sharedPreferences.getString('lang');
+    print("Language :$sharedPrefLangague");
     if (sharedPrefLangague == 'ar') {
       language = const Locale('ar');
       appTheme = appArabicTheme;

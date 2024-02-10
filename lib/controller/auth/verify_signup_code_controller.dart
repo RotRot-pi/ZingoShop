@@ -27,11 +27,11 @@ class VerifySignUpCodeControllerImpl extends VerifySignUpCodeController {
 
     requestStatus = handelingData(response);
     print("requestStatus:$requestStatus");
-    if (requestStatus == RequestStatus.success) {
+    if (requestStatus == RequestStatus.success &&
+        response['status'] == 'success') {
       print("response :${response['status']}");
-      if (response['status'] == 'success') {
-        goToSuccessSignUp();
-      }
+
+      goToSuccessSignUp();
     } else {
       Get.defaultDialog(
         title: "warning".tr,

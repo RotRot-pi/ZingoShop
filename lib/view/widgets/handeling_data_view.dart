@@ -26,6 +26,7 @@ class HandelingDataView extends StatelessWidget {
         return child;
       case RequestStatus.loading:
         return Center(child: Lottie.asset(AppImageAssets.loading, width: 150));
+
       case RequestStatus.offline:
         return Center(
             child: Lottie.asset(AppImageAssets.offline,
@@ -44,8 +45,8 @@ class HandelingDataView extends StatelessWidget {
         return const Center(child: Text('Format Error'));
       case RequestStatus.failure:
         return Center(
-            child: Lottie.asset(AppImageAssets.noData,
-                width: 250, animate: false));
+            child:
+                Lottie.asset(AppImageAssets.noData, width: 250, repeat: false));
       case RequestStatus.notInitialized:
         return child;
     }

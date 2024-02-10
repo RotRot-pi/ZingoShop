@@ -18,6 +18,8 @@ class ApiLink {
 
   // ====================== Home ======================== //
   static String home = "$server/home.php";
+
+  static String items = "$server/items/items.php";
 }
 
 

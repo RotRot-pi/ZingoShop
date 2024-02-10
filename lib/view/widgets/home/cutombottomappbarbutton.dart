@@ -23,6 +23,7 @@ class CustomBottomAppBarButton extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             isActive
@@ -30,6 +31,7 @@ class CustomBottomAppBarButton extends StatelessWidget {
                 : Icon(icon),
             Text(
               name,
+              textAlign: TextAlign.center,
               style: isActive
                   ? Theme.of(context)
                       .textTheme

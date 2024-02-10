@@ -19,15 +19,14 @@ class VerifyCodeControllerImpl extends VerifyCodeController {
     update();
     var response = await verifyCodeData.postData(email, verifyCode);
     requestStatus = handelingData(response);
-    if (requestStatus == RequestStatus.success) {
-      if (response['status'] == 'success') {
-        goToResetPassword();
-      } else {
-        Get.defaultDialog(
-          title: "warning".tr,
-          middleText: "verification_code_not_correct".tr,
-        );
-      }
+    if (requestStatus == RequestStatus.success &&
+        response['status'] == 'success') {
+      goToResetPassword();
+    } else {
+      Get.defaultDialog(
+        title: "warning".tr,
+        middleText: "verification_code_not_correct".tr,
+      );
     }
     update();
   }

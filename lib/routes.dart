@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
 import 'package:ecommercecourse/view/screen/home_screen.dart';
+import 'package:ecommercecourse/view/screen/items.dart';
 import 'package:get/get.dart';
 
 import 'package:ecommercecourse/core/constants/routes_name.dart';
@@ -56,6 +57,11 @@ List<GetPage> getPages = [
   // ========================= Home ========================= //
   GetPage(
     name: AppRoutes.home,
-    page: () => HomeScreen(),
+    page: () => const HomeScreen(),
+  ),
+
+  GetPage(
+    name: AppRoutes.items,
+    page: () => const ItemsScreen(),
   )
 ];

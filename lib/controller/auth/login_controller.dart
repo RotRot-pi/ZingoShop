@@ -47,14 +47,15 @@ class LogInControllerImpl extends LogInController {
             ..setInt('step', 2);
           print("DATA:$data");
           goToHomePage();
-        } else {
-          Get.defaultDialog(
-            title: "warning".tr,
-            middleText: "user_already_exist".tr,
-          );
-          requestStatus;
         }
+      } else {
+        Get.defaultDialog(
+          title: "warning".tr,
+          middleText: "user_already_exist".tr,
+        );
+        requestStatus;
       }
+
       update();
     } else {
       print("=========SignUp is not valid=========");

@@ -32,17 +32,16 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
           await resetPasswordData.postData(email, passwordController.text);
       requestStatus = handelingData(response);
 
-      if (requestStatus == RequestStatus.success) {
-        if (response['status'] == 'success') {
-          goToSuccessPasswordReset();
-        } else {
-          Get.defaultDialog(
-            title: "error".tr,
-            middleText: "reset_password_fail".tr,
-            content: Text(newPasswordMustBeDiffrent),
-          );
-          //requestStatus = RequestStatus.failure;
-        }
+      if (requestStatus == RequestStatus.success &&
+          response['status'] == 'success') {
+        goToSuccessPasswordReset();
+      } else {
+        Get.defaultDialog(
+          title: "error".tr,
+          middleText: "reset_password_fail".tr,
+          content: Text(newPasswordMustBeDiffrent),
+        );
+        //requestStatus = RequestStatus.failure;
       }
     } else {
       Get.defaultDialog(

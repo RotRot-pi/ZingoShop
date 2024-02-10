@@ -40,6 +40,7 @@ const double s400 = 400;
 const double s416 = 416;
 
 //width
+final double w2 = 2.w;
 final double w4 = 4.w;
 final double w8 = 8.w;
 final double w10 = 10.w;

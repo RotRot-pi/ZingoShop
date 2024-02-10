@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/functions/translate_data.dart';
 import 'package:ecommercecourse/data/model/items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -50,7 +51,7 @@ class ItemsHomeWidget extends StatelessWidget {
         Positioned(
             left: 10,
             child: Text(
-              item.itemsName,
+              translateData(item.itemsNameAr, item.itemsName),
               style: const TextStyle(
                   color: Colors.white,
                   // fontWeight: FontWeight.bold,

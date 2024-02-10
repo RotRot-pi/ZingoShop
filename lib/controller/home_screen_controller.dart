@@ -9,28 +9,29 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImpl extends HomeScreenController {
   int currentPageIndex = 0;
+
   List pages = [
     HomePage(),
-    Center(child: Text('Cart')),
-    Center(child: Text('Account')),
-    Center(child: Text('More')),
+    Center(child: Text('cart'.tr)),
+    Center(child: Text('profile'.tr)),
+    Center(child: Text('settings'.tr)),
   ];
   List bottomAppBarItems = [
     {
       "icon": Icons.home,
-      "name": "Home",
+      "name": "home".tr,
     },
     {
       "icon": Icons.shopping_cart,
-      "name": "Cart",
+      "name": "cart".tr,
     },
     {
       "icon": Icons.person,
-      "name": "Account",
+      "name": "profile".tr,
     },
     {
       "icon": Icons.more,
-      "name": "More",
+      "name": "settings".tr,
     }
   ];
   @override

@@ -13,11 +13,11 @@ class TestController extends GetxController {
     var response = await testData.getData();
     requestStatus = handelingData(response);
     print("status2:$requestStatus");
-    if (requestStatus == RequestStatus.success) {
+    if (requestStatus == RequestStatus.success &&
+        response['status'] == 'success') {
       print("response:$response ");
-      if (response['status'] == 'success') {
-        data.addAll(response['data']);
-      }
+
+      data.addAll(response['data']);
     } else {
       requestStatus;
     }
