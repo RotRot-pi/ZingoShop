@@ -35,9 +35,12 @@ class ItemsScreen extends StatelessWidget {
                     itemCount: controller.items.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 0.7),
+                            crossAxisCount: 2, childAspectRatio: 0.65),
                     itemBuilder: (BuildContext context, index) {
-                      return CustomListItems(item: controller.items[index]);
+                      return CustomListItems(
+                          //active must depend on item
+                          favorite: true,
+                          item: controller.items[index]);
                     }),
               )
             ],

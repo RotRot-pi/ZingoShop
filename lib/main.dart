@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // await ScreenUtil.ensureScreenSize();
   await initializeServices();
   runApp(const MyApp());
 }
@@ -27,15 +27,22 @@ class MyApp extends StatelessWidget {
     );
     return ScreenUtilInit(
       designSize: Size(width, height),
-      builder: (context, widget) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        translations: AppTranslation(),
-        locale: localizationController.language,
-        theme: localizationController.appTheme,
-        getPages: getPages,
-        initialBinding: InitialAppBindings(),
-      ),
+      // minTextAdapt: true,
+      builder: (context, widget) {
+        // ScreenUtil.init(
+        //   context,
+        //   minTextAdapt: true,
+        // );
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          translations: AppTranslation(),
+          locale: localizationController.language,
+          theme: localizationController.appTheme,
+          getPages: getPages,
+          initialBinding: InitialAppBindings(),
+        );
+      },
     );
   }
 }

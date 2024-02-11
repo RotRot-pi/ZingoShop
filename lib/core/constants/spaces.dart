@@ -73,6 +73,7 @@ final double w340 = 340.w;
 final double w360 = 360.w;
 
 //height
+final double h2 = 2.h;
 final double h4 = 4.h;
 final double h8 = 8.h;
 final double h10 = 10.h;

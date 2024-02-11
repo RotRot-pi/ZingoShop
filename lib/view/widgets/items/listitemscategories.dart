@@ -16,7 +16,7 @@ class ListItemsCategories extends GetView<ItemsControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: h100,
+      height: h56,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => AppSpacing.addWidth(w16),

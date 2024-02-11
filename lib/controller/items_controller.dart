@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/item_data.dart';
 import 'package:ecommercecourse/data/model/items.dart';
@@ -8,6 +9,7 @@ abstract class ItemsController extends GetxController {
   initialData();
   getItems(var categoryId);
   changeCategory(int index, var categoryId);
+  goToProductDetails(Item item);
 }
 
 class ItemsControllerImpl extends ItemsController {
@@ -59,13 +61,6 @@ class ItemsControllerImpl extends ItemsController {
   }
 
   @override
-  void onInit() {
-    initialData();
-    getItems(categoryId);
-    super.onInit();
-  }
-
-  @override
   changeCategory(int index, var categoryId) {
     categoryIndex = index;
     categoryId = categoryId;
@@ -73,5 +68,17 @@ class ItemsControllerImpl extends ItemsController {
     print("new id :$categoryId");
 
     update();
+  }
+
+  @override
+  goToProductDetails(Item item) {
+    Get.toNamed(AppRoutes.productDetails, arguments: {'item': item});
+  }
+
+  @override
+  void onInit() {
+    initialData();
+    getItems(categoryId);
+    super.onInit();
   }
 }

@@ -1,12 +1,13 @@
 import 'package:ecommercecourse/core/constants/colors.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final ThemeData appEnglishTheme = ThemeData(
     primarySwatch: Colors.blue,
     fontFamily: 'PlayfairDisplay',
     textTheme: const TextTheme(
-        displayLarge: TextStyle(
+        displayLarge: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.textColorblack),
