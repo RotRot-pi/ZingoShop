@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
@@ -12,9 +13,10 @@ import 'package:get/get.dart';
 
 class CustomListItems extends GetView<ItemsControllerImpl> {
   final Item item;
-  final bool favorite;
-  const CustomListItems(
-      {super.key, required this.item, required this.favorite});
+  const CustomListItems({
+    super.key,
+    required this.item,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -73,15 +75,19 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                               fontSize: s16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "sans")),
-                      IconButton(
-                        onPressed: () {},
-                        icon: favorite
-                            ? const Icon(
-                                Icons.favorite,
-                                color: AppColors.primaryColor,
-                              )
-                            : const Icon(Icons.favorite_border_outlined),
-                      )
+                      GetBuilder<FavoriteControllerImpl>(builder: (controller) {
+                        return IconButton(
+                          onPressed: () {
+                            controller.changeFavorite(item);
+                          },
+                          icon: controller.favoriteItems.contains(item.itemsId)
+                              ? const Icon(
+                                  Icons.favorite,
+                                  color: AppColors.primaryColor,
+                                )
+                              : const Icon(Icons.favorite_border_outlined),
+                        );
+                      })
                     ],
                   )
                 ]),

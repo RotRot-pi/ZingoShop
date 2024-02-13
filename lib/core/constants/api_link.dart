@@ -20,6 +20,9 @@ class ApiLink {
   static String home = "$server/home.php";
 
   static String items = "$server/items/items.php";
+
+  static String addFavorite = "$server/favorite/addtofavorite.php";
+  static String removeFavorite = "$server/favorite/removefromfavorite.php";
 }
 
 

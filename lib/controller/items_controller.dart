@@ -1,6 +1,7 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
+import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/item_data.dart';
 import 'package:ecommercecourse/data/model/items.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ abstract class ItemsController extends GetxController {
 }
 
 class ItemsControllerImpl extends ItemsController {
+  final AppServices _appServices = Get.find();
   ItemData itemData = ItemData(crud: Get.find());
   late RequestStatus requestStatus = RequestStatus.notInitialized;
   List categories = [];
@@ -25,7 +27,8 @@ class ItemsControllerImpl extends ItemsController {
     items.clear();
     requestStatus = RequestStatus.loading;
     print("status1:$requestStatus");
-    var response = await itemData.getData(newCategoryId);
+    var response = await itemData.getData(
+        newCategoryId, _appServices.sharedPreferences.getInt("id"));
     requestStatus = handelingData(response);
     print("status2:$requestStatus");
     if (requestStatus == RequestStatus.success &&

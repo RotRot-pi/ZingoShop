@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/favorite_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/items.dart';
@@ -14,6 +15,7 @@ class ItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ItemsControllerImpl());
+    var favoriteController = Get.put(FavoriteControllerImpl());
     return Scaffold(
       body: Padding(
         padding: AppSpacing.addEdgeInsetsAll(p16),
@@ -37,10 +39,9 @@ class ItemsScreen extends StatelessWidget {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2, childAspectRatio: 0.65),
                     itemBuilder: (BuildContext context, index) {
-                      return CustomListItems(
-                          //active must depend on item
-                          favorite: true,
-                          item: controller.items[index]);
+                      favoriteController
+                          .addItemToFavorite(controller.items[index]);
+                      return CustomListItems(item: controller.items[index]);
                     }),
               )
             ],
