@@ -23,6 +23,8 @@ class ApiLink {
 
   static String addFavorite = "$server/favorite/addtofavorite.php";
   static String removeFavorite = "$server/favorite/removefromfavorite.php";
+  static String deleteFavorite = "$server/favorite/deletefavorite.php";
+  static String favoriteView = "$server/favorite/view.php";
 }
 
 

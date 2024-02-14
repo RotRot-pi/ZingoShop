@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:ecommercecourse/view/widgets/customappbar.dart';
@@ -26,6 +27,7 @@ class HomePage extends StatelessWidget {
                   CustomAppBar(
                       titleappbar: "find_product".tr,
                       onPressedIcon: () {},
+                      onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
                       onPressedSearch: () {}),
                   CustomCardHome(
                       title: "a_summer_surprise".tr,

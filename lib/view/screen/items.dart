@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/controller/favorite_controller.dart';
+import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/items.dart';
@@ -15,7 +15,7 @@ class ItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ItemsControllerImpl());
-    var favoriteController = Get.put(FavoriteControllerImpl());
+    var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
       body: Padding(
         padding: AppSpacing.addEdgeInsetsAll(p16),

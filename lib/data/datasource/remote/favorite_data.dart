@@ -3,23 +3,22 @@ import 'package:ecommercecourse/core/constants/api_link.dart';
 
 class FavoriteData {
   final Crud crud;
+
   FavoriteData(this.crud);
 
-  addFavorite(var usersId, var itemId) async {
-    var response = await crud.post(ApiLink.addFavorite, {
-      'users_id': usersId.toString(),
-      'items_id': itemId.toString(),
+  getData(var userId) async {
+    print("id from crud:$userId");
+    var response = await crud.post(ApiLink.favoriteView, {
+      "users_id": userId.toString(),
     });
     print("FavoriteData");
     return response.fold((l) => l, (r) => r);
   }
 
-  removeFavorite(var usersId, var itemId) async {
-    var response = await crud.post(ApiLink.removeFavorite, {
-      'users_id': usersId.toString(),
-      'items_id': itemId.toString(),
+  deleteData(var favoriteId) async {
+    var response = await crud.post(ApiLink.deleteFavorite, {
+      "favorite_id": favoriteId.toString(),
     });
-    print("FavoriteData");
     return response.fold((l) => l, (r) => r);
   }
 }

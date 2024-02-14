@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/favorite_controller.dart';
+import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
@@ -75,7 +75,8 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                               fontSize: s16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "sans")),
-                      GetBuilder<FavoriteControllerImpl>(builder: (controller) {
+                      GetBuilder<FavoriteItemsControllerImpl>(
+                          builder: (controller) {
                         return IconButton(
                           onPressed: () {
                             controller.changeFavorite(item);
