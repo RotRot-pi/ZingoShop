@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 abstract class VerifySignUpCodeController extends GetxController {
   verfiyCode(String verificationCode);
+  resendVerifyCode();
   goToSuccessSignUp();
 }
 
@@ -45,6 +46,11 @@ class VerifySignUpCodeControllerImpl extends VerifySignUpCodeController {
   @override
   goToSuccessSignUp() {
     Get.toNamed(AppRoutes.successSignUp);
+  }
+
+  @override
+  resendVerifyCode() async {
+    await verfiySinUpCodeData.resentData(email);
   }
 
   @override

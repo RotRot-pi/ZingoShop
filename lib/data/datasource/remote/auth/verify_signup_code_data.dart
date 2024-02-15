@@ -17,4 +17,12 @@ class VerfiySinUpCodeData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  resentData(String email) async {
+    var response = await crud.post(ApiLink.resentVerifyCode, {
+      'email': email,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

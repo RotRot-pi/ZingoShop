@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/view/screen/home_page.dart';
+import 'package:ecommercecourse/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class HomeScreenControllerImpl extends HomeScreenController {
     HomePage(),
     Center(child: Text('cart'.tr)),
     Center(child: Text('profile'.tr)),
-    Center(child: Text('settings'.tr)),
+    SettingsScreen()
   ];
   List bottomAppBarItems = [
     {

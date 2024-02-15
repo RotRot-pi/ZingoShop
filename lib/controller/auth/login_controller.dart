@@ -38,15 +38,18 @@ class LogInControllerImpl extends LogInController {
       if (requestStatus == RequestStatus.success) {
         if (response['status'] == 'success') {
           var data = response['data'];
-          print("id type:${data['user_id'].runtimeType}");
-          _appServices.sharedPreferences
-            ..setInt("id", data['user_id'])
-            ..setString('username', data['user_name'])
-            ..setString('email', data['user_email'])
-            ..setString('phone', data['user_phone'])
-            ..setInt('step', 2);
-          print("DATA:$data");
-          goToHomePage();
+          if (data['user_approve'] == 1) {
+            _appServices.sharedPreferences
+              ..setInt("id", data['user_id'])
+              ..setString('username', data['user_name'])
+              ..setString('email', data['user_email'])
+              ..setString('phone', data['user_phone'])
+              ..setInt('step', 2);
+            goToHomePage();
+          } else {
+            Get.toNamed(AppRoutes.verifySignUpCode,
+                arguments: {'email': emailController.text});
+          }
         }
       } else {
         Get.defaultDialog(
@@ -95,6 +98,7 @@ class LogInControllerImpl extends LogInController {
 
   @override
   void dispose() {
+    print("Login fields Disposed");
     emailController.dispose();
     passwordController.dispose();
     super.dispose();

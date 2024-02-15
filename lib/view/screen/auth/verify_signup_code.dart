@@ -69,6 +69,19 @@ class _VerifySignUpCodePage extends StatelessWidget {
             //           title: Text("Verification Code"),
 
             ),
+        AppSpacing.addHeigh(h20),
+        Center(
+          child: InkWell(
+            onTap: () => controller.resendVerifyCode(),
+            child: Text(
+              "Resend Code".tr,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(color: AppColors.primaryColor),
+            ),
+          ),
+        )
       ]),
     );
   }
