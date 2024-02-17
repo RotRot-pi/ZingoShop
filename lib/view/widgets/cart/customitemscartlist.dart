@@ -1,13 +1,17 @@
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/core/constant/imgaeasset.dart';
-import 'package:ecommercecourse/data/model/itemsmodel.dart';
+import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/image_assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCartList extends StatelessWidget {
-  final String name ; 
-  final String price  ; 
-  final String count   ; 
-  const CustomItemsCartList({Key? key, required this.name, required this.price, required this.count , }) : super(key: key);
+  final String name;
+  final String price;
+  final String count;
+  const CustomItemsCartList({
+    Key? key,
+    required this.name,
+    required this.price,
+    required this.count,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class CustomItemsCartList extends StatelessWidget {
           Expanded(
               flex: 2,
               child: Image.asset(
-                AppImageAsset.logo,
+                AppImageAssets.logo,
                 height: 90,
                 fit: BoxFit.cover,
               )),
@@ -26,8 +30,8 @@ class CustomItemsCartList extends StatelessWidget {
               child: ListTile(
                 title: Text(name, style: TextStyle(fontSize: 15)),
                 subtitle: Text(price,
-                    style:
-                        TextStyle(color: AppColor.primaryColor, fontSize: 17)),
+                    style: const TextStyle(
+                        color: AppColors.primaryColor, fontSize: 17)),
               )),
           Expanded(
               child: Column(

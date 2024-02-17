@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home_page.dart';
 import 'package:ecommercecourse/view/screen/settings.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class HomeScreenControllerImpl extends HomeScreenController {
 
   List pages = [
     HomePage(),
-    Center(child: Text('cart'.tr)),
+    CartScreen(),
     Center(child: Text('profile'.tr)),
     SettingsScreen()
   ];

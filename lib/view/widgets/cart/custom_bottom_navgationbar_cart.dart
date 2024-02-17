@@ -1,14 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommercecourse/core/constant/color.dart';
-import 'package:ecommercecourse/view/widget/cart/buttoncart.dart';
+import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/view/widgets/cart/buttoncart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomNavgationBarCart extends StatelessWidget {
-  final String price ; 
-  final String shipping ; 
-  final String totalprice ; 
-  const BottomNavgationBarCart({Key? key, required this.price, required this.shipping, required this.totalprice}) : super(key: key);
+  final String price;
+  final String shipping;
+  final String totalprice;
+  const BottomNavgationBarCart(
+      {Key? key,
+      required this.price,
+      required this.shipping,
+      required this.totalprice})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,21 +54,22 @@ class BottomNavgationBarCart extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColor.primaryColor))),
+                        color: AppColors.primaryColor))),
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text("$totalprice \$",
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColor.primaryColor)))
+                        color: AppColors.primaryColor)))
           ],
         ),
         SizedBox(height: 10),
         CustomButtonCart(
           textbutton: "Place Order",
           onPressed: () {},
-        )
+        ),
+        SizedBox(height: 40.h),
       ],
     ));
   }

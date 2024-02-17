@@ -17,11 +17,12 @@ class PriceAndCountItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("PriceAndCountItems:$count");
     return Row(
       children: [
         Row(
           children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+            IconButton(onPressed: onAdd, icon: const Icon(Icons.add)),
             Container(
                 alignment: Alignment.center,
                 padding: AppSpacing.addEdgeInsetsOnly(bottom: h2),
@@ -32,7 +33,7 @@ class PriceAndCountItems extends StatelessWidget {
                   count,
                   style: TextStyle(fontSize: 20.sp, height: 1.1.h),
                 )),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.remove)),
+            IconButton(onPressed: onRemove, icon: const Icon(Icons.remove)),
           ],
         ),
         const Spacer(),

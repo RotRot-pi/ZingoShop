@@ -22,10 +22,17 @@ class ApiLink {
 
   static String items = "$server/items/items.php";
 
+  // ====================== Favorite ======================= //
   static String addFavorite = "$server/favorite/addtofavorite.php";
   static String removeFavorite = "$server/favorite/removefromfavorite.php";
   static String deleteFavorite = "$server/favorite/deletefavorite.php";
   static String favoriteView = "$server/favorite/view.php";
+
+  // ====================== Cart ======================= //
+  static String addCart = "$server/cart/addtocart.php";
+  static String removeFromCart = "$server/cart/removefromcart.php";
+  //static String deleteCart = "$server/cart/deletecart.php";
+  static String cartView = "$server/cart/view.php";
 }
 
 

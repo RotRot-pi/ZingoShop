@@ -1,4 +1,5 @@
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
+import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/favorite_screen.dart';
 import 'package:ecommercecourse/view/screen/home_screen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
@@ -74,5 +75,6 @@ List<GetPage> getPages = [
   GetPage(
     name: AppRoutes.favorite,
     page: () => const FavoriteScreen(),
-  )
+  ),
+  GetPage(name: AppRoutes.cart, page: () => const CartScreen()),
 ];

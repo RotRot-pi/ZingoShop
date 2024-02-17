@@ -1,11 +1,10 @@
-import 'package:ecommercecourse/core/constant/color.dart';
+import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonCart extends StatelessWidget {
   final String textbutton;
   final void Function()? onPressed;
-  const CustomButtonCart({Key? key, required this.textbutton, this.onPressed})
-      : super(key: key);
+  const CustomButtonCart({super.key, required this.textbutton, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +12,8 @@ class CustomButtonCart extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       child: MaterialButton(
-        color: AppColor.primaryColor,
-        textColor: Colors.white,
+        color: AppColors.primaryColor,
+        textColor: AppColors.whiteTextColor,
         onPressed: onPressed,
         child: Text(textbutton,
             style: const TextStyle(fontWeight: FontWeight.bold)),

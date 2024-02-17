@@ -6,11 +6,6 @@ import 'package:get/get.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
-  //Todo: fix the errors in the cart widgets
-  //Todo: refactor the cart widgets
-  //Todo: refactor the ui
-  //Todo: connect with the add and delete from cart api
-  //Todo: work on the controller
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
             children: [
               Container(
                 height: h200,
-                decoration: BoxDecoration(color: AppColors.primaryColor),
+                decoration: const BoxDecoration(color: AppColors.primaryColor),
               ),
               Container(
                 alignment: Alignment.bottomCenter,
