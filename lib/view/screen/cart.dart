@@ -1,5 +1,5 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:ecommercecourse/controller/cart_controller.dart';
-import 'package:ecommercecourse/data/model/cart_item.dart';
 import 'package:ecommercecourse/view/widgets/cart/appbarcart.dart';
 import 'package:ecommercecourse/view/widgets/cart/custom_bottom_navgationbar_cart.dart';
 import 'package:ecommercecourse/view/widgets/cart/customitemscartlist.dart';
@@ -13,45 +13,54 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Todo: refactor the cart widgets
-    //Todo: refactor the ui
-    //Todo: connect with the add and delete from cart api
-    //Todo: work on the
-    Get.put(CartControllerImpl());
+    CartController cartController = Get.put(CartController());
     return Scaffold(
-        bottomNavigationBar: GetBuilder<CartControllerImpl>(
-          builder: (controller) => BottomNavgationBarCart(
-            price: "\$${controller.cartTotalPrice}",
-            shipping: "0",
-            totalprice: "\$${controller.cartTotalPrice * 1}",
-          ),
-        ),
-        body: GetBuilder<CartControllerImpl>(builder: (controller) {
-          return HandelingDataView(
-            requestStatus: controller.requestStatus,
-            child: Column(children: [
-              TopAppbarCart(
-                title: "Cart",
-              ),
-              TopCardCart(message: "This is an empty cart"),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: ListView.builder(
-                    itemCount: controller.cartItems.length,
-                    itemBuilder: (context, index) {
-                      CartItem item = controller.cartItems[index];
-                      return CustomItemsCartList(
-                          itemId: item.itemsId,
-                          name: item.itemsName,
-                          price: "${item.itemsPrice} \$",
-                          count: "${item.cartItemCount}");
-                    },
-                  ),
-                ),
-              ),
-            ]),
-          );
-        }));
+        bottomNavigationBar: GetBuilder<CartController>(
+            builder: (controller) => BottomNavgationBarCart(
+                price: "${cartController.priceorders}",
+                shipping: "300",
+                totalprice: "1500")),
+        body: GetBuilder<CartController>(
+            builder: ((controller) => HandelingDataView(
+                requestStatus: controller.requestStatus,
+                child: ListView(
+                  children: [
+                    TopAppbarCart(
+                      title: 'My Cart',
+                    ),
+                    SizedBox(height: 10),
+                    TopCardCart(
+                        message:
+                            "You Have ${cartController.totalcountitems} Items in Your List"),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          ...List.generate(
+                            cartController.data.length,
+                            (index) => CustomItemsCartList(
+                                onAdd: () async {
+                                  await cartController
+                                      .add(cartController.data[index].itemsId!);
+                                  cartController.refreshPage();
+                                },
+                                onRemove: () async {
+                                  await cartController.delete(
+                                      cartController.data[index].itemsId!);
+                                  cartController.refreshPage();
+                                },
+                                imageName:
+                                    "${cartController.data[index].itemsImage}",
+                                name: "${cartController.data[index].itemsName}",
+                                price:
+                                    "${cartController.data[index].itemsPrice} \$",
+                                count:
+                                    "${cartController.data[index].itemsCount}"),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )))));
   }
 }

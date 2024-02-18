@@ -1,36 +1,33 @@
+import 'dart:ffi';
+
 import 'package:ecommercecourse/core/classes/crud.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 
-class CartItemData {
+class CartData {
   Crud crud;
-  CartItemData({
-    required this.crud,
-  });
+  CartData(this.crud);
+  addCart(var usersid, var itemsid) async {
+    var response = await crud.post(ApiLink.addCart,
+        {"user_id": usersid.toString(), "item_id": itemsid.toString()});
+    return response.fold((l) => l, (r) => r);
+  }
 
-  getData(var userId) async {
+  deleteCart(var usersid, var itemsid) async {
+    var response = await crud.post(ApiLink.deleteCart,
+        {"user_id": usersid.toString(), "item_id": itemsid.toString()});
+    return response.fold((l) => l, (r) => r);
+  }
+
+  getCountCart(var usersid, var itemsid) async {
+    var response = await crud.post(ApiLink.getCountCart,
+        {"user_id": usersid.toString(), "item_id": itemsid.toString()});
+    return response.fold((l) => l, (r) => r);
+  }
+
+  viewCart(var usersid) async {
     var response = await crud.post(ApiLink.cartView, {
-      'user_id': userId.toString(),
+      "user_id": usersid.toString(),
     });
-    print("CartItemData");
-    return response.fold((l) => l, (r) => r);
-  }
-
-  addToCart(var userId, var itemId, var cartProductCount) async {
-    var response = await crud.post(ApiLink.addCart, {
-      'user_id': userId.toString(),
-      'item_id': itemId.toString(),
-      'cart_item_count': cartProductCount.toString(),
-    });
-    print("CartItemData");
-    return response.fold((l) => l, (r) => r);
-  }
-
-  removeFromCart(var userId, var itemId) async {
-    var response = await crud.post(ApiLink.removeFromCart, {
-      'user_id': userId.toString(),
-      'item_id': itemId.toString(),
-    });
-    print("CartItemData");
     return response.fold((l) => l, (r) => r);
   }
 }

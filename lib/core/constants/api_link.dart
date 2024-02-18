@@ -29,10 +29,15 @@ class ApiLink {
   static String favoriteView = "$server/favorite/view.php";
 
   // ====================== Cart ======================= //
-  static String addCart = "$server/cart/addtocart.php";
-  static String removeFromCart = "$server/cart/removefromcart.php";
-  //static String deleteCart = "$server/cart/deletecart.php";
+  // static String addCart = "$server/cart/addtocart.php";
+  // static String removeFromCart = "$server/cart/removefromcart.php";
+  // //static String deleteCart = "$server/cart/deletecart.php";
+  // static String cartView = "$server/cart/view.php";
+
   static String cartView = "$server/cart/view.php";
+  static String addCart = "$server/cart/add.php";
+  static String deleteCart = "$server/cart/delete.php";
+  static String getCountCart = "$server/cart/getcountitems.php";
 }
 
 
