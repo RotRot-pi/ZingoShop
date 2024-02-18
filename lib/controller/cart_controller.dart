@@ -19,7 +19,8 @@ class CartControllerImpl extends CartController {
   final CartItemData cartItemData = CartItemData(crud: Get.find());
   final AppServices _appServices = Get.find();
   RequestStatus requestStatus = RequestStatus.notInitialized;
-  List cart = [];
+  List cartItems = [];
+  var cartTotalPrice = 0;
   double price = 0;
   int cartProductCount = 0;
   @override
@@ -29,7 +30,8 @@ class CartControllerImpl extends CartController {
     print("GETTING CART IS INIT AND READY");
     print(
         '===================================================================');
-    cart.clear();
+    cartItems.clear();
+
     final userId = _appServices.sharedPreferences.getInt("id");
 
     requestStatus = RequestStatus.loading;
@@ -37,11 +39,10 @@ class CartControllerImpl extends CartController {
     requestStatus = handelingData(response);
     if (requestStatus == RequestStatus.success) {
       if (response['status'] == 'success') {
-        List data = response['data'];
-        for (var element in data) {
-          cart.add(CartItem.fromMap(element));
-          price += element['items_price'] * element['cart_item_count'];
+        for (var element in response) {
+          cartItems.add(CartItem.fromMap(element));
         }
+        cartTotalPrice = response['cartTotalPrice']['cart_total_price'];
       }
     } else {
       requestStatus = RequestStatus.failure;
@@ -55,9 +56,13 @@ class CartControllerImpl extends CartController {
     var response =
         await cartItemData.addToCart(userId, itemId, cartProductCount);
     if (response['status'] == 'success') {
-      getData();
+      for (var element in response) {
+        cartItems.add(CartItem.fromMap(element));
+      }
+      cartTotalPrice = response['cartTotalPrice']['cart_total_price'];
+      //getData();
       //Navigate to cart or to checkout or to home
-      Get.toNamed(AppRoutes.cart);
+      //Get.toNamed(AppRoutes.cart);
     }
     update();
   }

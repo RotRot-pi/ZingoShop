@@ -21,9 +21,9 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
         bottomNavigationBar: GetBuilder<CartControllerImpl>(
           builder: (controller) => BottomNavgationBarCart(
-            price: "\$${controller.price}",
+            price: "\$${controller.cartTotalPrice}",
             shipping: "0",
-            totalprice: "\$200",
+            totalprice: "\$${controller.cartTotalPrice * 1}",
           ),
         ),
         body: GetBuilder<CartControllerImpl>(builder: (controller) {
@@ -38,10 +38,11 @@ class CartScreen extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(10),
                   child: ListView.builder(
-                    itemCount: controller.cart.length,
+                    itemCount: controller.cartItems.length,
                     itemBuilder: (context, index) {
-                      CartItem item = controller.cart[index];
+                      CartItem item = controller.cartItems[index];
                       return CustomItemsCartList(
+                          itemId: item.itemsId,
                           name: item.itemsName,
                           price: "${item.itemsPrice} \$",
                           count: "${item.cartItemCount}");

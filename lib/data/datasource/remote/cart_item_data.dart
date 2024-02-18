@@ -19,7 +19,7 @@ class CartItemData {
     var response = await crud.post(ApiLink.addCart, {
       'user_id': userId.toString(),
       'item_id': itemId.toString(),
-      'item_count': cartProductCount.toString(),
+      'cart_item_count': cartProductCount.toString(),
     });
     print("CartItemData");
     return response.fold((l) => l, (r) => r);

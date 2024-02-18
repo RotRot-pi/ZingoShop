@@ -12,7 +12,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   intialData() async {
     item = Get.arguments['item'];
     await cartController.getData();
-    List<CartItem> cartItems = [...cartController.cart];
+    List<CartItem> cartItems = [...cartController.cartItems];
     for (var cartItem in cartItems) {
       if (cartItem.itemsId == item.itemsId) {
         cartController.cartProductCount = cartItem.cartItemCount;
