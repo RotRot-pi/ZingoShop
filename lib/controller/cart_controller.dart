@@ -9,47 +9,47 @@ import 'package:get/get.dart';
 class CartController extends GetxController {
   CartData cartData = CartData(Get.find());
 
-  late RequestStatus requestStatus;
+  Rx<RequestStatus> requestStatus = RequestStatus.notInitialized.obs;
 
   final AppServices _appServices = Get.find();
 
-  List data = [];
+  var data = [].obs;
 
-  var priceorders = 0;
-  var totalPrice;
-  var totalcountitems = 0;
+  var priceorders = 0.obs;
+  //var totalPrice;
+  var totalcountitems = 0.obs;
 
   add(var itemsid) async {
-    requestStatus = RequestStatus.loading;
-    update();
+    // requestStatus = RequestStatus.loading;
+    // update();
     var response = await cartData.addCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid);
     print("=============================== Controller $response ");
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == requestStatus) {
+    requestStatus.value = handelingData(response);
+    if (RequestStatus.success == requestStatus.value) {
       // Start backend
       if (response['status'] == "success") {
+        refreshPage();
         Get.rawSnackbar(
             title: "اشعار",
             messageText: const Text("تم اضافة المنتج الى السلة "));
-        // data.addAll(response['data']);
       } else {
-        requestStatus = RequestStatus.failure;
+        requestStatus = RequestStatus.failure as Rx<RequestStatus>;
       }
       // End
     }
-    update();
+    //update();
   }
 
   delete(var itemsid) async {
-    requestStatus = RequestStatus.loading;
+    requestStatus = RequestStatus.loading as Rx<RequestStatus>;
     update();
 
     var response = await cartData.deleteCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid);
     print("=============================== Controller $response ");
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == requestStatus) {
+    requestStatus.value = handelingData(response);
+    if (RequestStatus.success == requestStatus.value) {
       // Start backend
       if (response['status'] == "success") {
         Get.rawSnackbar(
@@ -57,7 +57,7 @@ class CartController extends GetxController {
             messageText: const Text("تم ازالة المنتج من السلة "));
         // data.addAll(response['data']);
       } else {
-        requestStatus = RequestStatus.failure;
+        requestStatus = RequestStatus.failure as Rx<RequestStatus>;
       }
       // End
     }
@@ -65,8 +65,8 @@ class CartController extends GetxController {
   }
 
   resetVarCart() {
-    totalcountitems = 0;
-    priceorders = 0;
+    totalcountitems = 0.obs;
+    priceorders = 0.obs;
     data.clear();
   }
 
@@ -76,25 +76,33 @@ class CartController extends GetxController {
   }
 
   view() async {
-    requestStatus = RequestStatus.loading;
-    update();
+    if (requestStatus.value != RequestStatus.success) {
+      requestStatus = Rx(RequestStatus.loading);
+      update();
+    }
     var response =
-        await cartData.viewCart(_appServices.sharedPreferences.getInt("id")!);
+        await cartData.viewCart(_appServices.sharedPreferences.getInt("id"));
     print("=============================== Controller $response ");
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == requestStatus) {
+    requestStatus.value = handelingData(response);
+    if (RequestStatus.success == requestStatus.value) {
       // Start backend
       if (response['status'] == "success") {
         List datad = response['datacart'];
-        for (var item in datad) {
-          data.add(CartModel.fromMap(item));
+        try {
+          for (var item in datad) {
+            data.add(CartModel.fromMap(item));
+          }
+        } catch (e) {
+          print('======================================');
+          print("Error in the cart controller $e");
+          print('======================================');
         }
       }
     } else {
-      requestStatus = RequestStatus.failure;
+      requestStatus = RequestStatus.failure as Rx<RequestStatus>;
     }
 
-    update();
+    //update();
   }
 
   // fromMap(Map<dynamic, dynamic> map) {

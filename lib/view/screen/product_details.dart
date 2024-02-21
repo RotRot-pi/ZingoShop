@@ -23,6 +23,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 color: AppColors.secondaryColor,
                 onPressed: () {
+                  controller.addItems(controller.item.itemsId);
                   Get.toNamed(AppRoutes.cart);
                 },
                 child: const Text(

@@ -13,4 +13,9 @@ class HomeData {
     print("HomeData");
     return response.fold((l) => l, (r) => r);
   }
+
+  searchData(var search) async {
+    var response = await crud.post(ApiLink.search, {"search": search});
+    return response.fold((l) => l, (r) => r);
+  }
 }

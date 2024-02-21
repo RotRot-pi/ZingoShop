@@ -5,12 +5,14 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:ecommercecourse/data/model/categories.dart';
 import 'package:ecommercecourse/data/model/items.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class HomeController extends GetxController {
+abstract class HomeController extends SearchControllerMix {
   getData();
   initialData();
   goToItems(List categories, int categoryIndex, var categoryId);
+  goToProductDetails(Item item);
 }
 
 class HomeControllerImpl extends HomeController {
@@ -23,6 +25,7 @@ class HomeControllerImpl extends HomeController {
 
   List<Category> categories = [];
   List<Item> items = [];
+
   @override
   getData() async {
     requestStatus = RequestStatus.loading;
@@ -68,8 +71,65 @@ class HomeControllerImpl extends HomeController {
 
   @override
   void onInit() {
+    searchController = TextEditingController();
     initialData();
     getData();
+    super.onInit();
+  }
+}
+
+class SearchControllerMix extends GetxController {
+  HomeData homeData = HomeData(crud: Get.find());
+  late TextEditingController searchController;
+  RequestStatus requestStatus = RequestStatus.notInitialized;
+  bool isSeaching = false;
+  List searchedItems = [];
+
+  isSearching(String value) {
+    print("Value:$value");
+    if (value.isEmpty || value == "") {
+      requestStatus = RequestStatus.notInitialized;
+      isSeaching = false;
+    }
+    update();
+  }
+
+  onItemsSearch() {
+    isSeaching = true;
+    searchItems();
+    update();
+  }
+
+  searchItems() async {
+    searchedItems.clear();
+    if (searchController.text.isEmpty) {
+      return;
+    }
+    requestStatus = RequestStatus.loading;
+    print("status1:$requestStatus");
+    var response = await homeData.searchData(searchController.text);
+
+    requestStatus = handelingData(response);
+    if (requestStatus == RequestStatus.success) {
+      if (response['status'] == 'success') {
+        response['data'].forEach((element) {
+          searchedItems.add(Item.fromMap(element));
+        });
+
+        print("searchedItems:${searchedItems}");
+      } else {
+        requestStatus = RequestStatus.failure;
+      }
+    }
+    update();
+  }
+
+  goToProductDetails(Item item) {
+    Get.toNamed(AppRoutes.productDetails, arguments: {'item': item});
+  }
+
+  @override
+  void onInit() {
     super.onInit();
   }
 }

@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
+import 'package:ecommercecourse/data/model/items.dart';
 
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:ecommercecourse/view/widgets/customappbar.dart';
@@ -18,33 +21,106 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeControllerImpl());
     return GetBuilder<HomeControllerImpl>(
-      builder: (controller) => HandelingDataView(
-          requestStatus: controller.requestStatus,
-          child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: ListView(
-                children: [
-                  CustomAppBar(
-                      titleappbar: "find_product".tr,
-                      onPressedIcon: () {},
-                      onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
-                      onPressedSearch: () {}),
-                  CustomCardHome(
-                      title: "a_summer_surprise".tr,
-                      body: "cashback_20%".tr,
-                      language: controller.language),
-                  const ListCategoriesHome(),
-                  const SizedBox(height: 10),
-                  CustomTitleHome(title: "product_for_you".tr),
-                  const SizedBox(height: 10),
-                  const ListItemsHome(),
-                  CustomTitleHome(title: "offer".tr),
-                  const SizedBox(height: 10),
-                  const ListItemsHome()
-                ],
-              ))),
+      builder: (controller) => Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: ListView(
+            children: [
+              CustomAppBar(
+                titleappbar: "find_product".tr,
+                searchController: controller.searchController,
+                onPressedIcon: () {},
+                onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
+                onPressedSearch: () => controller.onItemsSearch(),
+                onChanged: (value) => controller.isSearching(value),
+              ),
+              !controller.isSeaching
+                  ? GetBuilder<HomeControllerImpl>(builder: (controller) {
+                      return HandelingDataView(
+                          requestStatus: controller.requestStatus,
+                          child: Column(
+                            children: [
+                              CustomCardHome(
+                                  title: "a_summer_surprise".tr,
+                                  body: "cashback_20%".tr,
+                                  language: controller.language),
+                              const ListCategoriesHome(),
+                              const SizedBox(height: 10),
+                              CustomTitleHome(title: "product_for_you".tr),
+                              const SizedBox(height: 10),
+                              const ListItemsHome(),
+                              CustomTitleHome(title: "offer".tr),
+                              const SizedBox(height: 10),
+                              const ListItemsHome()
+                            ],
+                          ));
+                    })
+                  : SearchedItemsList(
+                      listdatamodel: controller.searchedItems,
+                    )
+            ],
+          )
+          // : Column(
+          //     children: [
+          //       CustomAppBar(
+          //           titleappbar: "find_product".tr,
+          //           searchController: controller.searchController,
+          //           onPressedIcon: () {},
+          //           onPressedFavorite: () =>
+          //               Get.toNamed(AppRoutes.favorite),
+          //           onPressedSearch: () =>
+          //               controller.searchItems()),
+          //       Expanded(
+          //           child: SearchedItemsList(
+          //         listdatamodel: controller.searchedItems,
+          //       )),
+          //     ],
+          //   ),
+          ),
       // Add additional widgets here as per your requirements
     );
+  }
+}
+
+class SearchedItemsList extends GetView<HomeControllerImpl> {
+  final List listdatamodel;
+  const SearchedItemsList({Key? key, required this.listdatamodel})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: listdatamodel.length,
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              controller.goToProductDetails(listdatamodel[index]);
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              child: Card(
+                  child: Container(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: CachedNetworkImage(
+                            imageUrl:
+                                "${ApiLink.itemsImageFolder}/${listdatamodel[index].itemsImage}")),
+                    Expanded(
+                        flex: 2,
+                        child: ListTile(
+                          title: Text(listdatamodel[index].itemsName!),
+                          subtitle:
+                              Text(listdatamodel[index].itemsDescription!),
+                        )),
+                  ],
+                ),
+              )),
+            ),
+          );
+        });
   }
 }
 

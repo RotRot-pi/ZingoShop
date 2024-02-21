@@ -1,45 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
 class CartModel {
-  int itemsId;
-  String itemsName;
-  String itemsNameAr;
-  int itemsPrice;
-  int itemsDiscount;
-  int itemsActive;
-  int itemsCount;
-  String itemsImage;
-  String itemsDescription;
-  String itemsDescriptionAr;
-  String itemsDatetime;
-  int itemsCategory;
-  int cartItemCount;
-  int cartId;
-  int cartUsersid;
-  int cartItemsid;
-  int totalPrice;
+  RxInt? itemsId;
+  RxString itemsName = ''.obs;
+  RxString itemsNameAr = ''.obs;
+  RxInt? itemsPrice;
+  RxInt? itemsDiscount;
+  RxInt? itemsActive;
+  RxInt? itemsCount;
+  RxString itemsImage = ''.obs;
+  RxString itemsDescription = ''.obs;
+  RxString itemsDescriptionAr = ''.obs;
+  RxString itemsDatetime = ''.obs;
+  RxInt? itemsCategory;
+  RxInt? cartItemCount;
+  RxInt? cartId;
+  RxInt? cartUsersid;
+  RxInt? cartItemsid;
+  RxInt? totalPrice;
 
-  CartModel(
-      {required this.itemsId,
-      required this.itemsName,
-      required this.itemsNameAr,
-      required this.itemsPrice,
-      required this.itemsDiscount,
-      required this.itemsActive,
-      required this.itemsCount,
-      required this.itemsImage,
-      required this.itemsDescription,
-      required this.itemsDescriptionAr,
-      required this.itemsDatetime,
-      required this.itemsCategory,
-      required this.cartItemCount,
-      required this.cartId,
-      required this.cartUsersid,
-      required this.cartItemsid,
-      required this.totalPrice});
-
-  CartModel copyWith({
+  CartModel({
     int? itemsId,
     String? itemsName,
     String? itemsNameAr,
@@ -52,32 +35,68 @@ class CartModel {
     String? itemsDescriptionAr,
     String? itemsDatetime,
     int? itemsCategory,
-    int? totalPrice,
+    int? cartItemCount,
     int? cartId,
     int? cartUsersid,
     int? cartItemsid,
-    int? cartItemCount,
-  }) {
-    return CartModel(
-      itemsId: itemsId ?? this.itemsId,
-      itemsName: itemsName ?? this.itemsName,
-      itemsNameAr: itemsNameAr ?? this.itemsNameAr,
-      itemsPrice: itemsPrice ?? this.itemsPrice,
-      itemsDiscount: itemsDiscount ?? this.itemsDiscount,
-      itemsActive: itemsActive ?? this.itemsActive,
-      itemsCount: itemsCount ?? this.itemsCount,
-      itemsImage: itemsImage ?? this.itemsImage,
-      itemsDescription: itemsDescription ?? this.itemsDescription,
-      itemsDescriptionAr: itemsDescriptionAr ?? this.itemsDescriptionAr,
-      itemsDatetime: itemsDatetime ?? this.itemsDatetime,
-      itemsCategory: itemsCategory ?? this.itemsCategory,
-      cartItemCount: cartItemCount ?? this.cartItemCount,
-      cartId: cartId ?? this.cartId,
-      cartUsersid: cartUsersid ?? this.cartUsersid,
-      cartItemsid: cartItemsid ?? this.cartItemsid,
-      totalPrice: totalPrice ?? this.totalPrice,
-    );
-  }
+    int? totalPrice,
+  })  : itemsId = (itemsId == null ? null : RxInt(itemsId)),
+        itemsName = RxString(itemsName ?? ''),
+        itemsNameAr = RxString(itemsNameAr ?? ''),
+        itemsPrice = (itemsPrice == null ? null : RxInt(itemsPrice)),
+        itemsDiscount = (itemsDiscount == null ? null : RxInt(itemsDiscount)),
+        itemsActive = (itemsActive == null ? null : RxInt(itemsActive)),
+        itemsCount = (itemsCount == null ? null : RxInt(itemsCount)),
+        itemsImage = RxString(itemsImage ?? ''),
+        itemsDescription = RxString(itemsDescription ?? ''),
+        itemsDescriptionAr = RxString(itemsDescriptionAr ?? ''),
+        itemsDatetime = RxString(itemsDatetime ?? ''),
+        itemsCategory = (itemsCategory == null ? null : RxInt(itemsCategory)),
+        cartItemCount = (cartItemCount == null ? null : RxInt(cartItemCount)),
+        cartId = (cartId == null ? null : RxInt(cartId)),
+        cartUsersid = (cartUsersid == null ? null : RxInt(cartUsersid)),
+        cartItemsid = (cartItemsid == null ? null : RxInt(cartItemsid)),
+        totalPrice = (totalPrice == null ? null : RxInt(totalPrice));
+
+  // CartModel copyWith({
+  //   int? itemsId,
+  //   String? itemsName,
+  //   String? itemsNameAr,
+  //   int? itemsPrice,
+  //   int? itemsDiscount,
+  //   int? itemsActive,
+  //   int? itemsCount,
+  //   String? itemsImage,
+  //   String? itemsDescription,
+  //   String? itemsDescriptionAr,
+  //   String? itemsDatetime,
+  //   int? itemsCategory,
+  //   int? totalPrice,
+  //   int? cartId,
+  //   int? cartUsersid,
+  //   int? cartItemsid,
+  //   int? cartItemCount,
+  // }) {
+  //   return CartModel(
+  //     itemsId: itemsId ?? this.itemsId,
+  //     itemsName: itemsName ?? this.itemsName,
+  //     itemsNameAr: itemsNameAr ?? this.itemsNameAr,
+  //     itemsPrice: itemsPrice ?? this.itemsPrice,
+  //     itemsDiscount: itemsDiscount ?? this.itemsDiscount,
+  //     itemsActive: itemsActive ?? this.itemsActive,
+  //     itemsCount: itemsCount ?? this.itemsCount,
+  //     itemsImage: itemsImage ?? this.itemsImage,
+  //     itemsDescription: itemsDescription ?? this.itemsDescription,
+  //     itemsDescriptionAr: itemsDescriptionAr ?? this.itemsDescriptionAr,
+  //     itemsDatetime: itemsDatetime ?? this.itemsDatetime,
+  //     itemsCategory: itemsCategory ?? this.itemsCategory,
+  //     cartItemCount: cartItemCount ?? this.cartItemCount,
+  //     cartId: cartId ?? this.cartId,
+  //     cartUsersid: cartUsersid ?? this.cartUsersid,
+  //     cartItemsid: cartItemsid ?? this.cartItemsid,
+  //     totalPrice: totalPrice ?? this.totalPrice,
+  //   );
+  // }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -119,28 +138,48 @@ class CartModel {
 //       "cart_item_id": 2,
 //       "cart_item_count": 2,
 //       }
+  // factory CartModel.fromMap(Map<String, dynamic> map) {
+  //   return CartModel(
+  //     itemsId: map['items_id'] as int?,
+  //     itemsName: map['items_name'] as String? ?? '',
+  //     itemsNameAr: map['items_name_ar'] as String? ?? '',
+  //     itemsPrice: map['items_price'] as int?,
+  //     itemsDiscount: map['items_discount'] as int?,
+  //     itemsActive: map['items_active'] as int?,
+  //     itemsCount: map['items_count'] as int?,
+  //     itemsImage: map['items_image'] as String? ?? '',
+  //     itemsDescription: map['items_description'] as String? ?? '',
+  //     itemsDescriptionAr: map['items_description_ar'] as String? ?? '',
+  //     itemsDatetime: map['items_datetime'] as String? ?? '',
+  //     itemsCategory: map['items_category'] as int?,
+  //     cartItemCount: map['cart_item_count'] as int?,
+  //     cartId: map['cart_id'] as int?,
+  //     cartUsersid: map['cart_user_id'] as int?,
+  //     cartItemsid: map['cart_items_id'] as int?,
+  //     totalPrice: map['total_price'] as int?,
+  //   );
+  // }
   factory CartModel.fromMap(Map<String, dynamic> map) {
     return CartModel(
-      itemsId: map['items_id'] as int,
-      itemsName: map['items_name'] as String,
-      itemsNameAr: map['items_name_ar'] as String,
-      itemsPrice: map['items_price'] as int,
-      itemsDiscount: map['items_discount'] as int,
-      itemsActive: map['items_active'] as int,
-      itemsCount: map['items_count'] as int,
-      itemsImage: map['items_image'] as String,
-      itemsDescription: map['items_description'] as String,
-      itemsDescriptionAr: map['items_description_ar'] as String,
-      itemsDatetime: map['items_datetime'] as String,
-      itemsCategory: map['items_category'] as int,
-      cartItemCount: map['cart_item_count'] as int,
-      cartId: map['cart_id'] as int,
-      cartUsersid: map['cart_user_id'] as int,
-      cartItemsid: map['cart_items_id'] as int,
-      totalPrice: map['total_price'] as int,
+      itemsId: map['items_id'] as int?,
+      itemsName: map['items_name'] as String?,
+      itemsNameAr: map['items_name_ar'] as String?,
+      itemsPrice: map['items_price'] as int?,
+      itemsDiscount: map['items_discount'] as int?,
+      itemsActive: map['items_active'] as int?,
+      itemsCount: map['items_count'] as int?,
+      itemsImage: map['items_image'] as String?,
+      itemsDescription: map['items_description'] as String?,
+      itemsDescriptionAr: map['items_description_ar'] as String?,
+      itemsDatetime: map['items_datetime'] as String?,
+      itemsCategory: map['items_category'] as int?,
+      cartItemCount: map['cart_item_count'] as int?,
+      cartId: map['cart_id'] as int?,
+      cartUsersid: map['cart_user_id'] as int?,
+      cartItemsid: map['cart_items_id'] as int?,
+      totalPrice: map['total_price'] as int?,
     );
   }
-
   String toJson() => json.encode(toMap());
 
   factory CartModel.fromJson(String source) =>

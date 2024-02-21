@@ -23,6 +23,9 @@ class Item {
   String itemsDatetime;
   int itemsCategory;
   int? favorite;
+  String? itemsCategoryName;
+  String? itemsCategoryNameAr;
+  double? itemsPriceAfterDiscount;
 
   Item(
       {required this.itemsId,
@@ -37,23 +40,28 @@ class Item {
       required this.itemsDescriptionAr,
       required this.itemsDatetime,
       required this.itemsCategory,
-      this.favorite});
+      this.favorite,
+      this.itemsCategoryName,
+      this.itemsCategoryNameAr,
+      this.itemsPriceAfterDiscount});
 
-  Item copyWith({
-    int? itemsId,
-    String? itemsName,
-    String? itemsNameAr,
-    int? itemsPrice,
-    int? itemsDiscount,
-    int? itemsActive,
-    int? itemsCount,
-    String? itemsImage,
-    String? itemsDescription,
-    String? itemsDescriptionAr,
-    String? itemsDatetime,
-    int? itemsCategory,
-    int? favorite,
-  }) {
+  Item copyWith(
+      {int? itemsId,
+      String? itemsName,
+      String? itemsNameAr,
+      int? itemsPrice,
+      int? itemsDiscount,
+      int? itemsActive,
+      int? itemsCount,
+      String? itemsImage,
+      String? itemsDescription,
+      String? itemsDescriptionAr,
+      String? itemsDatetime,
+      int? itemsCategory,
+      int? favorite,
+      String? itemsCategoryName,
+      String? itemsCategoryNameAr,
+      double? itemsPriceAfterDiscount}) {
     return Item(
         itemsId: itemsId ?? this.itemsId,
         itemsName: itemsName ?? this.itemsName,
@@ -67,7 +75,11 @@ class Item {
         itemsDescriptionAr: itemsDescriptionAr ?? this.itemsDescriptionAr,
         itemsDatetime: itemsDatetime ?? this.itemsDatetime,
         itemsCategory: itemsCategory ?? this.itemsCategory,
-        favorite: favorite ?? this.favorite);
+        favorite: favorite ?? this.favorite,
+        itemsCategoryName: itemsCategoryName ?? this.itemsCategoryName,
+        itemsCategoryNameAr: itemsCategoryNameAr ?? this.itemsCategoryNameAr,
+        itemsPriceAfterDiscount:
+            itemsPriceAfterDiscount ?? this.itemsPriceAfterDiscount);
   }
 
   Map<String, dynamic> toMap() {
@@ -84,6 +96,10 @@ class Item {
       'items_description_ar': itemsDescriptionAr,
       'items_datetime': itemsDatetime,
       'items_category': itemsCategory,
+      'favorite': favorite,
+      'categories_name': itemsCategoryName,
+      'categories_name_ar': itemsCategoryNameAr,
+      'items_price_after_discount': itemsPriceAfterDiscount,
     };
   }
 
@@ -102,6 +118,10 @@ class Item {
       itemsDatetime: map['items_datetime'] as String,
       itemsCategory: map['items_category'] as int,
       favorite: map['favorite'] as int?,
+      itemsCategoryName: map['category_name'] as String?,
+      itemsCategoryNameAr: map['category_name_ar'] as String?,
+      itemsPriceAfterDiscount:
+          (map['items_price_after_discount'] ?? 0).toDouble() as double?,
     );
   }
 
@@ -112,7 +132,7 @@ class Item {
 
   @override
   String toString() {
-    return 'Item(itemsId: $itemsId, itemsName: $itemsName, itemsNameAr: $itemsNameAr, itemsPrice: $itemsPrice, itemsDiscount: $itemsDiscount, itemsActive: $itemsActive, itemsCount: $itemsCount, itemsImage: $itemsImage, itemsDescription: $itemsDescription, itemsDescriptionAr: $itemsDescriptionAr, itemsDatetime: $itemsDatetime, itemsCategory: $itemsCategory, favorite: $favorite)';
+    return 'Item(itemsId: $itemsId, itemsName: $itemsName, itemsNameAr: $itemsNameAr, itemsPrice: $itemsPrice, itemsDiscount: $itemsDiscount, itemsActive: $itemsActive, itemsCount: $itemsCount, itemsImage: $itemsImage, itemsDescription: $itemsDescription, itemsDescriptionAr: $itemsDescriptionAr, itemsDatetime: $itemsDatetime, itemsCategory: $itemsCategory, favorite: $favorite, itemsCategoryName: $itemsCategoryName, itemsPriceAfterDiscount: $itemsPriceAfterDiscount)';
   }
 
   @override
@@ -131,7 +151,10 @@ class Item {
         other.itemsDescriptionAr == itemsDescriptionAr &&
         other.itemsDatetime == itemsDatetime &&
         other.itemsCategory == itemsCategory &&
-        other.favorite == favorite;
+        other.favorite == favorite &&
+        other.itemsCategoryName == itemsCategoryName &&
+        other.itemsCategoryNameAr == itemsCategoryNameAr &&
+        other.itemsPriceAfterDiscount == itemsPriceAfterDiscount;
   }
 
   @override
@@ -148,6 +171,9 @@ class Item {
         itemsDescriptionAr.hashCode ^
         itemsDatetime.hashCode ^
         itemsCategory.hashCode ^
-        favorite.hashCode;
+        favorite.hashCode ^
+        itemsCategoryName.hashCode ^
+        itemsCategoryNameAr.hashCode ^
+        itemsPriceAfterDiscount.hashCode;
   }
 }

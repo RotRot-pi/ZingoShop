@@ -1,12 +1,14 @@
+import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/item_data.dart';
 import 'package:ecommercecourse/data/model/items.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends SearchControllerMix {
   initialData();
   getItems(var categoryId);
   changeCategory(int index, var categoryId);
@@ -16,7 +18,7 @@ abstract class ItemsController extends GetxController {
 class ItemsControllerImpl extends ItemsController {
   final AppServices _appServices = Get.find();
   ItemData itemData = ItemData(crud: Get.find());
-  late RequestStatus requestStatus = RequestStatus.notInitialized;
+  RequestStatus requestStatus = RequestStatus.notInitialized;
   List categories = [];
   List items = [];
   int? categoryIndex;
@@ -56,6 +58,7 @@ class ItemsControllerImpl extends ItemsController {
 
   @override
   initialData() {
+    searchController = TextEditingController();
     categories = Get.arguments['categories'];
     categoryIndex = Get.arguments['categoryIndex'];
     categoryId = Get.arguments['categoryId'];

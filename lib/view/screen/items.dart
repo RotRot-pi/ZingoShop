@@ -1,7 +1,9 @@
 import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/items.dart';
+import 'package:ecommercecourse/view/screen/home_page.dart';
 import 'package:ecommercecourse/view/widgets/customappbar.dart';
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:ecommercecourse/view/widgets/items/customitemslist.dart';
@@ -17,37 +19,57 @@ class ItemsScreen extends StatelessWidget {
     var controller = Get.put(ItemsControllerImpl());
     var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
-      body: Padding(
-        padding: AppSpacing.addEdgeInsetsAll(p16),
-        child: GetBuilder<ItemsControllerImpl>(builder: (controller) {
-          return ListView(
-            children: [
-              CustomAppBar(
-                titleappbar: "Find Your Product",
-                onPressedIcon: null,
-                onPressedSearch: null,
-              ),
-              AppSpacing.addHeigh(h16),
-              ListItemsCategories(),
-              HandelingDataView(
-                requestStatus: controller.requestStatus,
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.items.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 0.65),
-                    itemBuilder: (BuildContext context, index) {
-                      favoriteController
-                          .addItemToFavorite(controller.items[index]);
-                      return CustomListItems(item: controller.items[index]);
-                    }),
-              )
-            ],
-          );
-        }),
-      ),
-    );
+        body: Padding(
+            padding: AppSpacing.addEdgeInsetsAll(p16),
+            child: ListView(
+              children: [
+                CustomAppBar(
+                  titleappbar: "find_product".tr,
+                  searchController: controller.searchController,
+                  onPressedIcon: () {},
+                  onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
+                  onPressedSearch: () => controller.onItemsSearch(),
+                  onChanged: (value) => controller.isSearching(value),
+                ),
+                AppSpacing.addHeigh(h16),
+                const ListItemsCategories(),
+                GetBuilder<ItemsControllerImpl>(builder: (controller) {
+                  return HandelingDataView(
+                    requestStatus: controller.requestStatus,
+                    child: !controller.isSeaching
+                        ? GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.items.length,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2, childAspectRatio: 0.65),
+                            itemBuilder: (BuildContext context, index) {
+                              favoriteController
+                                  .addItemToFavorite(controller.items[index]);
+                              return CustomListItems(
+                                  item: controller.items[index]);
+                            })
+                        : SearchedItemsList(
+                            listdatamodel: controller.searchedItems,
+                          ),
+                  );
+                })
+              ],
+            )
+            // Column(
+            //     children: [
+            //       CustomAppBar(
+            //           titleappbar: "find_product".tr,
+            //           onPressedIcon: () {},
+            //           onPressedFavorite: () =>
+            //               Get.toNamed(AppRoutes.favorite),
+            //           onPressedSearch: () => controller.searchItems()),
+            //       Expanded(
+            //           child: ),
+            //     ],
+            //   );
+
+            ));
   }
 }

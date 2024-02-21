@@ -25,7 +25,7 @@ class CustomItemsCartList extends StatelessWidget {
       child: Row(children: [
         Expanded(
             flex: 2,
-            child: Image.asset(
+            child: Image.network(
               imageName,
               height: 90,
               fit: BoxFit.cover,

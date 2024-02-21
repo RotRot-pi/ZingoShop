@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
@@ -10,8 +11,6 @@ import 'package:get/get.dart';
 abstract class ProductDetailsController extends GetxController {}
 
 class ProductDetailsControllerImpl extends ProductDetailsController {
-  // CartController cartController = Get.put(CartController());
-
   late Item item;
 
   CartData cartData = CartData(Get.find());
@@ -24,8 +23,8 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
 
   intialData() async {
     requestStatus = RequestStatus.loading;
-    item = Get.arguments['Item'];
-    countitems = await getCountItems(item.itemsId!);
+    item = Get.arguments['item'];
+    // countitems = await getCountItems(item.itemsId);
     requestStatus = RequestStatus.success;
     update();
   }
@@ -36,7 +35,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
         _appServices.sharedPreferences.getInt("id")!, itemsid);
     print("=============================== Controller $response ");
     requestStatus = handelingData(response);
-    if (RequestStatus.success == RequestStatus) {
+    if (RequestStatus.success == requestStatus) {
       // Start backend
       if (response['status'] == "success") {
         int countitems = 0;
@@ -56,16 +55,16 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
     requestStatus = RequestStatus.loading;
     update();
     var response = await cartData.addCart(
-        _appServices.sharedPreferences.getInt("id")!, itemsid);
+        _appServices.sharedPreferences.getInt("id"), itemsid);
     print("=============================== Controller $response ");
     requestStatus = handelingData(response);
-    if (RequestStatus.success == RequestStatus) {
+    if (RequestStatus.success == requestStatus) {
       // Start backend
       if (response['status'] == "success") {
         Get.rawSnackbar(
             title: "اشعار",
             messageText: const Text("تم اضافة المنتج الى السلة "));
-        // data.addAll(response['data']);
+        //data.add(response['data']);
       } else {
         requestStatus = RequestStatus.failure;
       }
