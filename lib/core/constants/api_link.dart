@@ -39,6 +39,12 @@ class ApiLink {
   static String addCart = "$server/cart/add.php";
   static String deleteCart = "$server/cart/delete.php";
   static String getCountCart = "$server/cart/getcountitems.php";
+
+  // ====================== Address ======================= //
+  static String addressView = "$server/address/view.php";
+  static String addAddress = "$server/address/add.php";
+  static String deleteAddress = "$server/address/delete.php";
+  static String updateAddress = "$server/address/update.php";
 }
 
 

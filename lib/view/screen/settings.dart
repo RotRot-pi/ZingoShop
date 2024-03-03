@@ -24,18 +24,15 @@ class SettingsScreen extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 // color: Colors.black,
                 height: h240,
-                child: Positioned(
-                  //top: h200,
-                  child: Container(
-                    height: h96,
-                    width: w96,
-                    padding: AppSpacing.addEdgeInsetsAll(p4),
-                    decoration: const BoxDecoration(
-                        color: AppColors.whiteTextColor,
-                        shape: BoxShape.circle),
-                    child: const CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/avatar.png'),
-                    ),
+                child: Container(
+                  height: h96,
+                  width: w96,
+                  padding: AppSpacing.addEdgeInsetsAll(p4),
+                  decoration: const BoxDecoration(
+                      color: AppColors.whiteTextColor,
+                      shape: BoxShape.circle),
+                  child: const CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/avatar.png'),
                   ),
                 ),
               ),
@@ -55,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
                   title: Text("Disable Notificatios"),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () =>controller.goToAddress(),
                   trailing: Icon(Icons.location_on_outlined),
                   title: Text("Address"),
                 ),

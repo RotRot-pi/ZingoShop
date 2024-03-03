@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 abstract class SettingsController extends GetxController {
   logout();
+  goToAddress();
 }
 
 class SettingsControllerImpl extends SettingsController {
@@ -13,5 +14,10 @@ class SettingsControllerImpl extends SettingsController {
   logout() {
     _appServices.sharedPreferences.clear();
     Get.offAllNamed(AppRoutes.language);
+  }
+
+  @override
+  goToAddress() {
+    Get.toNamed(AppRoutes.address);
   }
 }

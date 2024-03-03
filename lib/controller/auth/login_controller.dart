@@ -23,6 +23,8 @@ class LogInControllerImpl extends LogInController {
   late TextEditingController passwordController;
   RequestStatus requestStatus = RequestStatus.notInitialized;
   bool val = true;
+
+  //TODO: make sure login logic work in case there is no user
   @override
   logIn() async {
     if (formKey.currentState!.validate()) {

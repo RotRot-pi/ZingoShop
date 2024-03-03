@@ -1,4 +1,7 @@
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
+import 'package:ecommercecourse/view/screen/address/add_address.dart';
+import 'package:ecommercecourse/view/screen/address/add_address_details.dart';
+import 'package:ecommercecourse/view/screen/address/address.dart';
 import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/favorite_screen.dart';
 import 'package:ecommercecourse/view/screen/home_screen.dart';
@@ -76,5 +79,22 @@ List<GetPage> getPages = [
     name: AppRoutes.favorite,
     page: () => const FavoriteScreen(),
   ),
-  GetPage(name: AppRoutes.cart, page: () => const CartScreen()),
+  GetPage(
+    name: AppRoutes.cart,
+    page: () => const CartScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.address,
+    page: () => const AddressScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.addAddress,
+    page: () => const AddAddressScreen(),
+  ),
+
+  GetPage(
+    name: AppRoutes.addAddressDetails,
+    page: () => const AddAddressDetailsScreen(),
+  ),
 ];
+

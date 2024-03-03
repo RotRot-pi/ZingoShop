@@ -3,6 +3,8 @@ import 'package:ecommercecourse/view/widgets/home/cutombottomnavigationbar.dart'
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/constants/colors.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -17,7 +19,8 @@ class HomeScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           shape: const CircleBorder(),
-          child: const Icon(Icons.shopping_basket_outlined),
+          backgroundColor: AppColors.secondaryColor,
+          child: const Icon(Icons.shopping_basket_outlined, color: Colors.white),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const CustomNavigationAppBar(),

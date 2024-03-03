@@ -41,6 +41,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_local_notifications: ^16.3.2
+  flutter_map: ^6.1.0
+  flutter_map_cancellable_tile_provider: ^2.0.0
   flutter_otp_text_field: ^1.1.1
   flutter_polyline_points: ^2.0.0
   flutter_screenutil: ^5.9.0
@@ -58,6 +60,7 @@ dependencies:
   image_pickers: ^2.0.0+2
   intl: ^0.18.1
   jiffy: ^6.2.1
+  latlong2: ^0.9.0
   lottie: ^3.0.0
   path: ^1.8.0
   qr_flutter: ^4.0.0
@@ -66,7 +69,7 @@ dependencies:
   shared_preferences: ^2.0.15
   show_up_animation: ^2.0.0
   sqflite: ^2.0.2
-  url_launcher: ^6.1.2
+  url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_lints: ^3.0.1

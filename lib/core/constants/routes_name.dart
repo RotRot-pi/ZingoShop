@@ -22,4 +22,9 @@ class AppRoutes {
   static const String favorite = '/favorite';
 
   static const String cart = '/cart';
+
+  // ======================== Address ======================== //
+  static const String address = '/address';
+  static const String addAddress = '/addAddress';
+  static const String addAddressDetails = '/addAddressDetails';
 }

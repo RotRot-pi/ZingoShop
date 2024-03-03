@@ -1,6 +1,8 @@
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/colors.dart';
+
 class CustomBottomAppBarButton extends StatelessWidget {
   final String name;
   final IconData icon;
@@ -27,7 +29,7 @@ class CustomBottomAppBarButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             isActive
-                ? Icon(icon, color: Theme.of(context).primaryColor)
+                ? Icon(icon, color: AppColors.primaryColor)
                 : Icon(icon),
             Text(
               name,

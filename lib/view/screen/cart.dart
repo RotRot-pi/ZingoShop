@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
         bottomNavigationBar: GetBuilder<CartController>(
             builder: (controller) => BottomNavgationBarCart(
                 price: "${cartController.priceorders.value}",
-                shipping: "300",
+                discount: "300",
                 totalprice: "1500")),
         body: Obx(() => HandelingDataView(
             requestStatus: cartController.requestStatus.value,
