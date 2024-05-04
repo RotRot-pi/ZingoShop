@@ -16,14 +16,16 @@ class Address {
         this.addressLong,
         this.addressUserId});
 
-  Address.fromJson(Map<String, dynamic> json) {
-    addressId = json['address_id'];
-    addressCity = json['address_city'];
-    addressName = json['address_name'];
-    addressStreet = json['address_street'];
-    addressLat = json['address_lat'];
-    addressLong = json['address_long'];
-    addressUserId = json['address_user_id'];
+  factory Address.fromJson(Map<String, dynamic> json) {
+    return Address(
+      addressId: json['address_id'],
+      addressCity: json['address_city'],
+      addressName: json['address_name'],
+      addressStreet: json['address_street'],
+      addressLat: json['address_lat'].toDouble(),
+      addressLong: json['address_long'].toDouble(),
+      addressUserId: json['address_user_id'],
+    );
   }
 
   Map<String, dynamic> toJson() {

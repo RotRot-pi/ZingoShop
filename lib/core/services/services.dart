@@ -1,4 +1,6 @@
+import 'package:ecommercecourse/core/functions/fcm_config.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,6 +9,7 @@ import 'package:ecommercecourse/firebase_options.dart';
 class AppServices extends GetxService {
   late SharedPreferences sharedPreferences;
   late FirebaseApp firebaseinit;
+  late FirebaseMessaging messaging;
   late Position position;
   AppServices();
 
@@ -15,6 +18,8 @@ class AppServices extends GetxService {
     firebaseinit = await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    messaging = await requestNotificationPermission();
+    fcmConfig();
     position = await getCurrentPosition();
     return this;
   }
@@ -68,4 +73,3 @@ Future<Position> getCurrentPosition() async {
   print("position: ${await Geolocator.getCurrentPosition()}");
   return Geolocator.getCurrentPosition();
 }
-

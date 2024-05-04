@@ -6,6 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 final ThemeData appEnglishTheme = ThemeData(
     primarySwatch: Colors.blue,
     fontFamily: 'PlayfairDisplay',
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      elevation: 0,
+      iconTheme: const IconThemeData(color: AppColors.secondaryColor),
+      titleTextStyle:const  TextStyle(
+          color: AppColors.secondaryColor,
+          // fontWeight: FontWeight.bold,
+          fontFamily: "PlayfairDisplay",
+          fontSize: 25),
+      backgroundColor: Colors.grey[50],
+    ),
     textTheme: const TextTheme(
         displayLarge: const TextStyle(
             fontSize: 20,

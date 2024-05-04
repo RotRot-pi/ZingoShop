@@ -14,54 +14,65 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartController cartController = Get.put(CartController());
+    Get.put(CartController());
     return Scaffold(
+        appBar: AppBar(
+          title: Text("My Cart"),
+        ),
+        resizeToAvoidBottomInset: false,
         bottomNavigationBar: GetBuilder<CartController>(
             builder: (controller) => BottomNavgationBarCart(
-                price: "${cartController.priceorders.value}",
-                discount: "300",
-                totalprice: "1500")),
-        body: Obx(() => HandelingDataView(
-            requestStatus: cartController.requestStatus.value,
-            child: ListView(
-              children: [
-                TopAppbarCart(
-                  title: 'My Cart',
-                ),
-                SizedBox(height: 10),
-                TopCardCart(
-                    message:
-                        "You Have ${cartController.totalcountitems.value} Items in Your List"),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      ...List.generate(
-                        cartController.data.length,
-                        (index) => CustomItemsCartList(
-                            onAdd: () async {
-                              await cartController.add(
-                                  cartController.data[index].itemsId.value!);
-                              //cartController.refreshPage();
-                            },
-                            onRemove: () async {
-                              await cartController.delete(
-                                  cartController.data[index].itemsId.value!);
-                              //cartController.refreshPage();
-                            },
-                            imageName:
-                                "${ApiLink.itemsImageFolder}${cartController.data[index].itemsImage}",
-                            name:
-                                "${cartController.data[index].itemsName.value}",
-                            price:
-                                "${cartController.data[index].itemsPrice.value} \$",
-                            count:
-                                "${cartController.data[index].cartItemCount.value}"),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ))));
+                  controllercoupon: controller.couponController,
+                  onApplyCoupon: () => controller.checkCoupon(),
+                  onPressedOrder: () => controller.goToCheckout(),
+                  price: controller.ordersPrice?.toStringAsFixed(2),
+                  discount: "${controller.discountCoupon}",
+                  totalprice: "${controller.ordersPrice}",
+                )),
+        body: GetBuilder<CartController>(
+            builder: (controller) => HandelingDataView(
+                requestStatus: controller.requestStatus,
+                child: ListView(
+                  children: [
+                    // TopAppbarCart(
+                    //   title: 'My Cart',
+                    // ),
+                    SizedBox(height: 10),
+                    TopCardCart(
+                        message:
+                            "You Have ${controller.totalcountitems} Items in Your List"),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          ...List.generate(
+                            controller.data.length,
+                            (index) => GetBuilder<CartController>(
+                                builder: (controller) {
+                              return CustomItemsCartList(
+                                  onAdd: () async {
+                                    await controller
+                                        .add(controller.data[index].itemsId!);
+                                    //cartController.refreshPage();
+                                  },
+                                  onRemove: () async {
+                                    await controller.delete(
+                                        controller.data[index].itemsId!);
+                                    //cartController.refreshPage();
+                                  },
+                                  imageName:
+                                      "${ApiLink.itemsImageFolder}${controller.data[index].itemsImage}",
+                                  name: "${controller.data[index].itemsName}",
+                                  price:
+                                      "${controller.data[index].itemsPrice} \$",
+                                  count:
+                                      "${controller.data[index].cartItemCount}");
+                            }),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ))));
   }
 }

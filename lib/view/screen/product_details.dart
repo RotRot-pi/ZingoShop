@@ -24,7 +24,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 color: AppColors.secondaryColor,
                 onPressed: () {
                   controller.addItems(controller.item.itemsId);
-                  Get.toNamed(AppRoutes.cart);
+                  //Get.toNamed(AppRoutes.cart);
                 },
                 child: const Text(
                   "Go To Cart",
@@ -59,7 +59,7 @@ class ProductDetailsScreen extends StatelessWidget {
                               onRemove: () {
                                 controller.remove();
                               },
-                              price: "${controller.item.itemsDiscount}",
+                              price: "${controller.item.itemsPrice}",
                               count: "${controller.countitems}"),
                           const SizedBox(height: 10),
                           Text("${controller.item.itemsDescription}",

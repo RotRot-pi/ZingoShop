@@ -45,6 +45,17 @@ class ApiLink {
   static String addAddress = "$server/address/add.php";
   static String deleteAddress = "$server/address/delete.php";
   static String updateAddress = "$server/address/update.php";
+
+  // ====================== Coupon ======================= //
+  static String checkCoupon = "$server/coupon/checkCoupon.php";
+
+  // ====================== Order ======================= //
+  static String checkoutOrder = "$server/order/checkout.php";
+  static String pendingOrder = "$server/order/pending.php";
+  static String archiveOrder = "$server/order/archive.php";
+
+  // ====================== Notification ======================= //
+  static String notificationView = "$server/notification/view.php";
 }
 
 

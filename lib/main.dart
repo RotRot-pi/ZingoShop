@@ -6,7 +6,6 @@ import 'package:ecommercecourse/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,8 +13,10 @@ void main() async {
   // var s = await SharedPreferences.getInstance();
   // s.clear();
   await initializeServices();
+
   runApp(const MyApp());
 }
+
 //
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

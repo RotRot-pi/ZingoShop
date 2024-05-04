@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/cart_controller.dart';
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_item_data.dart';
@@ -24,7 +25,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   intialData() async {
     requestStatus = RequestStatus.loading;
     item = Get.arguments['item'];
-    // countitems = await getCountItems(item.itemsId);
+    countitems = await getCountItems(item.itemsId)??0;
     requestStatus = RequestStatus.success;
     update();
   }
@@ -38,7 +39,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
     if (RequestStatus.success == requestStatus) {
       // Start backend
       if (response['status'] == "success") {
-        int countitems = 0;
+
         countitems = int.parse(response['data']);
         print("==================================");
         print("$countitems");
@@ -47,7 +48,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
       } else {
         requestStatus = RequestStatus.failure;
       }
-      // End
+      update();
     }
   }
 
@@ -55,46 +56,68 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
     requestStatus = RequestStatus.loading;
     update();
     var response = await cartData.addCart(
-        _appServices.sharedPreferences.getInt("id"), itemsid);
+        _appServices.sharedPreferences.getInt("id"), itemsid,countitems);
     print("=============================== Controller $response ");
     requestStatus = handelingData(response);
     if (RequestStatus.success == requestStatus) {
-      // Start backend
+      //Start backend
       if (response['status'] == "success") {
-        Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم اضافة المنتج الى السلة "));
-        //data.add(response['data']);
-      } else {
+
+        Get.offAllNamed(AppRoutes.home);
+        // Get.rawSnackbar(
+        //     title: "اشعار",
+        //     messageText: const Text("تم اضافة المنتج الى السلة "));
+        // data.add(response['data']);
+      } }else {
         requestStatus = RequestStatus.failure;
       }
       // End
-    }
-    update();
-  }
 
-  deleteitems(var itemsid) async {
-    requestStatus = RequestStatus.loading;
-    update();
 
-    var response = await cartData.deleteCart(
-        _appServices.sharedPreferences.getInt("id")!, itemsid);
-    print("=============================== Controller $response ");
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == RequestStatus) {
-      // Start backend
-      if (response['status'] == "success") {
-        Get.rawSnackbar(
-            title: "اشعار",
-            messageText: const Text("تم ازالة المنتج من السلة "));
-        // data.addAll(response['data']);
-      } else {
-        requestStatus = RequestStatus.failure;
-      }
-      // End
-    }
-    update();
   }
+  // getCountCart(var usersid, var itemsid) async {
+  //   var response = await cartData.getCountCart(
+  //       _appServices.sharedPreferences.getInt("id")!, itemsid);
+  //   // print("=============================== Controller $response ");
+  //   // requestStatus = handelingData(response);
+  //   if (RequestStatus.success == requestStatus) {
+  //     // Start backend
+  //     if (response['status'] == "success") {
+  //
+  //       countitems = int.parse(response['data']);
+  //       print("==================================");
+  //       print("$countitems");
+  //
+  //       // data.addAll(response['data']);
+  //     } else {
+  //       requestStatus = RequestStatus.failure;
+  //     }
+  //     update();
+  //     // End
+  //   }
+  // }
+  // deleteitems(var itemsid) async {
+  //   // requestStatus = RequestStatus.loading;
+  //   // update();
+  //
+  //   var response = await cartData.deleteCart(
+  //       _appServices.sharedPreferences.getInt("id")!, itemsid);
+  //   print("=============================== Controller $response ");
+  //   // requestStatus = handelingData(response);
+  //   // if (RequestStatus.success == requestStatus) {
+  //   //   // Start backend
+  //   //   if (response['status'] == "success") {
+  //   //     Get.rawSnackbar(
+  //   //         title: "اشعار",
+  //   //         messageText: const Text("تم ازالة المنتج من السلة "));
+  //   //     // data.addAll(response['data']);
+  //   //   } else {
+  //   //     requestStatus = RequestStatus.failure;
+  //   //   }
+  //     // End
+  //   }
+
+
 
   List subitems = [
     {"name": "red", "id": 1, "active": '0'},
@@ -103,14 +126,14 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   ];
 
   add() {
-    addItems(item.itemsId);
+    // addItems(item.itemsId);
     countitems++;
     update();
   }
 
   remove() {
     if (countitems > 0) {
-      deleteitems(item.itemsId);
+      // deleteitems(item.itemsId);
       countitems--;
       update();
     }
@@ -119,6 +142,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   @override
   void onInit() {
     intialData();
+
     super.onInit();
   }
 }

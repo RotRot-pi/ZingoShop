@@ -27,4 +27,14 @@ class AppRoutes {
   static const String address = '/address';
   static const String addAddress = '/addAddress';
   static const String addAddressDetails = '/addAddressDetails';
+
+  // ======================== Profile ======================== //
+  static const String checkout = '/checkout';
+
+  // ======================== Order ======================== //
+  static const String pendingOrders = '/pending';
+  static const String archiveOrders = '/archive';
+
+  // ======================== Notification ======================== //
+  static const String notification = '/notification';
 }

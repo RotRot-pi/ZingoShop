@@ -4,29 +4,29 @@ import 'dart:convert';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class CartModel {
-  RxInt? itemsId;
-  RxString itemsName = ''.obs;
-  RxString itemsNameAr = ''.obs;
-  RxInt? itemsPrice;
-  RxInt? itemsDiscount;
-  RxInt? itemsActive;
-  RxInt? itemsCount;
-  RxString itemsImage = ''.obs;
-  RxString itemsDescription = ''.obs;
-  RxString itemsDescriptionAr = ''.obs;
-  RxString itemsDatetime = ''.obs;
-  RxInt? itemsCategory;
-  RxInt? cartItemCount;
-  RxInt? cartId;
-  RxInt? cartUsersid;
-  RxInt? cartItemsid;
-  RxInt? totalPrice;
+  int? itemsId;
+  String itemsName = '';
+  String itemsNameAr = '';
+  dynamic itemsPrice;
+  int? itemsDiscount;
+  int? itemsActive;
+  int? itemsCount;
+  String itemsImage = '';
+  String itemsDescription = '';
+  String itemsDescriptionAr = '';
+  String itemsDatetime = '';
+  int? itemsCategory;
+  int? cartItemCount;
+  int? cartId;
+  int? cartUsersid;
+  int? cartItemsid;
+  dynamic totalPrice;
 
   CartModel({
     int? itemsId,
     String? itemsName,
     String? itemsNameAr,
-    int? itemsPrice,
+    dynamic itemsPrice,
     int? itemsDiscount,
     int? itemsActive,
     int? itemsCount,
@@ -39,24 +39,26 @@ class CartModel {
     int? cartId,
     int? cartUsersid,
     int? cartItemsid,
-    int? totalPrice,
-  })  : itemsId = (itemsId == null ? null : RxInt(itemsId)),
-        itemsName = RxString(itemsName ?? ''),
-        itemsNameAr = RxString(itemsNameAr ?? ''),
-        itemsPrice = (itemsPrice == null ? null : RxInt(itemsPrice)),
-        itemsDiscount = (itemsDiscount == null ? null : RxInt(itemsDiscount)),
-        itemsActive = (itemsActive == null ? null : RxInt(itemsActive)),
-        itemsCount = (itemsCount == null ? null : RxInt(itemsCount)),
-        itemsImage = RxString(itemsImage ?? ''),
-        itemsDescription = RxString(itemsDescription ?? ''),
-        itemsDescriptionAr = RxString(itemsDescriptionAr ?? ''),
-        itemsDatetime = RxString(itemsDatetime ?? ''),
-        itemsCategory = (itemsCategory == null ? null : RxInt(itemsCategory)),
-        cartItemCount = (cartItemCount == null ? null : RxInt(cartItemCount)),
-        cartId = (cartId == null ? null : RxInt(cartId)),
-        cartUsersid = (cartUsersid == null ? null : RxInt(cartUsersid)),
-        cartItemsid = (cartItemsid == null ? null : RxInt(cartItemsid)),
-        totalPrice = (totalPrice == null ? null : RxInt(totalPrice));
+    dynamic totalPrice,
+  }) {
+    this.itemsId = itemsId ?? 0;
+    this.itemsName = itemsName ?? '';
+    this.itemsNameAr = itemsNameAr ?? '';
+    this.itemsPrice = itemsPrice ;
+    this.itemsDiscount = itemsDiscount ?? 0;
+    this.itemsActive = itemsActive ?? 0;
+    this.itemsCount = itemsCount ?? 0;
+    this.itemsImage = itemsImage ?? '';
+    this.itemsDescription = itemsDescription ?? '';
+    this.itemsDescriptionAr = itemsDescriptionAr ?? '';
+    this.itemsDatetime = itemsDatetime ?? '';
+    this.itemsCategory = itemsCategory ?? 0;
+    this.cartItemCount = cartItemCount ?? 0;
+    this.cartId = cartId ?? 0;
+    this.cartUsersid = cartUsersid ?? 0;
+    this.cartItemsid = cartItemsid ?? 0;
+    this.totalPrice = totalPrice;
+  }
 
   // CartModel copyWith({
   //   int? itemsId,
@@ -164,7 +166,7 @@ class CartModel {
       itemsId: map['items_id'] as int?,
       itemsName: map['items_name'] as String?,
       itemsNameAr: map['items_name_ar'] as String?,
-      itemsPrice: map['items_price'] as int?,
+      itemsPrice: map['items_price'] as dynamic,
       itemsDiscount: map['items_discount'] as int?,
       itemsActive: map['items_active'] as int?,
       itemsCount: map['items_count'] as int?,
@@ -177,7 +179,7 @@ class CartModel {
       cartId: map['cart_id'] as int?,
       cartUsersid: map['cart_user_id'] as int?,
       cartItemsid: map['cart_items_id'] as int?,
-      totalPrice: map['total_price'] as int?,
+      totalPrice: map['total_price'] as dynamic,
     );
   }
   String toJson() => json.encode(toMap());

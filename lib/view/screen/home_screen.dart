@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 import '../../core/constants/colors.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +18,13 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenControllerImpl());
     return GetBuilder<HomeScreenControllerImpl>(builder: (controller) {
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () => controller.goToCart(),
           shape: const CircleBorder(),
           backgroundColor: AppColors.secondaryColor,
-          child: const Icon(Icons.shopping_basket_outlined, color: Colors.white),
+          child:
+              const Icon(Icons.shopping_basket_outlined, color: Colors.white),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const CustomNavigationAppBar(),

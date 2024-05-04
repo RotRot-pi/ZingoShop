@@ -40,12 +40,14 @@ class SettingsScreen extends StatelessWidget {
           ),
           AppSpacing.addHeigh(h80),
           GetBuilder<SettingsControllerImpl>(
-            builder: (controller) => Container(
+            builder: (controller) => Expanded(
               // color: Colors.blue,
-              padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
+              //padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
 
               //height: h200,
-              child: Column(children: [
+              child: ListView(
+                  padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
+                  children: [
                 ListTile(
                   // onTap: () {},
                   trailing: Switch(onChanged: (val) {}, value: true),
@@ -55,6 +57,11 @@ class SettingsScreen extends StatelessWidget {
                   onTap: () =>controller.goToAddress(),
                   trailing: Icon(Icons.location_on_outlined),
                   title: Text("Address"),
+                ),
+                ListTile(
+                  onTap: () =>controller.goToOrders(),
+                  trailing: Icon(Icons.delivery_dining),
+                  title: Text("Orders"),
                 ),
                 ListTile(
                   onTap: () {},

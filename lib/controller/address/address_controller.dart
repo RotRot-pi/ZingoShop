@@ -38,7 +38,7 @@ class AddressControllerImpl extends AddressController {
         response['status'] == 'success') {
       print("response data:${response['data']} ");
       for(var data in response['data']){
-        addressList.add(Address.fromMap(data));
+        addressList.add(Address.fromJson(data));
       }
 
     } else {

@@ -3,9 +3,13 @@ import 'package:ecommercecourse/view/screen/address/add_address.dart';
 import 'package:ecommercecourse/view/screen/address/add_address_details.dart';
 import 'package:ecommercecourse/view/screen/address/address.dart';
 import 'package:ecommercecourse/view/screen/cart.dart';
+import 'package:ecommercecourse/view/screen/checkout.dart';
 import 'package:ecommercecourse/view/screen/favorite_screen.dart';
 import 'package:ecommercecourse/view/screen/home_screen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
+import 'package:ecommercecourse/view/screen/notification.dart';
+import 'package:ecommercecourse/view/screen/orders/archive.dart';
+import 'package:ecommercecourse/view/screen/orders/pending.dart';
 import 'package:ecommercecourse/view/screen/product_details.dart';
 import 'package:get/get.dart';
 
@@ -96,5 +100,15 @@ List<GetPage> getPages = [
     name: AppRoutes.addAddressDetails,
     page: () => const AddAddressDetailsScreen(),
   ),
-];
 
+  GetPage(name: AppRoutes.checkout, page: () => const CheckoutScreen()),
+
+  // ========================= Order ========================= //
+  GetPage(
+      name: AppRoutes.pendingOrders, page: () => const PendingOrdersScreen()),
+  GetPage(
+      name: AppRoutes.archiveOrders, page: () => const ArchiveOrdersScreen()),
+
+  // ========================= Notification ========================= //
+  GetPage(name: AppRoutes.notification, page: () => const NotificationScreen()),
+];

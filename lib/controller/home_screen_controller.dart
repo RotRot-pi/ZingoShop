@@ -1,5 +1,7 @@
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home_page.dart';
+import 'package:ecommercecourse/view/screen/notification.dart';
 import 'package:ecommercecourse/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,11 +13,13 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImpl extends HomeScreenController {
   int currentPageIndex = 0;
-
+  int? pageIndex;
   List pages = [
     HomePage(),
-    CartScreen(),
-    Center(child: Text('profile'.tr)),
+    Center(
+      child: Text('Profile'),
+    ),
+    NotificationScreen(),
     SettingsScreen()
   ];
   List bottomAppBarItems = [
@@ -24,15 +28,15 @@ class HomeScreenControllerImpl extends HomeScreenController {
       "name": "home".tr,
     },
     {
-      "icon": Icons.shopping_cart,
-      "name": "cart".tr,
-    },
-    {
       "icon": Icons.person,
       "name": "profile".tr,
     },
     {
-      "icon": Icons.more,
+      "icon": Icons.notifications,
+      "name": "notifications".tr,
+    },
+    {
+      "icon": Icons.settings,
       "name": "settings".tr,
     }
   ];
@@ -40,6 +44,10 @@ class HomeScreenControllerImpl extends HomeScreenController {
   changePage(int index) {
     currentPageIndex = index;
     update();
+  }
+
+  goToCart() {
+    Get.toNamed(AppRoutes.cart);
   }
 
   @override

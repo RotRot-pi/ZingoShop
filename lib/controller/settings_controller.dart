@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 abstract class SettingsController extends GetxController {
   logout();
   goToAddress();
+  goToOrders();
 }
 
 class SettingsControllerImpl extends SettingsController {
@@ -19,5 +20,9 @@ class SettingsControllerImpl extends SettingsController {
   @override
   goToAddress() {
     Get.toNamed(AppRoutes.address);
+  }
+  @override
+  goToOrders() {
+    Get.toNamed(AppRoutes.pendingOrders);
   }
 }

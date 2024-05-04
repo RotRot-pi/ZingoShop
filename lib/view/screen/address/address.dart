@@ -13,6 +13,7 @@ class AddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(AddressControllerImpl());
     return Scaffold(
+      appBar: AppBar(title: const Text("Address"),),
         floatingActionButton: FloatingActionButton(
           onPressed: () => controller.goToAddAddress(),
           shape: const CircleBorder(),

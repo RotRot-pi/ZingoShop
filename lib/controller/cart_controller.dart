@@ -1,32 +1,43 @@
+import 'dart:developer';
+import 'dart:ffi';
+
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/cart_item_data.dart';
 import 'package:ecommercecourse/data/model/cart.dart';
+import 'package:ecommercecourse/data/model/coupon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
+  late final TextEditingController couponController;
   CartData cartData = CartData(Get.find());
 
-  Rx<RequestStatus> requestStatus = RequestStatus.notInitialized.obs;
+  late RequestStatus requestStatus;
 
   final AppServices _appServices = Get.find();
+  Coupon? coupon;
+  List data = [];
 
-  var data = [].obs;
-
-  var priceorders = 0.obs;
+  double ordersPrice = 0.0;
+  var totalOrdersPrice;
   //var totalPrice;
-  var totalcountitems = 0.obs;
+  double totalcountitems = 0.0;
 
+  var discountCoupon = 0;
+  var couponName;
+  var couponId;
   add(var itemsid) async {
     // requestStatus = RequestStatus.loading;
     // update();
     var response = await cartData.addCart(
-        _appServices.sharedPreferences.getInt("id")!, itemsid);
+        _appServices.sharedPreferences.getInt("id")!, itemsid, 0);
     print("=============================== Controller $response ");
-    requestStatus.value = handelingData(response);
-    if (RequestStatus.success == requestStatus.value) {
+    requestStatus = (handelingData(response));
+    if (RequestStatus.success == requestStatus) {
       // Start backend
       if (response['status'] == "success") {
         refreshPage();
@@ -34,39 +45,43 @@ class CartController extends GetxController {
             title: "اشعار",
             messageText: const Text("تم اضافة المنتج الى السلة "));
       } else {
-        requestStatus = RequestStatus.failure as Rx<RequestStatus>;
+        requestStatus = (RequestStatus.failure);
       }
       // End
     }
-    //update();
+    update();
   }
 
   delete(var itemsid) async {
-    requestStatus = RequestStatus.loading as Rx<RequestStatus>;
-    update();
+    // requestStatus = (RequestStatus.loading);
+    // update();
 
     var response = await cartData.deleteCart(
-        _appServices.sharedPreferences.getInt("id")!, itemsid);
+        _appServices.sharedPreferences.getInt("id")!, itemsid, 0);
     print("=============================== Controller $response ");
-    requestStatus.value = handelingData(response);
-    if (RequestStatus.success == requestStatus.value) {
+    requestStatus = handelingData(response);
+    if (RequestStatus.success == requestStatus) {
       // Start backend
       if (response['status'] == "success") {
+        refreshPage();
         Get.rawSnackbar(
             title: "اشعار",
             messageText: const Text("تم ازالة المنتج من السلة "));
+
         // data.addAll(response['data']);
       } else {
-        requestStatus = RequestStatus.failure as Rx<RequestStatus>;
+        // requestStatus = RequestStatus.failure as <RequestStatus>;
+        return Get.snackbar("Error", "Can't Delete");
       }
+
       // End
     }
     update();
   }
 
   resetVarCart() {
-    totalcountitems = 0.obs;
-    priceorders = 0.obs;
+    totalcountitems = 0.0;
+    ordersPrice = 0.0;
     data.clear();
   }
 
@@ -76,22 +91,28 @@ class CartController extends GetxController {
   }
 
   view() async {
-    if (requestStatus.value != RequestStatus.success) {
-      requestStatus = Rx(RequestStatus.loading);
+    if (requestStatus != RequestStatus.success) {
+      requestStatus = (RequestStatus.loading);
       update();
     }
+    print("Cart Status 1:${requestStatus}");
     var response =
         await cartData.viewCart(_appServices.sharedPreferences.getInt("id"));
     print("=============================== Controller $response ");
-    requestStatus.value = handelingData(response);
-    if (RequestStatus.success == requestStatus.value) {
+    requestStatus = handelingData(response);
+    if (RequestStatus.success == requestStatus) {
       // Start backend
+      print("Cart Status 2:${requestStatus}");
       if (response['status'] == "success") {
         List datad = response['datacart'];
         try {
           for (var item in datad) {
             data.add(CartModel.fromMap(item));
+            print("Cart Status 3:${requestStatus}");
           }
+          ordersPrice = response['countprice']['cart_total_price'];
+          log("PRICE ORDERS :$ordersPrice");
+          print("Cart Status 4:${requestStatus}");
         } catch (e) {
           print('======================================');
           print("Error in the cart controller $e");
@@ -99,10 +120,48 @@ class CartController extends GetxController {
         }
       }
     } else {
-      requestStatus = RequestStatus.failure as Rx<RequestStatus>;
+      requestStatus = RequestStatus.failure;
     }
+    print("Cart Status 5:${requestStatus}");
+    update();
+  }
 
-    //update();
+  checkCoupon() async {
+    discountCoupon = 0;
+    var response = await cartData.checkCoupon(couponController.text);
+    if (response['status'] == "success") {
+      coupon = Coupon.fromJson(response['data']);
+      discountCoupon = coupon!.couponDiscount!;
+      couponName = coupon?.couponName;
+      couponId = coupon?.couponId;
+      ordersPrice = ordersPrice - (ordersPrice * discountCoupon / 100);
+      print("TOTAL ORDERS PRICE:$ordersPrice");
+    } else {
+      Get.snackbar(
+        "Error",
+        "The coupon is invalid,Please try again",
+        snackPosition: SnackPosition.BOTTOM,
+        duration: const Duration(seconds: 3),
+      );
+    }
+    update();
+  }
+
+  getTotalPrice() {
+    ordersPrice = ordersPrice - -(ordersPrice * discountCoupon);
+    print("TYPE ORDERS:${ordersPrice.runtimeType}");
+    return ordersPrice.toStringAsFixed(2);
+  }
+
+  goToCheckout() {
+    if (data.isEmpty)
+      return Get.snackbar("Error:", "The cart is empty, Please add items");
+
+    Get.toNamed(AppRoutes.checkout, arguments: {
+      "couponId": couponId,
+      "ordersPrice": ordersPrice,
+      "couponDiscount": discountCoupon
+    });
   }
 
   // fromMap(Map<dynamic, dynamic> map) {
@@ -129,6 +188,8 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
+    couponController = TextEditingController();
+    requestStatus = RequestStatus.notInitialized;
     view();
     super.onInit();
   }

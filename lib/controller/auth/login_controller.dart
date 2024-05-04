@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
@@ -47,6 +49,9 @@ class LogInControllerImpl extends LogInController {
               ..setString('email', data['user_email'])
               ..setString('phone', data['user_phone'])
               ..setInt('step', 2);
+            _appServices.messaging.subscribeToTopic("users");
+            _appServices.messaging.subscribeToTopic("users${data['user_id']}");
+
             goToHomePage();
           } else {
             Get.toNamed(AppRoutes.verifySignUpCode,

@@ -5,6 +5,7 @@ import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
 import 'package:ecommercecourse/data/model/categories.dart';
 import 'package:ecommercecourse/data/model/items.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -57,6 +58,7 @@ class HomeControllerImpl extends HomeController {
     id = _appServices.sharedPreferences.getInt("id")!;
     username = _appServices.sharedPreferences.getString("username")!;
     language = _appServices.sharedPreferences.getString("lang")!;
+
     print("Controller lang:$language");
   }
 

@@ -15,4 +15,7 @@ class AppImageAssets {
   static const String offline = "$rootLottie/offline.json";
   static const String noData = "$rootLottie/no_data.json";
   static const String server = "$rootLottie/server_failure.json";
+
+  static const String deliveryImage = "$imageRouteAssets/delivery.png";
+  static const String drivethruImage = "$imageRouteAssets/drivethru.png";
 }
