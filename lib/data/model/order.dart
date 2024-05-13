@@ -1,4 +1,6 @@
-class Order {
+import 'package:ecommercecourse/data/model/address.dart';
+
+class Order extends Address {
   int? orderId;
   int? orderAddressId;
   int? orderUserId;
@@ -13,16 +15,16 @@ class Order {
 
   Order(
       {this.orderId,
-        this.orderAddressId,
-        this.orderUserId,
-        this.orderType,
-        this.orderDeliveryPrice,
-        this.orderCouponId,
-        this.orderDateTime,
-        this.orderPrice,
-        this.orderTotalprice,
-        this.orderPaymentType,
-        this.orderStatus});
+      this.orderAddressId,
+      this.orderUserId,
+      this.orderType,
+      this.orderDeliveryPrice,
+      this.orderCouponId,
+      this.orderDateTime,
+      this.orderPrice,
+      this.orderTotalprice,
+      this.orderPaymentType,
+      this.orderStatus});
 
   Order.fromJson(Map<String, dynamic> json) {
     orderId = json['order_id'];
@@ -33,24 +35,39 @@ class Order {
     orderCouponId = json['order_coupon_id'];
     orderDateTime = json['order_date_time'];
     orderPrice = json['order_price'];
-    orderTotalprice = json['order_totalprice'].toDouble() as double?;
+    orderTotalprice = json['order_totalprice'].toDouble() as double;
     orderPaymentType = json['order_payment_type'];
     orderStatus = json['order_status'];
+    addressId = json['address_id'];
+    addressCity = json['address_city'];
+    addressName = json['address_name'];
+    addressStreet = json['address_street'];
+    if (json['address_lat'] != null) {
+      addressLat = json['address_lat'].toDouble();
+    } else {
+      addressLat = null;
+    }
+    if (json['address_long'] != null) {
+      addressLat = json['address_long'].toDouble();
+    } else {
+      addressLat = null;
+    }
+    addressUserId = json['address_user_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['order_id'] = this.orderId;
-    data['order_address_id'] = this.orderAddressId;
-    data['order_user_id'] = this.orderUserId;
-    data['order_type'] = this.orderType;
-    data['order_delivery_price'] = this.orderDeliveryPrice;
-    data['order_coupon_id'] = this.orderCouponId;
-    data['order_date_time'] = this.orderDateTime;
-    data['order_price'] = this.orderPrice;
-    data['order_totalprice'] = this.orderTotalprice;
-    data['order_payment_type'] = this.orderPaymentType;
-    data['order_status'] = this.orderStatus;
+    data['order_id'] = orderId;
+    data['order_address_id'] = orderAddressId;
+    data['order_user_id'] = orderUserId;
+    data['order_type'] = orderType;
+    data['order_delivery_price'] = orderDeliveryPrice;
+    data['order_coupon_id'] = orderCouponId;
+    data['order_date_time'] = orderDateTime;
+    data['order_price'] = orderPrice;
+    data['order_totalprice'] = orderTotalprice;
+    data['order_payment_type'] = orderPaymentType;
+    data['order_status'] = orderStatus;
     return data;
   }
 }

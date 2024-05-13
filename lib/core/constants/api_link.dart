@@ -53,6 +53,7 @@ class ApiLink {
   static String checkoutOrder = "$server/order/checkout.php";
   static String pendingOrder = "$server/order/pending.php";
   static String archiveOrder = "$server/order/archive.php";
+  static String orderDetails = "$server/order/details.php";
 
   // ====================== Notification ======================= //
   static String notificationView = "$server/notification/view.php";

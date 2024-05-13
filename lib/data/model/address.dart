@@ -9,12 +9,12 @@ class Address {
 
   Address(
       {this.addressId,
-        this.addressCity,
-        this.addressName,
-        this.addressStreet,
-        this.addressLat,
-        this.addressLong,
-        this.addressUserId});
+      this.addressCity,
+      this.addressName,
+      this.addressStreet,
+      this.addressLat,
+      this.addressLong,
+      this.addressUserId});
 
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(

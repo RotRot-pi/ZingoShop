@@ -1,6 +1,9 @@
+import 'package:ecommercecourse/controller/order/pending.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/data/model/order.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class OrderCard extends StatelessWidget {
@@ -11,7 +14,7 @@ class OrderCard extends StatelessWidget {
   });
 
   final Order order;
-  final controller;
+  final PendingOrderController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +22,7 @@ class OrderCard extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: AppColors.fourthColor,
+          color: AppColors.whiteTextColor.withAlpha(150).withAlpha(150),
           border: Border.all(
             color: Colors.grey.shade300,
             width: 1,
@@ -74,12 +77,15 @@ class OrderCard extends StatelessWidget {
                 ),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(AppRoutes.ordersDetails,
+                      arguments: {'order': order});
+                },
                 child: const Text(
                   "Details",
                 ),
-                color: AppColors.thirdColor,
-                textColor: AppColors.primaryColor,
+                color: AppColors.whiteTextColor.withAlpha(150),
+                textColor: AppColors.black,
               )
             ],
           )

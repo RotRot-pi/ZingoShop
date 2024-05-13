@@ -9,6 +9,7 @@ import 'package:ecommercecourse/view/screen/home_screen.dart';
 import 'package:ecommercecourse/view/screen/items.dart';
 import 'package:ecommercecourse/view/screen/notification.dart';
 import 'package:ecommercecourse/view/screen/orders/archive.dart';
+import 'package:ecommercecourse/view/screen/orders/details.dart';
 import 'package:ecommercecourse/view/screen/orders/pending.dart';
 import 'package:ecommercecourse/view/screen/product_details.dart';
 import 'package:get/get.dart';
@@ -108,7 +109,8 @@ List<GetPage> getPages = [
       name: AppRoutes.pendingOrders, page: () => const PendingOrdersScreen()),
   GetPage(
       name: AppRoutes.archiveOrders, page: () => const ArchiveOrdersScreen()),
-
+  GetPage(
+      name: AppRoutes.ordersDetails, page: () => const OrdersDetailsScreen()),
   // ========================= Notification ========================= //
   GetPage(name: AppRoutes.notification, page: () => const NotificationScreen()),
 ];
