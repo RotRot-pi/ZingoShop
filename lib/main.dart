@@ -26,17 +26,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.sizeOf(context).height;
     final double width = MediaQuery.sizeOf(context).width;
+    screenInit(context, width, height);
     LocalizationController localizationController = Get.put(
       LocalizationController(),
     );
     return ScreenUtilInit(
       designSize: Size(width, height),
+
       // minTextAdapt: true,
       builder: (context, widget) {
-        // ScreenUtil.init(
-        //   context,
-        //   minTextAdapt: true,
-        // );
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
@@ -49,4 +47,12 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+}
+
+screenInit(var context, var width, var height) {
+  ScreenUtil.init(
+    context,
+    designSize: Size(width, height),
+    minTextAdapt: true,
+  );
 }

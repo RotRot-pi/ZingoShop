@@ -98,6 +98,7 @@ class SearchControllerMix extends GetxController {
 
   onItemsSearch() {
     isSeaching = true;
+    update();
     searchItems();
     update();
   }

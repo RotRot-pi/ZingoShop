@@ -54,9 +54,14 @@ class ApiLink {
   static String pendingOrder = "$server/order/pending.php";
   static String archiveOrder = "$server/order/archive.php";
   static String orderDetails = "$server/order/details.php";
+  static String deleteOrder = "$server/order/delete.php";
 
   // ====================== Notification ======================= //
   static String notificationView = "$server/notification/view.php";
+
+  // ====================== Offers ======================= //
+
+  static String offers = "$server/offers.php";
 }
 
 

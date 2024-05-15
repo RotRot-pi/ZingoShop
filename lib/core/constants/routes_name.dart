@@ -37,4 +37,7 @@ class AppRoutes {
   static const String ordersDetails = '/ordersDetails';
   // ======================== Notification ======================== //
   static const String notification = '/notification';
+
+  // ======================== Offers ======================== //
+  static const String offers = '/offers';
 }

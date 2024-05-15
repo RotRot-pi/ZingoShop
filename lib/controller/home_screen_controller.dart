@@ -2,6 +2,7 @@ import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/view/screen/cart.dart';
 import 'package:ecommercecourse/view/screen/home_page.dart';
 import 'package:ecommercecourse/view/screen/notification.dart';
+import 'package:ecommercecourse/view/screen/offers.dart';
 import 'package:ecommercecourse/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,9 +17,7 @@ class HomeScreenControllerImpl extends HomeScreenController {
   int? pageIndex;
   List pages = [
     HomePage(),
-    Center(
-      child: Text('Profile'),
-    ),
+    OffersScreen(),
     NotificationScreen(),
     SettingsScreen()
   ];
@@ -28,8 +27,8 @@ class HomeScreenControllerImpl extends HomeScreenController {
       "name": "home".tr,
     },
     {
-      "icon": Icons.person,
-      "name": "profile".tr,
+      "icon": Icons.local_offer_outlined,
+      "name": "offers".tr,
     },
     {
       "icon": Icons.notifications,

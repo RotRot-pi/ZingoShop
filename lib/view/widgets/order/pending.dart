@@ -1,4 +1,3 @@
-import 'package:ecommercecourse/controller/order/pending.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/data/model/order.dart';
@@ -14,7 +13,7 @@ class OrderCard extends StatelessWidget {
   });
 
   final Order order;
-  final PendingOrderController controller;
+  final controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -76,16 +75,33 @@ class OrderCard extends StatelessWidget {
                   color: AppColors.primaryColor,
                 ),
               ),
-              MaterialButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.ordersDetails,
-                      arguments: {'order': order});
-                },
-                child: const Text(
-                  "Details",
-                ),
-                color: AppColors.whiteTextColor.withAlpha(150),
-                textColor: AppColors.black,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (order.orderStatus == 0)
+                    MaterialButton(
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.ordersDetails,
+                            arguments: {'order': order});
+                      },
+                      child: const Text(
+                        "Delete",
+                      ),
+                      color: AppColors.whiteTextColor.withAlpha(150),
+                      textColor: AppColors.black,
+                    ),
+                  MaterialButton(
+                    onPressed: () {
+                      controller.deleteOrder(order.orderId);
+                    },
+                    child: const Text(
+                      "Details",
+                    ),
+                    color: AppColors.whiteTextColor.withAlpha(150),
+                    textColor: AppColors.black,
+                  )
+                ],
               )
             ],
           )

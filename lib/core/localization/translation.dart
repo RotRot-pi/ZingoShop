@@ -76,6 +76,7 @@ class AppTranslation extends Translations {
           "category": "فئة",
           "rating": "تقييم",
           "notifications": "الاشعارات",
+          "offers": "عروض",
         },
         "en": {
           "choose_language": "Choose Language",
@@ -148,7 +149,8 @@ class AppTranslation extends Translations {
           "offer": "Offer",
           "category": "Category",
           "rating": "Rating",
-          "notifications": "Notifications"
+          "notifications": "Notifications",
+          'offers': "Offers"
         }
       };
   // @override

@@ -9,8 +9,13 @@ class PendingOrderData {
   });
 
   getData(var userId) async {
-    var response = await crud.post(ApiLink.pendingOrder, {'user_id':userId});
+    var response = await crud.post(ApiLink.pendingOrder, {'user_id': userId});
     print("TestData");
+    return response.fold((l) => l, (r) => r);
+  }
+
+  deleteData(var orderId) async {
+    var response = await crud.post(ApiLink.deleteOrder, {'order_id': orderId});
     return response.fold((l) => l, (r) => r);
   }
 }

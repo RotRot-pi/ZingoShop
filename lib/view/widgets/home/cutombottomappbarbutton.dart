@@ -28,9 +28,7 @@ class CustomBottomAppBarButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            isActive
-                ? Icon(icon, color: AppColors.primaryColor)
-                : Icon(icon),
+            isActive ? Icon(icon, color: AppColors.primaryColor) : Icon(icon),
             Text(
               name,
               textAlign: TextAlign.center,

@@ -3,6 +3,7 @@ import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -29,8 +30,7 @@ class SettingsScreen extends StatelessWidget {
                   width: w96,
                   padding: AppSpacing.addEdgeInsetsAll(p4),
                   decoration: const BoxDecoration(
-                      color: AppColors.whiteTextColor,
-                      shape: BoxShape.circle),
+                      color: AppColors.whiteTextColor, shape: BoxShape.circle),
                   child: const CircleAvatar(
                     backgroundImage: AssetImage('assets/images/avatar.png'),
                   ),
@@ -48,39 +48,46 @@ class SettingsScreen extends StatelessWidget {
               child: ListView(
                   padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
                   children: [
-                ListTile(
-                  // onTap: () {},
-                  trailing: Switch(onChanged: (val) {}, value: true),
-                  title: Text("Disable Notificatios"),
-                ),
-                ListTile(
-                  onTap: () =>controller.goToAddress(),
-                  trailing: Icon(Icons.location_on_outlined),
-                  title: Text("Address"),
-                ),
-                ListTile(
-                  onTap: () =>controller.goToOrders(),
-                  trailing: Icon(Icons.delivery_dining),
-                  title: Text("Orders"),
-                ),
-                ListTile(
-                  onTap: () {},
-                  trailing: Icon(Icons.help_outline_rounded),
-                  title: Text("About us"),
-                ),
-                ListTile(
-                  onTap: () {},
-                  trailing: Icon(Icons.phone_callback_outlined),
-                  title: Text("Contact us"),
-                ),
-                ListTile(
-                  onTap: () {
-                    controller.logout();
-                  },
-                  title: Text("Logout"),
-                  trailing: Icon(Icons.exit_to_app),
-                ),
-              ]),
+                    ListTile(
+                      // onTap: () {},
+                      trailing: Switch(onChanged: (val) {}, value: true),
+                      title: const Text("Disable Notificatios"),
+                    ),
+                    ListTile(
+                      onTap: () => controller.goToAddress(),
+                      trailing: const Icon(Icons.location_on_outlined),
+                      title: const Text("Address"),
+                    ),
+                    ListTile(
+                      onTap: () => controller.goToOrders(),
+                      trailing: const Icon(Icons.delivery_dining),
+                      title: const Text("Orders"),
+                    ),
+                    ListTile(
+                      onTap: () => controller.goToArchive(),
+                      trailing: const Icon(Icons.archive_outlined),
+                      title: const Text("Archive"),
+                    ),
+                    ListTile(
+                      onTap: () {},
+                      trailing: const Icon(Icons.help_outline_rounded),
+                      title: const Text("About us"),
+                    ),
+                    ListTile(
+                      onTap: () async {
+                        await launchUrl(Uri.parse("tel:+201096632333"));
+                      },
+                      trailing: const Icon(Icons.phone_callback_outlined),
+                      title: const Text("Contact us"),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        controller.logout();
+                      },
+                      title: const Text("Logout"),
+                      trailing: const Icon(Icons.exit_to_app),
+                    ),
+                  ]),
             ),
           )
         ],

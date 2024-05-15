@@ -1,13 +1,14 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
+import 'package:ecommercecourse/data/datasource/remote/order/archive.dart';
 import 'package:ecommercecourse/data/datasource/remote/order/pending.dart';
 import 'package:get/get.dart';
 
 import '../../core/services/services.dart';
 import '../../data/model/order.dart';
 
-class PendingOrderController extends GetxController {
-  PendingOrderData pendingOrderData = PendingOrderData(crud: Get.find());
+class ArchivingOrderController extends GetxController {
+  ArchiveOrderData archiveOrderData = ArchiveOrderData(crud: Get.find());
   final AppServices _appServices = Get.find();
   List data = [];
   late RequestStatus requestStatus;
@@ -15,7 +16,7 @@ class PendingOrderController extends GetxController {
     requestStatus = RequestStatus.loading;
     update();
     print("status1:$requestStatus");
-    var response = await pendingOrderData
+    var response = await archiveOrderData
         .getData(_appServices.sharedPreferences.getInt('id')!.toString());
     requestStatus = handelingData(response);
     print("status2:$requestStatus");
@@ -32,25 +33,25 @@ class PendingOrderController extends GetxController {
     update();
   }
 
-  deleteOrder(var orderId) async {
-    print("status1:$requestStatus");
-    try {
-      var response = await pendingOrderData.deleteData(orderId.toString());
-      if (response['status'] == 'success') {
-        data.clear();
-        getPendingData();
-        Get.snackbar("Success", "order deleted");
-        update();
-      } else {
-        Get.snackbar("Error", "order not deleted");
-        update();
-      }
-    } catch (e) {
-      print("error in deleting order: $e");
-    }
+  // deleteOrder(var orderId) async {
+  //   print("status1:$requestStatus");
+  //   try {
+  //     var response = await archiveOrderData.deleteData(orderId.toString());
+  //     if (response['status'] == 'success') {
+  //       data.clear();
+  //       getPendingData();
+  //       Get.snackbar("Success", "order deleted");
+  //       update();
+  //     } else {
+  //       Get.snackbar("Error", "order not deleted");
+  //       update();
+  //     }
+  //   } catch (e) {
+  //     print("error in deleting order: $e");
+  //   }
 
-    print("status2:$requestStatus");
-  }
+  //   print("status2:$requestStatus");
+  // }
 
   printOrderType(var orderType) {
     if (orderType == 0) {

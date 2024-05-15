@@ -10,35 +10,39 @@ final ThemeData appEnglishTheme = ThemeData(
       centerTitle: true,
       elevation: 0,
       iconTheme: const IconThemeData(color: AppColors.secondaryColor),
-      titleTextStyle:const  TextStyle(
+      titleTextStyle: TextStyle(
           color: AppColors.secondaryColor,
           // fontWeight: FontWeight.bold,
           fontFamily: "PlayfairDisplay",
-          fontSize: 25),
+          fontSize: 25.sp),
       backgroundColor: Colors.grey[50],
     ),
-    textTheme: const TextTheme(
-        displayLarge: const TextStyle(
-            fontSize: 20,
+    textTheme: TextTheme(
+        displayLarge: TextStyle(
+            fontSize: 20.sp,
             fontWeight: FontWeight.bold,
             color: AppColors.textColorblack),
         bodyLarge: TextStyle(
           height: 4,
           color: AppColors.greyTextColor,
           fontWeight: FontWeight.bold,
-          fontSize: 12,
+          fontSize: 12.sp,
+        ),
+        bodySmall: TextStyle(
+          color: AppColors.black.withAlpha(200),
+          fontSize: 10.spMin,
         )));
 final ThemeData appArabicTheme = ThemeData(
     primarySwatch: Colors.blue,
     fontFamily: 'Cairo',
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
         displayLarge: TextStyle(
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.bold,
             color: AppColors.textColorblack),
         bodyLarge: TextStyle(
           height: 4,
           color: AppColors.greyTextColor,
           fontWeight: FontWeight.bold,
-          fontSize: 12,
+          fontSize: 12.sp,
         )));
