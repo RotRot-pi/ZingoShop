@@ -12,19 +12,24 @@ class Order extends Address {
   double? orderTotalprice;
   int? orderPaymentType;
   int? orderStatus;
+  int? orderRating;
+  String? orderNotating;
 
-  Order(
-      {this.orderId,
-      this.orderAddressId,
-      this.orderUserId,
-      this.orderType,
-      this.orderDeliveryPrice,
-      this.orderCouponId,
-      this.orderDateTime,
-      this.orderPrice,
-      this.orderTotalprice,
-      this.orderPaymentType,
-      this.orderStatus});
+  Order({
+    this.orderId,
+    this.orderAddressId,
+    this.orderUserId,
+    this.orderType,
+    this.orderDeliveryPrice,
+    this.orderCouponId,
+    this.orderDateTime,
+    this.orderPrice,
+    this.orderTotalprice,
+    this.orderPaymentType,
+    this.orderStatus,
+    this.orderRating,
+    this.orderNotating,
+  });
 
   Order.fromJson(Map<String, dynamic> json) {
     orderId = json['order_id'];
@@ -38,6 +43,8 @@ class Order extends Address {
     orderTotalprice = json['order_totalprice'].toDouble() as double;
     orderPaymentType = json['order_payment_type'];
     orderStatus = json['order_status'];
+    orderRating = json['order_rating'];
+    orderNotating = json['order_notating'];
     addressId = json['address_id'];
     addressCity = json['address_city'];
     addressName = json['address_name'];

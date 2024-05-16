@@ -1,9 +1,11 @@
 import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
+import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:rating_dialog/rating_dialog.dart';
 
 class OrderCard extends StatelessWidget {
   const OrderCard({
@@ -91,6 +93,19 @@ class OrderCard extends StatelessWidget {
                       color: AppColors.whiteTextColor.withAlpha(150),
                       textColor: AppColors.black,
                     ),
+                  AppSpacing.addWidth(w4),
+                  if (order.orderStatus == 4 && order.orderRating == 0)
+                    MaterialButton(
+                      onPressed: () {
+                        controller.ratingDialog(order.orderId);
+                      },
+                      child: const Text(
+                        "Rating",
+                      ),
+                      color: AppColors.whiteTextColor.withAlpha(150),
+                      textColor: AppColors.black,
+                    ),
+                  AppSpacing.addWidth(w4),
                   MaterialButton(
                     onPressed: () {
                       controller.deleteOrder(order.orderId);

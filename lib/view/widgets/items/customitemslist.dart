@@ -45,27 +45,30 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                               color: AppColors.black,
                               fontSize: s16,
                               fontWeight: FontWeight.bold)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("${"rating".tr} 3.5",
-                              textAlign: TextAlign.center),
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            height: h24,
-                            child: Row(
-                              children: [
-                                ...List.generate(
-                                    5,
-                                    (index) => const Icon(
-                                          Icons.star,
-                                          size: s16,
-                                        ))
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+
+                      //Rating stars
+                      //
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Text("${"rating".tr} 3.5",
+                      //         textAlign: TextAlign.center),
+                      //     Container(
+                      //       alignment: Alignment.bottomCenter,
+                      //       height: h24,
+                      //       child: Row(
+                      //         children: [
+                      //           ...List.generate(
+                      //               5,
+                      //               (index) => const Icon(
+                      //                     Icons.star,
+                      //                     size: s16,
+                      //                   ))
+                      //         ],
+                      //       ),
+                      //     )
+                      //   ],
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

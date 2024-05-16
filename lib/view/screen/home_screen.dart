@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommercecourse/controller/home_screen_controller.dart';
 import 'package:ecommercecourse/view/widgets/home/cutombottomnavigationbar.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ class HomeScreen extends StatelessWidget {
     //TODO: Test this widget with and without ScreenUtil
     //TODO: Test Text size with and without sp
     //TODO: Test Text with and without FittedBox widget
+
     Get.put(HomeScreenControllerImpl());
     return GetBuilder<HomeScreenControllerImpl>(builder: (controller) {
       return Scaffold(
@@ -28,7 +31,21 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const CustomNavigationAppBar(),
-        body: controller.pages[controller.currentPageIndex],
+        body: PopScope(
+          canPop: false,
+          onPopInvoked: (didPop) async {
+            if (didPop) {
+              return;
+            }
+            final bool shouldPop =
+                await controller.showBackDialog(context) ?? false;
+            print("Should pop:$shouldPop");
+            if (shouldPop) {
+              exit(0);
+            }
+          },
+          child: controller.pages[controller.currentPageIndex],
+        ),
       );
     });
   }

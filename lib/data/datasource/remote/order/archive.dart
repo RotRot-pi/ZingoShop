@@ -13,4 +13,13 @@ class ArchiveOrderData {
     print("TestData");
     return response.fold((l) => l, (r) => r);
   }
+
+  postRating(var orderId, var rating, var comment) async {
+    var response = await crud.post(ApiLink.orderRating, {
+      'order_id': orderId,
+      'order_rating': rating,
+      'order_notating': comment
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }

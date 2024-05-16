@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/data/model/items.dart';
 
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:ecommercecourse/view/widgets/customappbar.dart';
