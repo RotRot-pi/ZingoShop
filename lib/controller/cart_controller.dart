@@ -102,9 +102,9 @@ class CartController extends GetxController {
       // Start backend
       print("Cart Status 2:${requestStatus}");
       if (response['status'] == "success") {
-        List datad = response['datacart'];
+        List datacart = response['datacart'];
         try {
-          for (var item in datad) {
+          for (var item in datacart) {
             data.add(CartModel.fromMap(item));
             print("Cart Status 3:${requestStatus}");
           }

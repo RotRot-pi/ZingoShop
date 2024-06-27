@@ -35,6 +35,7 @@ class OffersController extends SearchControllerMix {
     }
   }
 
+  @override
   goToProductDetails(var item) {
     Get.toNamed(AppRoutes.productDetails, arguments: {'item': item});
   }

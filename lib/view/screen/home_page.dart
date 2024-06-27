@@ -37,19 +37,23 @@ class HomePage extends StatelessWidget {
                       return HandelingDataView(
                           requestStatus: controller.requestStatus,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CustomCardHome(
-                                  title: "a_summer_surprise".tr,
-                                  body: "cashback_20%".tr,
-                                  language: controller.language),
-                              const ListCategoriesHome(),
-                              const SizedBox(height: 10),
-                              CustomTitleHome(title: "product_for_you".tr),
-                              const SizedBox(height: 10),
-                              const ListItemsHome(),
-                              CustomTitleHome(title: "offer".tr),
-                              const SizedBox(height: 10),
-                              const ListItemsHome()
+                              if (controller.homeCartSettings.isNotEmpty)
+                                CustomCardHome(
+                                    title:
+                                        "${controller.homeCartSettings[0]['home_cart_settings_title']}",
+                                    body:
+                                        "${controller.homeCartSettings[0]['home_cart_settings_body']}",
+                                    language: controller.language),
+                              // const ListCategoriesHome(),
+                              // const SizedBox(height: 10),
+                              // CustomTitleHome(title: "product_for_you".tr),
+                              // const SizedBox(height: 10),
+                              // const ListItemsHome(),
+                              // CustomTitleHome(title: "offer".tr),
+                              // const SizedBox(height: 10),
+                              // const ListItemsHome()
                             ],
                           ));
                     })

@@ -26,6 +26,7 @@ class HomeControllerImpl extends HomeController {
 
   List<Category> categories = [];
   List<Item> items = [];
+  List homeCartSettings = [];
 
   @override
   getData() async {
@@ -41,9 +42,13 @@ class HomeControllerImpl extends HomeController {
       response['categories'].forEach((element) {
         categories.add(Category.fromMap(element));
       });
-      response['items'].forEach((element) {
+      response['itemsTopSellingView'].forEach((element) {
         items.add(Item.fromMap(element));
       });
+      response['home_cart_settings'].forEach((element) {
+        homeCartSettings.add(Item.fromMap(element));
+      });
+      print("homeCartSettings:${homeCartSettings}");
       print("categories:${categories}");
       print("items:${items}");
     } else {

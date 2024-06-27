@@ -87,11 +87,11 @@ class OrderCard extends StatelessWidget {
                         Get.toNamed(AppRoutes.ordersDetails,
                             arguments: {'order': order});
                       },
+                      color: AppColors.whiteTextColor.withAlpha(150),
+                      textColor: AppColors.black,
                       child: const Text(
                         "Delete",
                       ),
-                      color: AppColors.whiteTextColor.withAlpha(150),
-                      textColor: AppColors.black,
                     ),
                   AppSpacing.addWidth(w4),
                   if (order.orderStatus == 4 && order.orderRating == 0)
