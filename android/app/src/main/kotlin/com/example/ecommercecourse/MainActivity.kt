@@ -1,4 +1,4 @@
-package com.waelabohamza.ecommercecourse
+package com.example.ecommercecourse
 
 import io.flutter.embedding.android.FlutterActivity
 
