@@ -31,7 +31,7 @@ class ItemsScreen extends StatelessWidget {
             child: ListView(
               children: [
                 CustomAppBar(
-                  titleappbar: "find_product".tr,
+                  searchHintText: "find_product".tr,
                   searchController: controller.searchController,
                   onPressedIcon: () {},
                   onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),

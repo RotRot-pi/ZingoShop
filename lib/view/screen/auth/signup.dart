@@ -50,21 +50,12 @@ class _SingupPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
       child: Column(
-        //  mainAxisSize: MainAxisSize.min,
         children: [
-          PopScope(
-            canPop: false,
-            onPopInvokedWithResult: (val, result) {
-              exitAppAlert(context);
-            },
-            child: Container(),
-          ),
           Form(
             key: controller.formKey,
             child: Expanded(
               child: ListView(children: [
                 const SizedBox(height: 24),
-                CustomTextTitleAuth(text: "welcome_back".tr),
                 const SizedBox(height: 12),
                 CustomTextBodyAuth(text: "signup_instructions".tr),
                 const SizedBox(height: 24),

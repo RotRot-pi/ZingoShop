@@ -15,10 +15,10 @@ class ListCategoriesHome extends GetView<HomeControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: h100,
+      height: h80,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => AppSpacing.addWidth(w16),
+        separatorBuilder: (context, index) => AppSpacing.addWidth(w12),
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
           return CategoyWidget(
@@ -44,28 +44,36 @@ class CategoyWidget extends GetView<HomeControllerImpl> {
       onTap: () => controller.goToItems(
           controller.categories, categoryIndex, category.categoriesId),
       child: Container(
+        width: w64,
         margin: EdgeInsets.only(right: p8),
         child: Column(
           children: [
             Container(
-              width: w56,
-              height: h56,
               padding: EdgeInsets.all(p8),
               decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(r12)),
+                color: Colors.grey[200],
+                shape: BoxShape.circle,
+              ),
               child: SvgPicture.network(
                 "${ApiLink.categoriesImageFolder}${category.categoriesImage}",
+                fit: BoxFit.fitHeight,
+                height: h32,
               ),
             ),
             AppSpacing.addHeigh(h8),
-            Text(
-                translateData(
-                    category.categoriesNameAr, category.categoriesName),
-                style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: s12,
-                    fontWeight: FontWeight.bold)),
+            SizedBox(
+              // width: w80,
+              child: Text(
+                  translateData(
+                      category.categoriesNameAr, category.categoriesName),
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: s8,
+                      overflow: TextOverflow.fade,
+                      fontWeight: FontWeight.bold)),
+            ),
           ],
         ),
       ),

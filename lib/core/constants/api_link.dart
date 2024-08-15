@@ -13,9 +13,10 @@ class ApiLink {
   static String resentVerifyCode = "$server/auth/resentverifycode.php";
 
   // ====================== Forget Password ===================== //
-  static String checkemail = "$server/forget_password/checkemail.php";
-  static String resetPassword = "$server/forget_password/reset_password.php";
-  static String verifyCode = "$server/forget_password/verifycode.php";
+  static String checkemail = "$server/auth/forget_password/checkemail.php";
+  static String resetPassword =
+      "$server/auth/forget_password/reset_password.php";
+  static String verifyCode = "$server/auth/forget_password/verifycode.php";
 
   // ====================== Home ======================== //
   static String home = "$server/home.php";

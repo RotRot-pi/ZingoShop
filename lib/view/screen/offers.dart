@@ -26,7 +26,7 @@ class OffersScreen extends StatelessWidget {
             children: [
               AppSpacing.addHeigh(h24),
               CustomAppBar(
-                titleappbar: "find_product".tr,
+                searchHintText: "find_product".tr,
                 searchController: controller.searchController,
                 onPressedIcon: () {},
                 onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),

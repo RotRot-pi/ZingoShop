@@ -22,7 +22,7 @@ class CheckEmailScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
-        title: Text('forget_password'.tr,
+        title: Text('check_email'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -51,8 +51,6 @@ class CheckEmailPage extends StatelessWidget {
       padding:
           AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
       child: ListView(children: [
-        AppSpacing.addHeigh(h24),
-        CustomTextTitleAuth(text: "check_email".tr),
         AppSpacing.addHeigh(h12),
         CustomTextBodyAuth(text: "email_verification_instructions".tr),
         AppSpacing.addHeigh(h24),

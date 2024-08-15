@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final ThemeData appEnglishTheme = ThemeData(
-    primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: AppColors.white,
     fontFamily: 'PlayfairDisplay',
     appBarTheme: AppBarTheme(
       centerTitle: true,
@@ -26,6 +26,10 @@ final ThemeData appEnglishTheme = ThemeData(
           height: 4,
           color: AppColors.greyTextColor,
           fontWeight: FontWeight.bold,
+          fontSize: 14.sp,
+        ),
+        bodyMedium: TextStyle(
+          color: AppColors.black.withAlpha(200),
           fontSize: 12.sp,
         ),
         bodySmall: TextStyle(

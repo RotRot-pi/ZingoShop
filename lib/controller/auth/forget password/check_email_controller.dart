@@ -22,19 +22,24 @@ class CheckEmailControllerImpl extends CheckEmailController {
     var response = await checkEmailData.postData(
       emailController.text,
     );
-    
+
     requestStatus = handelingData(response);
-    
-    if (requestStatus == RequestStatus.success &&
-        response['status'] == 'success') {
-      goToVerifySignUpCode();
-    } else {
-      Get.defaultDialog(
-        title: "warning".tr,
-        middleText: "email_not_exist".tr,
-      );
-      requestStatus;
+    try {
+      if (requestStatus == RequestStatus.success) {
+        if (response['status'] == 'success') {
+          goToVerifySignUpCode();
+        } else {
+          Get.defaultDialog(
+            title: "warning".tr,
+            middleText: "email_not_exist".tr,
+          );
+          requestStatus;
+        }
+      }
+    } catch (e) {
+      throw Exception(e);
     }
+
     update();
   }
 

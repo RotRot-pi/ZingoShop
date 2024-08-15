@@ -53,10 +53,8 @@ class ResetPasswordPage extends StatelessWidget {
       child: Form(
         key: controller.formKey,
         child: ListView(children: [
-          AppSpacing.addHeigh(h24),
-          CustomTextTitleAuth(text: "reset_password".tr),
           AppSpacing.addHeigh(h12),
-          CustomTextBodyAuth(text: " enter_new_password".tr),
+          CustomTextBodyAuth(text: "enter_new_password".tr),
           AppSpacing.addHeigh(h24),
           GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
             return CustonTextFormAuth(

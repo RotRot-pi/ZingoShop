@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
           child: ListView(
             children: [
               CustomAppBar(
-                titleappbar: "find_product".tr,
+                searchHintText: "what_are_you_looking_for".tr,
                 searchController: controller.searchController,
                 onPressedIcon: () {},
                 onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),

@@ -15,7 +15,7 @@ class FavoriteScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomAppBar(titleappbar: "favorite".tr),
+          CustomAppBar(searchHintText: "favorite".tr),
           GetBuilder<FavoriteControllerImpl>(
               builder: (conroller) => HandelingDataView(
                     requestStatus: conroller.requestStatus,
