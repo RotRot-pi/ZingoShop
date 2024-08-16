@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/classes/crud.dart';
+import 'package:zingoshop/core/classes/crud.dart';
 
 import 'package:get/get.dart';
 

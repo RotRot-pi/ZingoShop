@@ -37,6 +37,8 @@ class AppTranslation extends Translations {
           "payment_cards": "بطاقات الدفع",
           "choose_delivery_type": "اختر نوع التوصيل",
           "delivery": "توصيل",
+          "next": "التالي",
+          "skip": "تخطي",
           "receive": "استلام",
           "shipping_address": "عنوان الشحن",
           "no_shipping_address": "لا يوجد عنوان شحن",
@@ -131,6 +133,7 @@ class AppTranslation extends Translations {
           "order_tracking_description":
               "يمكن تتبع الطلب في كل مرحلة \n حتى يصل إليك",
           "sign_in": "تسجيل الدخول",
+          "continue": "تابع",
           "email_not_exist": "البريد الإلكتروني غير موجود",
           "error": "خطأ",
           "warning": "تحذير",
@@ -208,6 +211,7 @@ class AppTranslation extends Translations {
           "ar": "ar",
           "fr": "fr",
           "french": "French",
+          "skip": "Skip",
           "find_product": "Find Product",
           "what_are_you_looking_for": "What are you looking for?",
           "product_for_you": "Product for You",
@@ -326,6 +330,7 @@ class AppTranslation extends Translations {
           "product_description":
               "We have 100 thousand products, choose \n your product from our online store",
           "easy_and_safe_payment": "Easy and Safe Payment",
+          "next": "Next",
           "payment_methods":
               "You can pay in cash \n or through payment gateways",
           "order_tracking": "Track Your Order",
@@ -406,6 +411,7 @@ class AppTranslation extends Translations {
           "ar": "ar",
           "french": "Français",
           "fr": "fr",
+          "skip": "Sauter",
           "find_product": "Trouver un produit",
           "what_are_you_looking_for": "Quel produit cherchez-vous ?",
           "product_for_you": "Produit pour vous",
@@ -424,6 +430,7 @@ class AppTranslation extends Translations {
           "about_us": "À propos de nous",
           "contact_us": "Contactez-nous",
           "logout": "Déconnexion",
+          "next": "Suivant",
           "my_cart": "Mon panier",
           "you_have": "Vous avez",
           "checkout": "Passer à la caisse",
@@ -486,6 +493,7 @@ class AppTranslation extends Translations {
           "add_address_details_screen":
               "Écran d'ajout des détails de l'adresse",
           "city": "Ville",
+          "continue": "Continuer",
           "street": "Rue",
           "name": "Nom",
           "pending": "En attente",

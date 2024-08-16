@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/onboarding_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
+import 'package:zingoshop/controller/onboarding_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +12,7 @@ class CustomOnboardingButton extends GetView<OnboardingControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(r20)),
       onPressed: () {
         controller.nextPage();
       },
@@ -19,7 +20,7 @@ class CustomOnboardingButton extends GetView<OnboardingControllerImpl> {
       textColor: AppColors.whiteTextColor,
       padding:
           AppSpacing.addEdgeInsetsSymmetric(horizontal: w100, vertical: zero),
-      child: Text('continue'.tr),
+      child: Text('next'.tr),
     );
   }
 }

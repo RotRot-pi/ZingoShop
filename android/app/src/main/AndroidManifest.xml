@@ -22,7 +22,7 @@
         </intent>
     </queries>
     <application
-        android:label="ecommercecourse"
+        android:label="ZingoShop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

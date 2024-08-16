@@ -1,13 +1,13 @@
 //create offers screen
-import 'package:ecommercecourse/controller/favorite_items_controller.dart';
-import 'package:ecommercecourse/controller/offers_controller.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/data/model/items.dart';
-import 'package:ecommercecourse/view/screen/home_page.dart';
-import 'package:ecommercecourse/view/widgets/customappbar.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
-import 'package:ecommercecourse/view/widgets/home/customlistoffer.dart';
+import 'package:zingoshop/controller/favorite_items_controller.dart';
+import 'package:zingoshop/controller/offers_controller.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/data/model/items.dart';
+import 'package:zingoshop/view/screen/home_page.dart';
+import 'package:zingoshop/view/widgets/customappbar.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/view/widgets/home/customlistoffer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

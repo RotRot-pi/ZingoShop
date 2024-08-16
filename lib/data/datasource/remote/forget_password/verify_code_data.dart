@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/classes/crud.dart';
+import 'package:zingoshop/core/classes/crud.dart';
 
-import 'package:ecommercecourse/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
 
 class VerifyCodeData {
   Crud crud;

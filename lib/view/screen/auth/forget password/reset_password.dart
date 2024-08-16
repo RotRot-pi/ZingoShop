@@ -1,16 +1,16 @@
-import 'package:ecommercecourse/controller/auth/forget password/reset_password_controller.dart';
-import 'package:ecommercecourse/core/functions/validate_auth_inputs.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/auth/forget password/reset_password_controller.dart';
+import 'package:zingoshop/core/functions/validate_auth_inputs.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/auth/custombuttonauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextformauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/auth/custombuttonauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});

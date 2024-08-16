@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/core/constants/api_link.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
+import 'package:zingoshop/controller/home_controller.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
 
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
-import 'package:ecommercecourse/view/widgets/customappbar.dart';
-import 'package:ecommercecourse/view/widgets/home/customhomecard.dart';
-import 'package:ecommercecourse/view/widgets/home/customtitlehome.dart';
-import 'package:ecommercecourse/view/widgets/home/listcategorieshome.dart';
-import 'package:ecommercecourse/view/widgets/home/listitemshome.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/view/widgets/customappbar.dart';
+import 'package:zingoshop/view/widgets/home/customhomecard.dart';
+import 'package:zingoshop/view/widgets/home/customtitlehome.dart';
+import 'package:zingoshop/view/widgets/home/listcategorieshome.dart';
+import 'package:zingoshop/view/widgets/home/listitemshome.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

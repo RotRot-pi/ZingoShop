@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/core/functions/validate_auth_inputs.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/core/functions/validate_auth_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

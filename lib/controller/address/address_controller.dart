@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/address/address_data.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/address/address_data.dart';
 import 'package:get/get.dart';
 
 import '../../core/functions/handing_data.dart';

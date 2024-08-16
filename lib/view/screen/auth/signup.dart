@@ -2,16 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:ecommercecourse/controller/auth/signup_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/functions/exit_app_alert.dart';
-import 'package:ecommercecourse/core/functions/validate_auth_inputs.dart';
-import 'package:ecommercecourse/view/widgets/auth/custom_switch_auth_text.dart';
-import 'package:ecommercecourse/view/widgets/auth/custombuttonauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextbodyauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextformauth.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/auth/signup_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/functions/exit_app_alert.dart';
+import 'package:zingoshop/core/functions/validate_auth_inputs.dart';
+import 'package:zingoshop/view/widgets/auth/custom_switch_auth_text.dart';
+import 'package:zingoshop/view/widgets/auth/custombuttonauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

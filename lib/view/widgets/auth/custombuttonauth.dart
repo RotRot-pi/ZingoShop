@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,6 +11,7 @@ class CustomButtomAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: w128,
       margin: AppSpacing.addEdgeInsetsOnly(top: h10),
       child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(r20)),

@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/services/services.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
@@ -54,7 +54,6 @@ class AddAddressControllerImpl extends AddAddAddressController {
 
   @override
   addAddress() {
-    
     Get.offNamed(AppRoutes.addAddressDetails,
         arguments: {'lat': lat, 'lng': lng});
   }

@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/controller/product_details_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
-import 'package:ecommercecourse/view/widgets/product_details/priceandcount.dart';
-import 'package:ecommercecourse/view/widgets/product_details/toppageproductdetails.dart';
+import 'package:zingoshop/controller/product_details_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/view/widgets/product_details/priceandcount.dart';
+import 'package:zingoshop/view/widgets/product_details/toppageproductdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

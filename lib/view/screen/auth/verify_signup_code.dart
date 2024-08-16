@@ -1,14 +1,14 @@
-import 'package:ecommercecourse/controller/auth/verify_signup_code_controller.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/auth/verify_signup_code_controller.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextbodyauth.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 
-import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 
 class VerifySignUpCode extends StatelessWidget {
   const VerifySignUpCode({super.key});
@@ -60,7 +60,6 @@ class _VerifySignUpCodePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(r16),
             //set to true to show as box or false to show as dash
             onSubmit: (String verificationCode) {
-              
               controller.verfiyCode(verificationCode);
             }
             // showDialog(

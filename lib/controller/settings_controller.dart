@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/services/services.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/services/services.dart';
 import 'package:get/get.dart';
 
 abstract class SettingsController extends GetxController {

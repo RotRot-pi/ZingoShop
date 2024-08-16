@@ -1,11 +1,12 @@
-import 'package:ecommercecourse/bindings/init_binding.dart';
-import 'package:ecommercecourse/core/localization/change_local.dart';
-import 'package:ecommercecourse/core/localization/translation.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/routes.dart';
+import 'package:zingoshop/bindings/init_binding.dart';
+import 'package:zingoshop/core/localization/change_local.dart';
+import 'package:zingoshop/core/localization/translation.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,16 +36,16 @@ class MyApp extends StatelessWidget {
       // minTextAdapt: true,
       builder: (context, widget) {
         return Directionality(
-          textDirection: localizationController.language == const Locale('ar')
+          textDirection: Get.locale == const Locale('ar')
               ? TextDirection.rtl
               : TextDirection.ltr,
           child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Zingo Shop',
             translations: AppTranslation(),
             locale: localizationController.language,
             theme: localizationController.appTheme,
-            getPages: getPages,
+            getPages: getPages(),
             initialBinding: InitialAppBindings(),
           ),
         );

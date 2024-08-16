@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constants/image_assets.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
+import 'package:zingoshop/core/constants/image_assets.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 
 class LogoAuth extends StatelessWidget {
@@ -7,14 +7,9 @@ class LogoAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-        radius: r72,
-        backgroundColor: Colors.red,
-        child: Padding(
-          padding: AppSpacing.addEdgeInsetsAll(zero), // Border radius
-          child: ClipOval(
-            child: Image.asset(AppImageAssets.logo),
-          ),
-        ));
+    return SizedBox(
+      height: h128,
+      child: Image.asset(AppImageAssets.logo),
+    );
   }
 }

@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/home_screen_controller.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/home/cutombottomappbarbutton.dart';
+import 'package:zingoshop/controller/home_screen_controller.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/home/cutombottomappbarbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 

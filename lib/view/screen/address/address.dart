@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/data/model/address.dart';
+import 'package:zingoshop/data/model/address.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

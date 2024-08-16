@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/core/constants/image_assets.dart';
+import 'package:zingoshop/core/constants/image_assets.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 

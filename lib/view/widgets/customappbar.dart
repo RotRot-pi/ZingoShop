@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
+import 'package:zingoshop/controller/home_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';

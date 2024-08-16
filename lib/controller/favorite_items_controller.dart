@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/favorite_items_data.dart';
-import 'package:ecommercecourse/data/model/items.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/favorite_items_data.dart';
+import 'package:zingoshop/data/model/items.dart';
 import 'package:get/get.dart';
 
 abstract class FavoriteItemsController extends GetxController {}
@@ -31,7 +31,7 @@ class FavoriteItemsControllerImpl extends FavoriteItemsController {
       favoriteData.addFavorite(
           _appServices.sharedPreferences.getInt("id"), item.itemsId);
     }
-    
+
     update();
   }
 }

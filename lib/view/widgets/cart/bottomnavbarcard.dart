@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:ecommercecourse/controller/cart_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/cart/buttoncart.dart';
-import 'package:ecommercecourse/view/widgets/cart/customcouponwidget.dart';
+import 'package:zingoshop/controller/cart_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/cart/buttoncart.dart';
+import 'package:zingoshop/view/widgets/cart/customcouponwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCartList extends StatelessWidget {

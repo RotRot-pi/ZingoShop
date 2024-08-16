@@ -1,11 +1,11 @@
-import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/colors.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final ThemeData appEnglishTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.white,
-    fontFamily: 'PlayfairDisplay',
+    fontFamily: 'OpenSans',
     appBarTheme: AppBarTheme(
       centerTitle: true,
       elevation: 0,
@@ -13,7 +13,7 @@ final ThemeData appEnglishTheme = ThemeData(
       titleTextStyle: TextStyle(
           color: AppColors.secondaryColor,
           // fontWeight: FontWeight.bold,
-          fontFamily: "PlayfairDisplay",
+          fontFamily: "OpenSans",
           fontSize: 25.sp),
       backgroundColor: Colors.grey[50],
     ),
@@ -37,7 +37,7 @@ final ThemeData appEnglishTheme = ThemeData(
           fontSize: 10.spMin,
         )));
 final ThemeData appArabicTheme = ThemeData(
-    primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: AppColors.white,
     fontFamily: 'Cairo',
     textTheme: TextTheme(
         displayLarge: TextStyle(

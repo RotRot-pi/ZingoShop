@@ -1,10 +1,10 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/home_data.dart';
-import 'package:ecommercecourse/data/model/categories.dart';
-import 'package:ecommercecourse/data/model/items.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/home_data.dart';
+import 'package:zingoshop/data/model/categories.dart';
+import 'package:zingoshop/data/model/items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,10 +13,7 @@ class ForgetPasswordControllerImpl extends ForgetPasswordController {
   @override
   forgetPassword() {
     if (formKey.currentState!.validate()) {
-      
-    } else {
-      
-    }
+    } else {}
   }
 
   @override

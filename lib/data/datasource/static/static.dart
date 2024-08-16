@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constants/image_assets.dart';
+import 'package:zingoshop/core/constants/image_assets.dart';
 import 'package:get/get.dart';
 
 import '../../model/onboarding.dart';

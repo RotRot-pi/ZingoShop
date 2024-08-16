@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/forget_password/check_email.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/data/datasource/remote/forget_password/check_email.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

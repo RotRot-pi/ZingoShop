@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/checkout.dart';
-import 'package:ecommercecourse/data/model/address.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/checkout.dart';
+import 'package:zingoshop/data/model/address.dart';
 
 import 'package:get/get.dart';
 
@@ -46,8 +46,6 @@ class CheckoutController extends GetxController {
     var response = await addressData
         .getAddress(myServices.sharedPreferences.getInt("id")!);
 
-    
-
     // Start backend
     if (response['status'] == "success") {
       List listdata = response['data'];
@@ -89,7 +87,7 @@ class CheckoutController extends GetxController {
     }
     addressid == null ? addressid = 0 : addressid = addressid;
     couponId == null ? couponId = 0 : couponId = couponId;
-    
+
     var map = {
       "user_id": myServices.sharedPreferences.getInt("id")!.toString(),
       "address_id": addressid!.toString(),
@@ -100,10 +98,10 @@ class CheckoutController extends GetxController {
       "coupon_discount": couponDiscount!.toString(),
       "payment_type": paymentMethod!.toString(),
     };
-    
+
     var response = await checkoutData.checkout(map);
     statusRequest = handelingData(response);
-    
+
     if (RequestStatus.success == statusRequest) {
       // Start backend
 
@@ -125,8 +123,6 @@ class CheckoutController extends GetxController {
     couponId = Get.arguments['couponId'] ?? 0;
     ordersPrice = Get.arguments['ordersPrice'];
     couponDiscount = Get.arguments['couponDiscount'];
-
-    
 
     super.onInit();
   }

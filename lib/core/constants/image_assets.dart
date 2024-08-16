@@ -9,7 +9,8 @@ class AppImageAssets {
   static const String onboardingone = '$imageRouteAssets/one.png';
   static const String onboardingTwo = '$imageRouteAssets/two.png';
   static const String onboardingThree = '$imageRouteAssets/three.png';
-  static const String logo = '$imageRouteAssets/logo.png';
+  static const String logo =
+      '$imageRouteAssets/zingo_shop_brand_logo_2x_no_bg.png';
 
   static const String avatar = "$imageRouteAssets/avatar.png";
 

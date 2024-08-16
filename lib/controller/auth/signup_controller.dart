@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/auth/signup_data.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/data/datasource/remote/auth/signup_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +26,6 @@ class SignUpControllerImpl extends SignUpController {
   @override
   signUp() async {
     if (formKey.currentState!.validate()) {
-      
       requestStatus = RequestStatus.loading;
       update();
       var response = await singupData.postData(
@@ -36,10 +35,9 @@ class SignUpControllerImpl extends SignUpController {
         phoneController.text,
       );
       requestStatus = handelingData(response);
-      
+
       if (requestStatus == RequestStatus.success &&
           response['status'] == 'success') {
-        
         goVerifySignUpCode();
         //signupData.addAll(response['data']);
       } else {
@@ -50,9 +48,7 @@ class SignUpControllerImpl extends SignUpController {
         requestStatus;
       }
       update();
-    } else {
-      
-    }
+    } else {}
   }
 
   @override

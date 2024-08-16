@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/favorite_data.dart';
-import 'package:ecommercecourse/data/model/favorite.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/favorite_data.dart';
+import 'package:zingoshop/data/model/favorite.dart';
 import 'package:get/get.dart';
 
 abstract class FavoriteController extends GetxController {}
@@ -20,9 +20,8 @@ class FavoriteControllerImpl extends FavoriteController {
         await favoriteData.getData(_appServices.sharedPreferences.getInt("id"));
 
     requestStatus = handelingData(response);
-    
+
     if (requestStatus == RequestStatus.success) {
-      
       if (response['status'] == 'success') {
         response['data'].forEach((element) {
           data.add(Favorite.fromMap(element));
@@ -32,7 +31,7 @@ class FavoriteControllerImpl extends FavoriteController {
       }
       update();
     }
-    
+
     return response;
   }
 

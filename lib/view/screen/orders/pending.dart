@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/data/model/order_details.dart';
-import 'package:ecommercecourse/view/widgets/order/pending.dart';
+import 'package:zingoshop/data/model/order_details.dart';
+import 'package:zingoshop/view/widgets/order/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

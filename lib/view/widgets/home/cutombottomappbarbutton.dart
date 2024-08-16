@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constants/spaces.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/colors.dart';

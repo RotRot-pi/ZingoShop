@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/data/datasource/remote/order/archive.dart';
-import 'package:ecommercecourse/data/model/order_details.dart';
-import 'package:ecommercecourse/view/widgets/auth/logoauth.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/data/datasource/remote/order/archive.dart';
+import 'package:zingoshop/data/model/order_details.dart';
+import 'package:zingoshop/view/widgets/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rating_dialog/rating_dialog.dart';
@@ -17,15 +17,13 @@ class ArchivingOrderController extends GetxController {
   getArchivedOrders() async {
     requestStatus = RequestStatus.loading;
     update();
-    
+
     var response = await archiveOrderData
         .getData(_appServices.sharedPreferences.getInt('id')!.toString());
     requestStatus = handelingData(response);
-    
+
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      
-
       for (var i = 0; i < response['data'].length; i++) {
         data.add(OrderDetails.fromJson(response['data'][i]));
       }
@@ -46,7 +44,7 @@ class ArchivingOrderController extends GetxController {
     }
   }
   // deleteOrder(var orderId) async {
-  //   
+  //
   //   try {
   //     var response = await archiveOrderData.deleteData(orderId.toString());
   //     if (response['status'] == 'success') {
@@ -59,10 +57,10 @@ class ArchivingOrderController extends GetxController {
   //       update();
   //     }
   //   } catch (e) {
-  //     
+  //
   //   }
 
-  //   
+  //
   // }
 
   printOrderType(var orderType) {

@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/cart/buttoncart.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/cart/buttoncart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,7 +48,8 @@ class AddAddressDetailsScreen extends StatelessWidget {
                 return null;
               },
             ),
-            CustomButtonCart(onPressed: () =>controller.addAddress(), textbutton: 'Add'),
+            CustomButtonCart(
+                onPressed: () => controller.addAddress(), textbutton: 'Add'),
           ],
         ),
       ),

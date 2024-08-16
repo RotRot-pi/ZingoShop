@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/controller/onboarding_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/data/datasource/static/static.dart';
+import 'package:zingoshop/controller/onboarding_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
 
 handelingData(response) {
   if (response is RequestStatus) {

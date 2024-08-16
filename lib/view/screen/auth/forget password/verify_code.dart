@@ -1,14 +1,14 @@
-import 'package:ecommercecourse/controller/auth/forget password/verfiy_code_controller.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/auth/forget password/verfiy_code_controller.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/view/widgets/auth/customtextbodyauth.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 
-import 'package:ecommercecourse/view/widgets/auth/customtexttitleauth.dart';
+import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 
 class VerifyCodeScreen extends StatelessWidget {
   const VerifyCodeScreen({super.key});

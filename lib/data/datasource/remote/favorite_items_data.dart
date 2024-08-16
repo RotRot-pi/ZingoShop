@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/core/classes/crud.dart';
-import 'package:ecommercecourse/core/constants/api_link.dart';
+import 'package:zingoshop/core/classes/crud.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
 
 class FavoriteItemsData {
   final Crud crud;
@@ -10,7 +10,7 @@ class FavoriteItemsData {
       'users_id': usersId.toString(),
       'items_id': itemId.toString(),
     });
-    
+
     return response.fold((l) => l, (r) => r);
   }
 
@@ -19,7 +19,7 @@ class FavoriteItemsData {
       'users_id': usersId.toString(),
       'items_id': itemId.toString(),
     });
-    
+
     return response.fold((l) => l, (r) => r);
   }
 }

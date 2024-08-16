@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/cart_item_data.dart';
-import 'package:ecommercecourse/data/model/items.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/cart_item_data.dart';
+import 'package:zingoshop/data/model/items.dart';
 
 import 'package:get/get.dart';
 
@@ -23,9 +23,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   intialData() async {
     requestStatus = RequestStatus.loading;
     item = Get.arguments['item'];
-    
-    
-    
+
     // countitems = await getCountItems(item.itemsId) ?? 0;
     countitems = 0;
     requestStatus = RequestStatus.success;
@@ -36,14 +34,14 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   //   requestStatus = RequestStatus.loading;
   //   var response = await cartData.getCountCart(
   //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //   
+  //
   //   requestStatus = handelingData(response);
   //   if (RequestStatus.success == requestStatus) {
   //     // Start backend
   //     if (response['status'] == "success") {
   //       countitems = int.parse(response['data']);
-  //       
-  //       
+  //
+  //
   //       return countitems;
   //       // data.addAll(response['data']);
   //     } else {
@@ -58,7 +56,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
     update();
     var response = await cartData.addCart(
         _appServices.sharedPreferences.getInt("id"), itemsid, countitems);
-    
+
     requestStatus = handelingData(response);
     if (RequestStatus.success == requestStatus) {
       //Start backend
@@ -77,15 +75,15 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   // getCountCart(var usersid, var itemsid) async {
   //   var response = await cartData.getCountCart(
   //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //   // 
+  //   //
   //   // requestStatus = handelingData(response);
   //   if (RequestStatus.success == requestStatus) {
   //     // Start backend
   //     if (response['status'] == "success") {
   //
   //       countitems = int.parse(response['data']);
-  //       
-  //       
+  //
+  //
   //
   //       // data.addAll(response['data']);
   //     } else {
@@ -101,7 +99,7 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   //
   //   var response = await cartData.deleteCart(
   //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //   
+  //
   //   // requestStatus = handelingData(response);
   //   // if (RequestStatus.success == requestStatus) {
   //   //   // Start backend

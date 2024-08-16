@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/controller/favorite_controller.dart';
-import 'package:ecommercecourse/data/model/favorite.dart';
-import 'package:ecommercecourse/view/widgets/customappbar.dart';
-import 'package:ecommercecourse/view/widgets/favorite/customfavoritewidget.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/favorite_controller.dart';
+import 'package:zingoshop/data/model/favorite.dart';
+import 'package:zingoshop/view/widgets/customappbar.dart';
+import 'package:zingoshop/view/widgets/favorite/customfavoritewidget.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

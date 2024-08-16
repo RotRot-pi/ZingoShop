@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/data/model/address.dart';
+import 'package:zingoshop/data/model/address.dart';
 
 class Order extends Address {
   int? orderId;

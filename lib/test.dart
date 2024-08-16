@@ -1,5 +1,5 @@
-import 'package:ecommercecourse/controller/test_controller.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/test_controller.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

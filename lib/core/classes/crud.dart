@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/functions/check_internet.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/functions/check_internet.dart';
 import 'package:http/http.dart' as http;
 
 //Enhanced version of the code

@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/services/services.dart';
+import 'package:zingoshop/core/services/services.dart';
 import 'package:get/get.dart';
 
 translateData(dataAr, dataEn) {

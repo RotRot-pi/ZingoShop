@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:ecommercecourse/controller/home_screen_controller.dart';
-import 'package:ecommercecourse/view/widgets/home/cutombottomnavigationbar.dart';
+import 'package:zingoshop/controller/home_screen_controller.dart';
+import 'package:zingoshop/view/widgets/home/cutombottomnavigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

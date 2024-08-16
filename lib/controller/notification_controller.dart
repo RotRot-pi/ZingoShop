@@ -1,8 +1,8 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/notification_data.dart';
-import 'package:ecommercecourse/data/model/notification.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/notification_data.dart';
+import 'package:zingoshop/data/model/notification.dart';
 import 'package:get/get.dart';
 
 class NotificationController extends GetxController {
@@ -13,14 +13,13 @@ class NotificationController extends GetxController {
   getData() async {
     requestStatus = RequestStatus.loading;
     update();
-    
+
     var response = await notificationData
         .getData(_appServices.sharedPreferences.getInt('id'));
     requestStatus = handelingData(response);
-    
+
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      
       for (var i = 0; i < response['data'].length; i++) {
         data.add(Notifications.fromMap(response['data'][i]));
       }

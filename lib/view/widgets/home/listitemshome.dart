@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/controller/home_controller.dart';
-import 'package:ecommercecourse/core/constants/api_link.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/core/functions/translate_data.dart';
-import 'package:ecommercecourse/data/model/items.dart';
+import 'package:zingoshop/controller/home_controller.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/core/functions/translate_data.dart';
+import 'package:zingoshop/data/model/items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

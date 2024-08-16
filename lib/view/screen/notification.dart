@@ -1,7 +1,7 @@
-import 'package:ecommercecourse/controller/notification_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/data/model/notification.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/notification_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/data/model/notification.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';

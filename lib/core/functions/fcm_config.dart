@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/controller/order/pending.dart';
+import 'package:zingoshop/controller/order/pending.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:get/get.dart';

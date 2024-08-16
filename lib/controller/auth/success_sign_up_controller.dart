@@ -1,4 +1,4 @@
-import 'package:ecommercecourse/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:get/get.dart';
 
 abstract class SuccessSignUpController extends GetxController {

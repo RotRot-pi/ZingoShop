@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/controller/onboarding_controller.dart';
-import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/data/datasource/static/static.dart';
+import 'package:zingoshop/controller/onboarding_controller.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+import 'package:zingoshop/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,9 +19,7 @@ class CustomOnboardingPages extends GetView<OnboardingControllerImpl> {
       itemCount: onboardingList.length,
       itemBuilder: (context, index) {
         return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          AppSpacing.addHeigh(h80),
-          Image.asset(onboardingList[index].image),
-          AppSpacing.addHeigh(h80),
+          AppSpacing.addHeigh(h40),
           Text(
             onboardingList[index].title,
             style: Theme.of(context).textTheme.displayLarge,
@@ -32,7 +30,16 @@ class CustomOnboardingPages extends GetView<OnboardingControllerImpl> {
             child: Text(onboardingList[index].description,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge),
-          )
+          ),
+          AppSpacing.addHeigh(h40),
+          AspectRatio(
+            aspectRatio: 1.5,
+            child: Image.asset(
+              onboardingList[index].image,
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.topCenter,
+            ),
+          ),
         ]);
       },
     );

@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/classes/crud.dart';
+import 'package:zingoshop/core/classes/crud.dart';
 
-import 'package:ecommercecourse/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
 
 class HomeData {
   Crud crud;
@@ -10,7 +10,7 @@ class HomeData {
 
   getData() async {
     var response = await crud.post(ApiLink.home, {});
-    
+
     return response.fold((l) => l, (r) => r);
   }
 

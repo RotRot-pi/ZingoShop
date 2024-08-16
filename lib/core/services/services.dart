@@ -1,10 +1,10 @@
-import 'package:ecommercecourse/core/functions/fcm_config.dart';
+import 'package:zingoshop/core/functions/fcm_config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ecommercecourse/firebase_options.dart';
+import 'package:zingoshop/firebase_options.dart';
 
 class AppServices extends GetxService {
   late SharedPreferences sharedPreferences;

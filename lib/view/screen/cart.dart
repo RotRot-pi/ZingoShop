@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:ecommercecourse/controller/cart_controller.dart';
-import 'package:ecommercecourse/core/constants/api_link.dart';
-import 'package:ecommercecourse/view/widgets/cart/bottomnavbarcard.dart';
-import 'package:ecommercecourse/view/widgets/cart/customitemscartlist.dart';
-import 'package:ecommercecourse/view/widgets/cart/topcardcart.dart';
-import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
+import 'package:zingoshop/controller/cart_controller.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
+import 'package:zingoshop/view/widgets/cart/bottomnavbarcard.dart';
+import 'package:zingoshop/view/widgets/cart/customitemscartlist.dart';
+import 'package:zingoshop/view/widgets/cart/topcardcart.dart';
+import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

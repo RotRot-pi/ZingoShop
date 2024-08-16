@@ -1,6 +1,6 @@
-import 'package:ecommercecourse/core/classes/crud.dart';
+import 'package:zingoshop/core/classes/crud.dart';
 
-import 'package:ecommercecourse/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
 
 class ItemData {
   Crud crud;
@@ -13,7 +13,7 @@ class ItemData {
       'categories_id': categoryId.toString(),
       'users_id': usersId.toString()
     });
-    
+
     return response.fold((l) => l, (r) => r);
   }
 }

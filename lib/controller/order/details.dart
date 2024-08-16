@@ -1,9 +1,9 @@
-import 'package:ecommercecourse/core/classes/request_status.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
-import 'package:ecommercecourse/core/functions/handing_data.dart';
-import 'package:ecommercecourse/core/services/services.dart';
-import 'package:ecommercecourse/data/datasource/remote/order/details.dart';
-import 'package:ecommercecourse/data/model/order_details.dart';
+import 'package:zingoshop/core/classes/request_status.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/functions/handing_data.dart';
+import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/data/datasource/remote/order/details.dart';
+import 'package:zingoshop/data/model/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
@@ -27,8 +27,7 @@ class OrdersDetailsController extends GetxController {
   late RequestStatus requestStatus;
   getData() async {
     requestStatus = RequestStatus.loading;
-    
-    
+
     if (orderDetails.orderType == 0) {
       markers.clear();
       markers.add(Marker(
@@ -38,14 +37,11 @@ class OrdersDetailsController extends GetxController {
     var response =
         await orderDetailsData.getData(orderDetails.orderId.toString());
     requestStatus = handelingData(response);
-    
+
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      
-
       for (var item in response['data']) {
         data.add(OrderDetails.fromJson(item));
-        
       }
       update();
     } else {
@@ -73,8 +69,6 @@ class OrdersDetailsController extends GetxController {
   zoomIn() {
     if (zoom < 150) {
       zoom += 0.5;
-
-      
     }
     update();
   }
@@ -82,8 +76,6 @@ class OrdersDetailsController extends GetxController {
   zoomOut() {
     if (zoom > 1) {
       zoom -= 0.5;
-
-      
     }
     update();
   }
