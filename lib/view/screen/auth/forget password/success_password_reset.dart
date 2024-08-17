@@ -14,16 +14,6 @@ class SuccessPasswordReset extends StatelessWidget {
     SuccessPasswordResetControllerImpl controller =
         Get.put(SuccessPasswordResetControllerImpl());
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: AppColors.whiteTextColor,
-        elevation: 0.0,
-        title: Text('success'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColors.greyColor)),
-      ),
       body: Container(
         padding:
             AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),

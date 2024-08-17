@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:get/get.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 
 abstract class SuccessPasswordResetController extends GetxController {
   goToLogin();

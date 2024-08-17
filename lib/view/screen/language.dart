@@ -15,6 +15,7 @@ class LanguageScreen extends GetView<LocalizationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          backgroundColor: AppColors.white,
           centerTitle: true,
           title: Text('language'.tr,
               style: Theme.of(context).textTheme.displayLarge),

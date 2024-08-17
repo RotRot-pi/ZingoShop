@@ -4,6 +4,7 @@ import 'package:zingoshop/core/functions/handing_data.dart';
 import 'package:zingoshop/data/datasource/remote/auth/signup_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zingoshop/view/screen/auth/login.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -53,13 +54,15 @@ class SignUpControllerImpl extends SignUpController {
 
   @override
   goVerifySignUpCode() {
-    Get.offNamed(AppRoutes.verifySignUpCode,
+    Get.off(AppRoutes.verifySignUpCode,
         arguments: {'email': emailController.text});
   }
 
   @override
   goTologin() {
-    Get.offNamed(AppRoutes.login);
+    // Get.offNamed(AppRoutes.login);
+    Get.off(const LoginScreen(),
+        transition: Transition.size, routeName: AppRoutes.login);
   }
 
   @override

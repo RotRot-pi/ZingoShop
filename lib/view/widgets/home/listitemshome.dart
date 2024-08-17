@@ -19,6 +19,7 @@ class ListItemsHome extends GetView<HomeControllerImpl> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, i) {
             return ProductCard(
+              press: () => controller.goToProductDetails(controller.items[i]),
               bgColor: AppColors.whiteTextColor,
               price: controller.items[i].itemsPrice,
               title: controller.items[i].itemsName,
@@ -81,18 +82,18 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
-    // required this.press,
+    required this.press,
     required this.bgColor,
   });
   final String image, title;
-  // final Function()? press;
+  final Function()? press;
   final double price;
   final Color bgColor;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: press,
+      onTap: press,
       child: Container(
         width: w140,
         padding: EdgeInsets.all(p16 / 2),

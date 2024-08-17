@@ -18,20 +18,21 @@ class WaveWidget extends StatefulWidget {
 }
 
 class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
-  late AnimationController animationController;
+  late AnimationController waveAnimationController;
+  late AnimationController transitoinAnimationController;
   List<Offset> wavePoints = [];
-
+  late Animation<Offset> translateAnimation;
   @override
   void initState() {
     super.initState();
 
-    animationController = AnimationController(
+    waveAnimationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 5000))
       ..addListener(() {
         wavePoints.clear();
 
-        final double waveSpeed = animationController.value * 1080;
-        final double fullSphere = animationController.value * math.pi * 2;
+        final double waveSpeed = waveAnimationController.value * 1080;
+        final double fullSphere = waveAnimationController.value * math.pi * 2;
         final double normalizer = math.cos(fullSphere);
         const double waveWidth = math.pi / 270;
         const double waveHeight = 20.0;
@@ -46,29 +47,42 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
           );
         }
       });
+    waveAnimationController.repeat();
+    transitoinAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 2500))
+      ..forward();
 
-    animationController.repeat();
+    translateAnimation = Tween<Offset>(
+      begin: const Offset(0, 1),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+        parent: transitoinAnimationController, curve: Curves.ease));
   }
 
   @override
   void dispose() {
-    animationController.dispose();
+    waveAnimationController.dispose();
+    transitoinAnimationController.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animationController,
+      animation: waveAnimationController,
       builder: (context, _) {
-        return ClipPath(
-          clipper: ClipperWidget(
-            waveList: wavePoints,
-          ),
-          child: Container(
-            width: widget.size.width,
-            height: widget.size.height,
-            color: widget.color,
+        return SlideTransition(
+          position: translateAnimation,
+          child: ClipPath(
+            clipper: ClipperWidget(
+              waveList: wavePoints,
+            ),
+            child: Container(
+              width: widget.size.width,
+              height: widget.size.height,
+              color: widget.color,
+            ),
           ),
         );
       },

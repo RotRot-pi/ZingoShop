@@ -45,7 +45,7 @@ class CheckEmailControllerImpl extends CheckEmailController {
 
   @override
   goToVerifySignUpCode() {
-    Get.toNamed(AppRoutes.verifyCode,
+    Get.offNamed(AppRoutes.verifyCode,
         arguments: {'email': emailController.text});
   }
 

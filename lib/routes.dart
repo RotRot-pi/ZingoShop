@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zingoshop/core/localization/change_local.dart';
 import 'package:zingoshop/page_transitions.dart';
 import 'package:zingoshop/view/screen/orders/tracking.dart';
 import 'package:zingoshop/core/middleware/app_middle_ware.dart';
@@ -42,7 +41,6 @@ List<GetPage> getPages() {
       curve: Curves.easeInOut,
       customTransition: CustomPageTransitionLeftAndRight(),
     ),
-
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginScreen(),
@@ -54,18 +52,28 @@ List<GetPage> getPages() {
     GetPage(
       name: AppRoutes.forgetPassword,
       page: () => const CheckEmailScreen(),
+      transitionDuration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+      customTransition: CustomPageTransitionLeftAndRight(),
     ),
     GetPage(
       name: AppRoutes.resetPassword,
       page: () => const ResetPasswordScreen(),
+      transitionDuration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+      customTransition: CustomPageTransitionLeftAndRight(),
     ),
     GetPage(
       name: AppRoutes.verifyCode,
       page: () => const VerifyCodeScreen(),
+      transitionDuration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+      customTransition: CustomPageTransitionLeftAndRight(),
     ),
     GetPage(
       name: AppRoutes.successSignUp,
       page: () => const SuccessSignUp(),
+      transitionDuration: const Duration(milliseconds: 400),
     ),
     GetPage(
       name: AppRoutes.successPasswordReset,
@@ -74,6 +82,9 @@ List<GetPage> getPages() {
     GetPage(
       name: AppRoutes.verifySignUpCode,
       page: () => const VerifySignUpCode(),
+      transitionDuration: const Duration(milliseconds: 400),
+      curve: Curves.easeInOut,
+      customTransition: CustomPageTransitionLeftAndRight(),
     ),
 
     // ========================= Home ========================= //

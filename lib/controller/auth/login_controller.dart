@@ -6,6 +6,7 @@ import 'package:zingoshop/data/datasource/remote/auth/login_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zingoshop/view/screen/auth/signup.dart';
 
 abstract class LogInController extends GetxController {
   logIn();
@@ -69,7 +70,9 @@ class LogInControllerImpl extends LogInController {
 
   @override
   goToSignUp() {
-    Get.offNamed(AppRoutes.signup);
+    // Get.offNamed(AppRoutes.signup);
+    Get.off(const SignUpScreen(),
+        transition: Transition.size, routeName: AppRoutes.signup);
   }
 
   @override

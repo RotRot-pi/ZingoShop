@@ -10,7 +10,9 @@ import 'package:zingoshop/view/widgets/auth/wave_widget.dart';
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,38 +20,28 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: GetBuilder<LogInControllerImpl>(
         builder: (controller) => HandelingDataView(
-            requestStatus: controller.requestStatus,
-            child: LoginPage(controller: controller)),
+            requestStatus: controller.requestStatus, child: const LoginPage()),
       ),
     );
   }
 }
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends GetView<LogInControllerImpl> {
   const LoginPage({
     super.key,
-    required this.controller,
   });
 
-  final LogInControllerImpl controller;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
-          alignment: AlignmentDirectional.bottomCenter,
-          child: Transform.flip(
-            flipY: false,
-            child: WaveWidget(
-                size: MediaQuery.of(context).size,
-                yOffset: MediaQuery.of(context).size.height / 3.0,
-                color: AppColors.primaryColor),
-          ),
-        ),
+        WaveWidget(
+            size: MediaQuery.of(context).size,
+            yOffset: MediaQuery.of(context).size.height / 3.0,
+            color: AppColors.primaryColor),
         Container(
-          padding:
-              AppSpacing.addEdgeInsetsSymmetric(vertical: p12, horizontal: p24),
-          child: Column(
+          padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p24),
+          child: ListView(
             children: [
               PopScope(
                 canPop: false,

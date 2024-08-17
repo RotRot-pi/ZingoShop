@@ -22,10 +22,7 @@ class VerifySignUpCode extends StatelessWidget {
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
         title: Text('verification_code'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColors.greyColor)),
+            style: Theme.of(context).textTheme.displayLarge!),
       ),
       body: GetBuilder<VerifySignUpCodeControllerImpl>(builder: (controller) {
         return HandelingDataView(

@@ -10,7 +10,6 @@ import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/view/widgets/auth/custombuttonauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
-import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -24,10 +23,7 @@ class ResetPasswordScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
         title: Text('reset_password'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColors.greyColor)),
+            style: Theme.of(context).textTheme.displayLarge!),
       ),
       body: GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
         return HandelingDataView(

@@ -1,9 +1,10 @@
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/core/functions/validate_auth_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustonTextFormAuth extends StatelessWidget {
+class CustonTextFormAuth extends StatefulWidget {
   final String hinttext;
   final String labeltext;
   final IconData? iconData;
@@ -25,39 +26,89 @@ class CustonTextFormAuth extends StatelessWidget {
   });
 
   @override
+  State<CustonTextFormAuth> createState() => _CustonTextFormAuthState();
+}
+
+class _CustonTextFormAuthState extends State<CustonTextFormAuth> {
+  late FocusNode _focusNode;
+  bool isTaped = false;
+  @override
+  void initState() {
+    _focusNode = FocusNode()..addListener(() => isTapedFunc());
+    super.initState();
+  }
+
+  isTapedFunc() {
+    print("Has Focus: ${_focusNode.hasFocus}");
+    print("Is Taped:$isTaped");
+    setState(() {
+      isTaped = _focusNode.hasFocus;
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: AppSpacing.addEdgeInsetsOnly(bottom: h20),
       child: TextFormField(
-        controller: controller,
-        validator: validator,
-        obscureText: obscureText ?? false,
-        keyboardType: inputType == AuthInputType.phone
+        controller: widget.controller,
+        focusNode: _focusNode,
+        validator: widget.validator,
+        obscureText: widget.obscureText ?? false,
+        keyboardType: widget.inputType == AuthInputType.phone
             ? TextInputType.phone
             : TextInputType.text,
+        style: const TextStyle(
+            color: AppColors.black, fontWeight: FontWeight.w500),
         decoration: InputDecoration(
             errorMaxLines: 3,
-            hintText: hinttext,
-            hintStyle: TextStyle(fontSize: s16.sp),
+            hintText: widget.hinttext,
+            hintStyle: TextStyle(
+              fontSize: s16.sp,
+            ),
             floatingLabelBehavior: FloatingLabelBehavior.always,
             contentPadding: AppSpacing.addEdgeInsetsSymmetric(
                 vertical: p4, horizontal: p28),
             label: Container(
                 margin: AppSpacing.addEdgeInsetsSymmetric(horizontal: m8),
                 child: Text(
-                  labeltext,
-                  style: TextStyle(fontSize: s16.sp),
+                  widget.labeltext,
+                  style: TextStyle(
+                      fontSize: s16.sp,
+                      color:
+                          isTaped ? AppColors.primaryColor : AppColors.black),
                 )),
-            suffixIcon: inputType == AuthInputType.password
+            suffixIcon: widget.inputType == AuthInputType.password
                 ? GestureDetector(
-                    onTap: onIconTap,
-                    child: obscureText == false
-                        ? const Icon(Icons.lock_open_outlined)
-                        : const Icon(Icons.lock_outlined),
+                    onTap: widget.onIconTap,
+                    child: widget.obscureText == false
+                        ? Icon(Icons.lock_open_outlined,
+                            color: isTaped
+                                ? AppColors.primaryColor
+                                : AppColors.black)
+                        : Icon(Icons.lock_outlined,
+                            color: isTaped
+                                ? AppColors.primaryColor
+                                : AppColors.black),
                   )
-                : Icon(iconData),
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(r20))),
+                : Icon(
+                    widget.iconData,
+                    color: isTaped ? AppColors.primaryColor : AppColors.black,
+                  ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(r20),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(r20),
+              borderSide:
+                  BorderSide(color: AppColors.primaryColor, width: 2.5.w),
+            )),
       ),
     );
   }

@@ -33,7 +33,7 @@ class VerifyCodeControllerImpl extends VerifyCodeController {
 
   @override
   goToResetPassword() {
-    Get.toNamed(AppRoutes.resetPassword, arguments: {'email': email});
+    Get.offNamed(AppRoutes.resetPassword, arguments: {'email': email});
   }
 
   @override

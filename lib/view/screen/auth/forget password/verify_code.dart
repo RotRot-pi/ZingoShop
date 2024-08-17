@@ -8,8 +8,6 @@ import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 
-import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
-
 class VerifyCodeScreen extends StatelessWidget {
   const VerifyCodeScreen({super.key});
 
@@ -22,10 +20,7 @@ class VerifyCodeScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
         title: Text('verification_code'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColors.greyColor)),
+            style: Theme.of(context).textTheme.displayLarge!),
       ),
       body: GetBuilder<VerifyCodeControllerImpl>(builder: (controller) {
         return HandelingDataView(
@@ -49,8 +44,6 @@ class VerfyCodePage extends StatelessWidget {
           AppSpacing.addEdgeInsetsSymmetric(vertical: p16, horizontal: p32),
       child: ListView(children: [
         AppSpacing.addHeigh(h24),
-        CustomTextTitleAuth(text: "verification_code".tr),
-        AppSpacing.addHeigh(h12),
         CustomTextBodyAuth(text: "enter_verification_code".tr),
         AppSpacing.addHeigh(h24),
         OtpTextField(

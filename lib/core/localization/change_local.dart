@@ -16,7 +16,6 @@ class LocalizationController extends GetxController {
     appTheme = selectedLanguage == 'ar' ? appArabicTheme : appEnglishTheme;
     Get.changeTheme(appTheme);
     Get.updateLocale(locale);
-    // update();
   }
 
   goToOnboarding() {

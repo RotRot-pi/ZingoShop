@@ -25,3 +25,21 @@ class CustomPageTransitionLeftAndRight extends CustomTransition {
     );
   }
 }
+
+class FadeInPageTransition extends CustomTransition {
+  @override
+  Widget buildTransition(
+      BuildContext context,
+      Curve? curve,
+      Alignment? alignment,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
+    return FadeTransition(
+      opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
+        CurvedAnimation(parent: animation, curve: curve ?? Curves.easeInOut),
+      ),
+      child: child,
+    );
+  }
+}

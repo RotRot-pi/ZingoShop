@@ -9,7 +9,6 @@ import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/view/widgets/auth/custombuttonauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
-import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 
 class CheckEmailScreen extends StatelessWidget {
   const CheckEmailScreen({super.key});
@@ -23,10 +22,7 @@ class CheckEmailScreen extends StatelessWidget {
         backgroundColor: AppColors.whiteTextColor,
         elevation: 0.0,
         title: Text('check_email'.tr,
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColors.greyColor)),
+            style: Theme.of(context).textTheme.displayLarge!),
       ),
       body: GetBuilder<CheckEmailControllerImpl>(builder: (controller) {
         return HandelingDataView(

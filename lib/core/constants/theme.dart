@@ -14,14 +14,15 @@ final ThemeData appEnglishTheme = ThemeData(
           color: AppColors.secondaryColor,
           // fontWeight: FontWeight.bold,
           fontFamily: "OpenSans",
-          fontSize: 25.sp),
-      backgroundColor: Colors.grey[50],
+          fontWeight: FontWeight.w500,
+          fontSize: 24.sp),
+      backgroundColor: AppColors.white,
     ),
     textTheme: TextTheme(
         displayLarge: TextStyle(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-            color: AppColors.textColorblack),
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w500,
+            color: AppColors.black),
         bodyLarge: TextStyle(
           height: 4,
           color: AppColors.greyTextColor,
