@@ -50,6 +50,7 @@ dependencies:
   flutter_ringtone_player: ^4.0.0+2
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.9
+  flutter_native_splash: ^2.4.1
   fluttericon: ^2.0.0
   font_awesome_flutter: ^10.1.0
   geocoding: ^3.0.0
@@ -134,3 +135,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  image: assets/images/zingo_shop_brand_logo_8x.png
+  # branding: assets/images/zingo_shop_brand.png
+  color: "#FFFFFF"
+  android_12:
+    image: assets/images/zingo_shop_brand_logo_8x.png
