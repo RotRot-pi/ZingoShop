@@ -1,4 +1,6 @@
 import 'package:zingoshop/controller/favorite_controller.dart';
+import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/data/model/favorite.dart';
 import 'package:zingoshop/view/widgets/customappbar.dart';
 import 'package:zingoshop/view/widgets/favorite/customfavoritewidget.dart';
@@ -13,28 +15,37 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(FavoriteControllerImpl());
     return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(searchHintText: "favorite".tr),
-          GetBuilder<FavoriteControllerImpl>(
-              builder: (conroller) => HandelingDataView(
-                    requestStatus: conroller.requestStatus,
-                    child: Expanded(
-                      child: GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2, childAspectRatio: 0.65),
-                        itemCount: conroller.data.length,
-                        itemBuilder: (context, index) {
-                          Favorite favorite = conroller.data[index];
-                          return Card(
-                            child: CustomFavoriteWidget(favorite: favorite),
-                          );
-                        },
+      body: Padding(
+        padding: AppSpacing.addEdgeInsetsAll(p24),
+        child: Column(
+          children: [
+            CustomAppBar(
+              searchHintText: "favorite".tr,
+              // fistActionIcon: Icons.notifications_outlined,
+              // fistActionOnPressed: () => Get.toNamed(AppRoutes.notification),
+
+              goBack: true,
+            ),
+            GetBuilder<FavoriteControllerImpl>(
+                builder: (conroller) => HandelingDataView(
+                      requestStatus: conroller.requestStatus,
+                      child: Expanded(
+                        child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 0.65),
+                          itemCount: conroller.data.length,
+                          itemBuilder: (context, index) {
+                            Favorite favorite = conroller.data[index];
+                            return Card(
+                              child: CustomFavoriteWidget(favorite: favorite),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ))
-        ],
+                    ))
+          ],
+        ),
       ),
     );
   }

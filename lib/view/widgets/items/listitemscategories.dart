@@ -16,7 +16,7 @@ class ListItemsCategories extends GetView<ItemsControllerImpl> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: h56,
+      height: h48,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => AppSpacing.addWidth(w16),
@@ -46,23 +46,25 @@ class CategoyWidget extends GetView<ItemsControllerImpl> {
         onTap: () =>
             controller.changeCategory(categoryIndex, category.categoriesId),
         child: Container(
-          margin: EdgeInsets.only(right: p8),
+          margin: AppSpacing.addEdgeInsetsOnly(right: p8),
+          padding: AppSpacing.addEdgeInsetsAll(p8),
           child: Column(
             children: [
               Container(
+                height: h28,
                 decoration: BoxDecoration(
                     border: Border(
                         bottom: controller.categoryIndex == categoryIndex
-                            ? BorderSide(
-                                color: AppColors.secondaryColor, width: w2)
+                            ? const BorderSide(
+                                color: AppColors.secondaryColor, width: 1.5)
                             : BorderSide.none)),
                 child: Text(
                     translateData(
                         category.categoriesNameAr, category.categoriesName),
                     style: const TextStyle(
-                        color: AppColors.secondaryGrey,
+                        color: AppColors.black,
                         fontSize: s16,
-                        fontWeight: FontWeight.bold)),
+                        fontWeight: FontWeight.w600)),
               ),
             ],
           ),

@@ -1,6 +1,7 @@
 //create offers screen
 import 'package:zingoshop/controller/favorite_items_controller.dart';
 import 'package:zingoshop/controller/offers_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/data/model/items.dart';
@@ -20,16 +21,18 @@ class OffersScreen extends StatelessWidget {
     Get.put(FavoriteItemsControllerImpl());
     return GetBuilder<OffersController>(builder: (controller) {
       return SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: Container(
+          color: AppColors.white,
+          padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
           child: Column(
             children: [
-              AppSpacing.addHeigh(h24),
               CustomAppBar(
-                searchHintText: "find_product".tr,
+                searchHintText: "what_are_you_looking_for".tr,
                 searchController: controller.searchController,
-                onPressedIcon: () {},
-                onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
+                fistActionIcon: Icons.notifications_outlined,
+                fistActionOnPressed: () => Get.toNamed(AppRoutes.favorite),
+                secondActionIcon: Icons.favorite_border_outlined,
+                secondActionOnPressed: () => Get.toNamed(AppRoutes.favorite),
                 onPressedSearch: () => controller.onItemsSearch(),
                 onChanged: (value) => controller.isSearching(value),
               ),

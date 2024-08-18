@@ -6,7 +6,7 @@ import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/core/functions/exit_app_alert.dart';
 import 'package:zingoshop/view/widgets/auth/logoauth.dart';
 import 'package:zingoshop/view/widgets/auth/sign_in_card.dart';
-import 'package:zingoshop/view/widgets/auth/wave_widget.dart';
+import 'package:zingoshop/view/animation/wave_animation_widget.dart';
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 
 class LoginScreen extends StatelessWidget {

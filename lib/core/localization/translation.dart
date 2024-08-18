@@ -151,6 +151,7 @@ class AppTranslation extends Translations {
           "profile": "الملف الشخصي",
           "cart": "السلة",
           "settings": "الاعدادات",
+          "no_notification": "لا يوجد اشعارات",
           "change_password": "تغيير كلمة المرور",
           "old_password": "كلمة المرور القديمة",
           "a_summer_surprise": "مفاجئة صيفية",
@@ -381,6 +382,7 @@ class AppTranslation extends Translations {
           "continue_shopping": "Continue Shopping",
           "payment": "Payment",
           "confirm_order": "Confirm Order",
+          "no_notification": "No Notification",
           "order_summary": "Order Summary",
           "success_order_message": "Your order has been placed successfully!",
           "error_message": "An error occurred, please try again.",
@@ -540,6 +542,7 @@ class AppTranslation extends Translations {
           "order_tracking_description":
               "Vous pouvez suivre la commande à chaque étape \n jusqu'à ce qu'elle vous parvienne",
           "sign_in": "Se connecter",
+          "no_notification": "Aucune notification",
           "email_not_exist": "L'email n'existe pas",
           "error": "Erreur",
           "warning": "Avertissement",

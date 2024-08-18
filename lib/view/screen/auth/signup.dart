@@ -13,7 +13,7 @@ import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 import 'package:zingoshop/view/widgets/auth/logoauth.dart';
-import 'package:zingoshop/view/widgets/auth/wave_widget.dart';
+import 'package:zingoshop/view/animation/wave_animation_widget.dart';
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 
 class SignUpScreen extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:zingoshop/controller/home_screen_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/view/widgets/home/cutombottomappbarbutton.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +12,16 @@ class CustomNavigationAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeScreenControllerImpl>(builder: (controller) {
-      return BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: m12,
-        child: Row(
+    return BottomAppBar(
+      // surfaceTintColor: AppColors.secondaryColor,
+      // shadowColor: AppColors.secondaryColor,
+      elevation: 100,
+      clipBehavior: Clip.antiAlias,
+      color: AppColors.white,
+      shape: const CircularNotchedRectangle(),
+      notchMargin: m12,
+      child: GetBuilder<HomeScreenControllerImpl>(builder: (controller) {
+        return Row(
           children: [
             for (int index = 0; index < controller.pages.length; index++) ...[
               Flexible(
@@ -30,8 +36,8 @@ class CustomNavigationAppBar extends StatelessWidget {
                 const Spacer(), // Add a Spacer right after the second button
             ],
           ],
-        ),
-      );
-    });
+        );
+      }),
+    );
   }
 }

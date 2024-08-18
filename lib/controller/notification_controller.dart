@@ -24,7 +24,7 @@ class NotificationController extends GetxController {
         data.add(Notifications.fromMap(response['data'][i]));
       }
     } else {
-      requestStatus;
+      requestStatus = RequestStatus.failure;
     }
     update();
   }

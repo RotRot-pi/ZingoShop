@@ -99,6 +99,7 @@ class ProductCard extends StatelessWidget {
         padding: EdgeInsets.all(p16 / 2),
         margin: EdgeInsets.only(right: p16),
         decoration: BoxDecoration(
+          color: AppColors.grey.withAlpha(25),
           borderRadius: BorderRadius.all(Radius.circular(r16)),
         ),
         child: Column(
@@ -131,9 +132,12 @@ class ProductCard extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            SizedBox(height: p16 / 4),
+            // SizedBox(height: p16 / 4),
+            const Spacer(),
             Text(
               "\$${price.toStringAsFixed(2)}",
               textAlign: TextAlign.center,

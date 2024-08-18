@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:zingoshop/controller/home_controller.dart';
 import 'package:zingoshop/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
 import 'package:zingoshop/view/widgets/customappbar.dart';
@@ -21,44 +23,51 @@ class HomePage extends StatelessWidget {
     Get.put(HomeControllerImpl());
     return GetBuilder<HomeControllerImpl>(
       builder: (controller) => Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: ListView(
-            children: [
-              CustomAppBar(
-                searchHintText: "what_are_you_looking_for".tr,
-                searchController: controller.searchController,
-                onPressedIcon: () {},
-                onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
-                onPressedSearch: () => controller.onItemsSearch(),
-                onChanged: (value) => controller.isSearching(value),
-              ),
-              !controller.isSeaching
-                  ? GetBuilder<HomeControllerImpl>(builder: (controller) {
-                      return HandelingDataView(
-                          requestStatus: controller.requestStatus,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              if (controller.homeCartSettings.isNotEmpty)
-                                CustomCardHome(
-                                    title: controller.titleHomeCard,
-                                    body: controller.descriptionHomeCard,
-                                    language: controller.language),
-                              const ListCategoriesHome(),
-                              const SizedBox(height: 10),
-                              CustomTitleHome(title: "product_for_you".tr),
-                              const SizedBox(height: 10),
-                              const ListItemsHome(),
-                              CustomTitleHome(title: "offer".tr),
-                              const SizedBox(height: 10),
-                              const ListItemsHome()
-                            ],
-                          ));
-                    })
-                  : SearchedItemsList(
-                      listdatamodel: controller.searchedItems,
-                    )
-            ],
+          color: AppColors.white,
+          padding: AppSpacing.addEdgeInsetsSymmetric(horizontal: p16),
+          child: RefreshIndicator.adaptive(
+            onRefresh: () => controller.getData(),
+            backgroundColor: AppColors.white,
+            color: AppColors.primaryColor,
+            child: ListView(
+              children: [
+                CustomAppBar(
+                  searchHintText: "what_are_you_looking_for".tr,
+                  searchController: controller.searchController,
+                  secondActionIcon: Icons.favorite_border_outlined,
+                  secondActionOnPressed: () => Get.toNamed(AppRoutes.favorite),
+                  goBack: false,
+                  onPressedSearch: () => controller.onItemsSearch(),
+                  onChanged: (value) => controller.isSearching(value),
+                ),
+                !controller.isSeaching
+                    ? GetBuilder<HomeControllerImpl>(builder: (controller) {
+                        return HandelingDataView(
+                            requestStatus: controller.requestStatus,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (controller.homeCartSettings.isNotEmpty)
+                                  CustomCardHome(
+                                      title: controller.titleHomeCard,
+                                      body: controller.descriptionHomeCard,
+                                      language: controller.language),
+                                const ListCategoriesHome(),
+                                const SizedBox(height: 10),
+                                CustomTitleHome(title: "product_for_you".tr),
+                                const SizedBox(height: 10),
+                                const ListItemsHome(),
+                                CustomTitleHome(title: "offer".tr),
+                                const SizedBox(height: 10),
+                                const ListItemsHome()
+                              ],
+                            ));
+                      })
+                    : SearchedItemsList(
+                        listdatamodel: controller.searchedItems,
+                      )
+              ],
+            ),
           )
           // : Column(
           //     children: [

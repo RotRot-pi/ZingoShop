@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:zingoshop/controller/favorite_items_controller.dart';
 import 'package:zingoshop/controller/items_controller.dart';
@@ -21,6 +22,11 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
     return InkWell(
         onTap: () => controller.goToProductDetails(item),
         child: Card(
+          color: AppColors.white,
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(r20),
+          ),
           child: Stack(
             children: [
               Padding(
@@ -29,71 +35,81 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Hero(
-                        tag: "${item.itemsId}",
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              "${ApiLink.itemsImageFolder}/${item.itemsImage}",
-                          height: h100,
-                          fit: BoxFit.fill,
-                          fadeInDuration: const Duration(milliseconds: 400),
-                          fadeOutDuration: const Duration(milliseconds: 400),
-                        ),
+                      CachedNetworkImage(
+                        imageUrl:
+                            "${ApiLink.itemsImageFolder}/${item.itemsImage}",
+                        height: h64,
+                        fit: BoxFit.scaleDown,
+                        fadeInDuration: const Duration(milliseconds: 400),
+                        fadeOutDuration: const Duration(milliseconds: 400),
                       ),
-                      AppSpacing.addHeigh(h10),
+                      AppSpacing.addHeigh(h4),
                       Text(translateData(item.itemsNameAr, item.itemsName),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               color: AppColors.black,
                               fontSize: s16,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.w500)),
 
-                      AppSpacing.addHeigh(h10),
+                      AppSpacing.addHeigh(h4),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text("${controller.deliveryTime}",
                               style: const TextStyle(fontSize: s16),
                               textAlign: TextAlign.center),
-                          AppSpacing.addWidth(w10),
+                          AppSpacing.addWidth(h4),
                           const Icon(
                             Icons.timer_sharp,
-                            size: 18,
+                            size: s16,
                           ),
                         ],
                       ),
                       //Rating stars
                       //
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Text("${"rating".tr} 3.5",
-                      //         textAlign: TextAlign.center),
-                      //     Container(
-                      //       alignment: Alignment.bottomCenter,
-                      //       height: h24,
-                      //       child: Row(
-                      //         children: [
-                      //           ...List.generate(
-                      //               5,
-                      //               (index) => const Icon(
-                      //                     Icons.star,
-                      //                     size: s16,
-                      //                   ))
-                      //         ],
-                      //       ),
-                      //     )
-                      //   ],
-                      // ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${"rating".tr} 3.5",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: AppColors.black,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "OpenSans",
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.bottomCenter,
+                              height: h24,
+                              child: Row(
+                                children: [
+                                  ...List.generate(
+                                      math.Random().nextInt(6),
+                                      (index) => const Icon(
+                                            Icons.star_outlined,
+                                            size: s16,
+                                            color: AppColors.sixthColor,
+                                          ))
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                               "${item.itemsPriceAfterDiscount?.toStringAsFixed(2)} \$",
                               style: const TextStyle(
-                                  color: AppColors.primaryColor,
+                                  color: AppColors.black,
                                   fontSize: s16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "sans")),
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: "OpenSans")),
                           GetBuilder<FavoriteItemsControllerImpl>(
                               builder: (controller) {
                             return IconButton(
@@ -119,11 +135,13 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                 Positioned(
                     child: ColorFiltered(
                   colorFilter: ColorFilter.matrix(colorFilterMatrix),
+                  // colorFilter: ColorFilter.mode(
+                  //     AppColors.secondaryColor, BlendMode.colorBurn),
                   child: Image.asset(
                     AppImageAssets.sales,
-                    height: h64,
-                    width: w64,
-                    fit: BoxFit.fill,
+                    height: h48,
+                    width: w48,
+                    fit: BoxFit.cover,
                   ),
                 ))
             ],
@@ -135,7 +153,7 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
     0.5126,
     1.0,
     0.7722,
-    0,
+    0.125,
     1,
     0.2126,
     1.2152,

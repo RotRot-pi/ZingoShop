@@ -18,65 +18,69 @@ class ItemsScreen extends StatelessWidget {
     var controller = Get.put(ItemsControllerImpl());
     var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
-        appBar: AppBar(
-          title: Text("products".tr),
-          centerTitle: true,
-          leading: IconButton(
-            onPressed: () => Get.offNamed(AppRoutes.home),
-            icon: const Icon(Icons.arrow_back),
+        body: Column(
+      children: [
+        Padding(
+          padding:
+              AppSpacing.addEdgeInsetsOnly(left: p16, right: p16, top: p24),
+          child: CustomAppBar(
+            searchHintText: "find_product".tr,
+            searchController: controller.searchController,
+            fistActionIcon: Icons.favorite_border_outlined,
+            fistActionOnPressed: () => Get.toNamed(AppRoutes.favorite),
+            secondActionIcon: Icons.shopping_cart,
+            secondActionOnPressed: () => Get.toNamed(AppRoutes.cart),
+            // goBack: true,
+            onPressedSearch: () => controller.onItemsSearch(),
+            onChanged: (value) => controller.isSearching(value),
           ),
         ),
-        body: Padding(
-            padding: AppSpacing.addEdgeInsetsAll(p16),
-            child: ListView(
-              children: [
-                CustomAppBar(
-                  searchHintText: "find_product".tr,
-                  searchController: controller.searchController,
-                  onPressedIcon: () {},
-                  onPressedFavorite: () => Get.toNamed(AppRoutes.favorite),
-                  onPressedSearch: () => controller.onItemsSearch(),
-                  onChanged: (value) => controller.isSearching(value),
-                ),
-                AppSpacing.addHeigh(h16),
-                const ListItemsCategories(),
-                GetBuilder<ItemsControllerImpl>(builder: (controller) {
-                  return HandelingDataView(
-                    requestStatus: controller.requestStatus,
-                    child: !controller.isSeaching
-                        ? GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: controller.items.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2, childAspectRatio: 0.65),
-                            itemBuilder: (BuildContext context, index) {
-                              favoriteController
-                                  .addItemToFavorite(controller.items[index]);
-                              return CustomListItems(
-                                  item: controller.items[index]);
-                            })
-                        : SearchedItemsList(
-                            listdatamodel: controller.searchedItems,
-                          ),
-                  );
-                })
-              ],
-            )
-            // Column(
-            //     children: [
-            //       CustomAppBar(
-            //           titleappbar: "find_product".tr,
-            //           onPressedIcon: () {},
-            //           onPressedFavorite: () =>
-            //               Get.toNamed(AppRoutes.favorite),
-            //           onPressedSearch: () => controller.searchItems()),
-            //       Expanded(
-            //           child: ),
-            //     ],
-            //   );
+        AppSpacing.addHeigh(h16),
+        const ListItemsCategories(),
+        Expanded(
+          child: GetBuilder<ItemsControllerImpl>(builder: (controller) {
+            return Padding(
+              padding: AppSpacing.addEdgeInsetsOnly(left: p16, right: p16),
+              child: HandelingDataView(
+                requestStatus: controller.requestStatus,
+                child: !controller.isSeaching
+                    ? GridView.builder(
+                        itemCount: controller.items.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisSpacing: p12,
+                          crossAxisSpacing: p12,
+                          crossAxisCount: 2,
+                          childAspectRatio: 1 / 1.25,
+                        ),
+                        itemBuilder: (BuildContext context, index) {
+                          favoriteController
+                              .addItemToFavorite(controller.items[index]);
+                          return CustomListItems(item: controller.items[index]);
+                        })
+                    : Expanded(
+                        child: SearchedItemsList(
+                          listdatamodel: controller.searchedItems,
+                        ),
+                      ),
+              ),
+            );
+          }),
+        )
+      ],
+    )
+        // Column(
+        //     children: [
+        //       CustomAppBar(
+        //           titleappbar: "find_product".tr,
+        //           onPressedIcon: () {},
+        //           onPressedFavorite: () =>
+        //               Get.toNamed(AppRoutes.favorite),
+        //           onPressedSearch: () => controller.searchItems()),
+        //       Expanded(
+        //           child: ),
+        //     ],
+        //   );
 
-            ));
+        );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:zingoshop/core/classes/request_status.dart';
 import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:zingoshop/core/functions/handing_data.dart';
@@ -9,9 +10,11 @@ import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends GetxController {}
 
-class ProductDetailsControllerImpl extends ProductDetailsController {
+class ProductDetailsControllerImpl extends ProductDetailsController
+    with GetTickerProviderStateMixin {
   late Item item;
-
+  late AnimationController productAnimationController;
+  late AnimationController productInfoWidgetAnimationController;
   CartData cartData = CartData(Get.find());
 
   late RequestStatus requestStatus;
@@ -23,33 +26,10 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
   intialData() async {
     requestStatus = RequestStatus.loading;
     item = Get.arguments['item'];
-
-    // countitems = await getCountItems(item.itemsId) ?? 0;
     countitems = 0;
     requestStatus = RequestStatus.success;
     update();
   }
-
-  // getCountItems(var itemsid) async {
-  //   requestStatus = RequestStatus.loading;
-  //   var response = await cartData.getCountCart(
-  //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //
-  //   requestStatus = handelingData(response);
-  //   if (RequestStatus.success == requestStatus) {
-  //     // Start backend
-  //     if (response['status'] == "success") {
-  //       countitems = int.parse(response['data']);
-  //
-  //
-  //       return countitems;
-  //       // data.addAll(response['data']);
-  //     } else {
-  //       requestStatus = RequestStatus.failure;
-  //     }
-  //     update();
-  //   }
-  // }
 
   addItems(var itemsid) async {
     requestStatus = RequestStatus.loading;
@@ -72,47 +52,6 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
     }
     // End
   }
-  // getCountCart(var usersid, var itemsid) async {
-  //   var response = await cartData.getCountCart(
-  //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //   //
-  //   // requestStatus = handelingData(response);
-  //   if (RequestStatus.success == requestStatus) {
-  //     // Start backend
-  //     if (response['status'] == "success") {
-  //
-  //       countitems = int.parse(response['data']);
-  //
-  //
-  //
-  //       // data.addAll(response['data']);
-  //     } else {
-  //       requestStatus = RequestStatus.failure;
-  //     }
-  //     update();
-  //     // End
-  //   }
-  // }
-  // deleteitems(var itemsid) async {
-  //   // requestStatus = RequestStatus.loading;
-  //   // update();
-  //
-  //   var response = await cartData.deleteCart(
-  //       _appServices.sharedPreferences.getInt("id")!, itemsid);
-  //
-  //   // requestStatus = handelingData(response);
-  //   // if (RequestStatus.success == requestStatus) {
-  //   //   // Start backend
-  //   //   if (response['status'] == "success") {
-  //   //     Get.rawSnackbar(
-  //   //         title: "اشعار",
-  //   //         messageText: const Text("تم ازالة المنتج من السلة "));
-  //   //     // data.addAll(response['data']);
-  //   //   } else {
-  //   //     requestStatus = RequestStatus.failure;
-  //   //   }
-  //     // End
-  //   }
 
   List subitems = [
     {"name": "red", "id": 1, "active": '0'},
@@ -136,6 +75,15 @@ class ProductDetailsControllerImpl extends ProductDetailsController {
 
   @override
   void onInit() {
+    productAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500))
+      ..forward();
+    productInfoWidgetAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    Future.delayed(const Duration(milliseconds: 250), () {
+      productInfoWidgetAnimationController.forward();
+    });
+
     intialData();
 
     super.onInit();

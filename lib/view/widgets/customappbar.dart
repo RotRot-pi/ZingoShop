@@ -1,70 +1,84 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
 
-import 'package:zingoshop/controller/home_controller.dart';
-import 'package:zingoshop/core/constants/colors.dart';
-import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
+import 'package:zingoshop/controller/home_controller.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
+
 class CustomAppBar extends GetView<HomeControllerImpl> {
   final String searchHintText;
-  final void Function()? onPressedIcon;
-  final void Function()? onPressedFavorite;
+  final IconData? fistActionIcon;
+  final void Function()? fistActionOnPressed;
+  final IconData? secondActionIcon;
+  final void Function()? secondActionOnPressed;
+  // final void Function()? onPressedIcon;
+  // final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
   final void Function(String)? onChanged;
   final TextEditingController? searchController;
-  const CustomAppBar(
-      {super.key,
-      required this.searchHintText,
-      this.searchController,
-      this.onPressedIcon,
-      this.onPressedFavorite,
-      this.onPressedSearch,
-      this.onChanged});
+  final bool goBack;
+  const CustomAppBar({
+    super.key,
+    // this.onPressedIcon,
+    required this.searchHintText,
+    this.fistActionIcon,
+    this.fistActionOnPressed,
+    this.secondActionIcon,
+    this.secondActionOnPressed,
+    // this.onPressedFavorite,
+    this.onPressedSearch,
+    this.onChanged,
+    this.searchController,
+    this.goBack = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: AppSpacing.addEdgeInsetsOnly(top: p12),
       height: 54.h,
-      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      child: Row(children: [
+        //Optional Go Back Button
+        goBack == true
+            ? IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  color: AppColors.primaryColor,
+                ),
+              )
+            : const SizedBox(),
         Expanded(
-            child: CustomSearchWidget(
-                searchController: searchController,
-                onChanged: onChanged,
-                onPressedSearch: onPressedSearch,
-                searchHintText: searchHintText)),
-        // AppSpacing.addWidth(w10),
-        // Container(
-        //   decoration: BoxDecoration(
-        //       color: AppColors.lightGrey,
-        //       borderRadius: BorderRadius.circular(r12)),
-        //   width: w64,
-        //   padding: AppSpacing.addEdgeInsetsSymmetric(vertical: p8),
-        //   child: IconButton(
-        //       onPressed: onPressedIcon,
-        //       icon: const Icon(
-        //         Icons.notifications_active_outlined,
-        //         size: s32,
-        //         color: AppColors.secondaryGrey,
-        //       )),
-        // ),
-        // AppSpacing.addWidth(w10),
-        // Container(
-        //   decoration: BoxDecoration(
-        //       color: AppColors.lightGrey,
-        //       borderRadius: BorderRadius.circular(r12)),
-        //   width: w64,
-        //   padding: AppSpacing.addEdgeInsetsSymmetric(vertical: p8),
-        //   child: IconButton(
-        //       onPressed: onPressedFavorite,
-        //       icon: const Icon(
-        //         Icons.favorite_outlined,
-        //         size: s32,
-        //         color: AppColors.secondaryGrey,
-        //       )),
-        // )
+          child: CustomSearchWidget(
+              searchController: searchController,
+              onChanged: onChanged,
+              onPressedSearch: onPressedSearch,
+              searchHintText: searchHintText),
+        ),
+
+        fistActionIcon != null
+            ? IconButton(
+                onPressed: fistActionOnPressed,
+                icon: Icon(
+                  fistActionIcon,
+                  color: AppColors.primaryColor,
+                ),
+              )
+            : const SizedBox(),
+
+        secondActionIcon != null
+            ? IconButton(
+                onPressed: secondActionOnPressed,
+                icon: Icon(
+                  secondActionIcon,
+                  color: AppColors.primaryColor,
+                ),
+              )
+            : const SizedBox(),
       ]),
     );
   }
