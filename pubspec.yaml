@@ -75,6 +75,7 @@ dependencies:
   show_up_animation: ^2.0.0
   sqflite: ^2.0.2
   url_launcher: ^6.2.5
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -137,8 +138,13 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 flutter_native_splash:
-  image: assets/images/zingo_shop_brand_logo_8x.png
+
+  android: true
+  image: assets/images/zingo_shop_brand_logo_2x_no_bg_new.png
   # branding: assets/images/zingo_shop_brand.png
   color: "#FFFFFF"
   android_12:
-    image: assets/images/zingo_shop_brand_logo_8x.png
+    image: assets/images/zingo_shop_brand_logo_2x_no_bg_new.png
+
+  ios: true
+  web: false

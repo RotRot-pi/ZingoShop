@@ -1,4 +1,3 @@
-import 'package:zingoshop/controller/favorite_items_controller.dart';
 import 'package:zingoshop/controller/items_controller.dart';
 import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
@@ -16,7 +15,6 @@ class ItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ItemsControllerImpl());
-    var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
         body: Column(
       children: [
@@ -50,12 +48,16 @@ class ItemsScreen extends StatelessWidget {
                           mainAxisSpacing: p12,
                           crossAxisSpacing: p12,
                           crossAxisCount: 2,
-                          childAspectRatio: 1 / 1.25,
+                          childAspectRatio: 1 / 1.4,
                         ),
                         itemBuilder: (BuildContext context, index) {
-                          favoriteController
-                              .addItemToFavorite(controller.items[index]);
-                          return CustomListItems(item: controller.items[index]);
+                          // favoriteController
+                          //     .addItemToFavorite(controller.items[index]);
+                          return EnhancedProductCard(
+                            item: controller.items[index],
+                            onTap: () => controller
+                                .goToProductDetails(controller.items[index]),
+                          );
                         })
                     : Expanded(
                         child: SearchedItemsList(

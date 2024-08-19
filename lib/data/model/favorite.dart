@@ -8,7 +8,7 @@ class Favorite {
   final int itemsId;
   final String itemsName;
   final String itemsNameAr;
-  final int itemsPrice;
+  final double itemsPrice;
   final int itemsDiscount;
   final int itemsActive;
   final int itemsCount;
@@ -45,7 +45,7 @@ class Favorite {
     int? itemsId,
     String? itemsName,
     String? itemsNameAr,
-    int? itemsPrice,
+    double? itemsPrice,
     int? itemsDiscount,
     int? itemsActive,
     int? itemsCount,

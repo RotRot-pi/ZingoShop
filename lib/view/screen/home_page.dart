@@ -53,12 +53,11 @@ class HomePage extends StatelessWidget {
                                       body: controller.descriptionHomeCard,
                                       language: controller.language),
                                 const ListCategoriesHome(),
-                                const SizedBox(height: 10),
+                                SizedBox(height: h24),
                                 CustomTitleHome(title: "product_for_you".tr),
-                                const SizedBox(height: 10),
                                 const ListItemsHome(),
+                                SizedBox(height: h24),
                                 CustomTitleHome(title: "offer".tr),
-                                const SizedBox(height: 10),
                                 const ListItemsHome()
                               ],
                             ));

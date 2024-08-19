@@ -20,93 +20,103 @@ class CustomListOffers extends GetView<OffersController> {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () => controller.goToProductDetails(item),
-        child: Card(
-          child: Stack(
-            children: [
-              Padding(
-                padding: AppSpacing.addEdgeInsetsAll(p12),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Hero(
-                        tag: "${item.itemsId}",
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              "${ApiLink.itemsImageFolder}/${item.itemsImage}",
-                          height: h100,
-                          fit: BoxFit.fill,
-                          fadeInDuration: const Duration(milliseconds: 400),
-                          fadeOutDuration: const Duration(milliseconds: 400),
+        child: SizedBox(
+          height: h200,
+          child: Card(
+            color: AppColors.white,
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(r20),
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: AppSpacing.addEdgeInsetsAll(p12),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Hero(
+                          tag: "${item.itemsId}",
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                "${ApiLink.itemsImageFolder}/${item.itemsImage}",
+                            height: h56,
+                            fit: BoxFit.scaleDown,
+                            fadeInDuration: const Duration(milliseconds: 400),
+                            fadeOutDuration: const Duration(milliseconds: 400),
+                          ),
                         ),
-                      ),
-                      AppSpacing.addHeigh(h10),
-                      Text(translateData(item.itemsNameAr, item.itemsName),
-                          style: const TextStyle(
-                              color: AppColors.black,
-                              fontSize: s16,
-                              fontWeight: FontWeight.bold)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("${"rating".tr} 3.5",
-                              textAlign: TextAlign.center),
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            height: h24,
-                            child: Row(
-                              children: [
-                                ...List.generate(
-                                    5,
-                                    (index) => const Icon(
-                                          Icons.star,
-                                          size: s16,
-                                        ))
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("${item.itemsPriceAfterDiscount} \$",
-                              style: const TextStyle(
-                                  color: AppColors.primaryColor,
-                                  fontSize: s16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "sans")),
-                          GetBuilder<FavoriteItemsControllerImpl>(
-                              builder: (controller) {
-                            return IconButton(
-                              onPressed: () {
-                                controller.changeFavorite(item);
-                              },
-                              icon: controller.favoriteItems
-                                      .contains(item.itemsId)
-                                  ? const Icon(
-                                      Icons.favorite,
-                                      color: AppColors.primaryColor,
-                                    )
-                                  : const Icon(Icons.favorite_border_outlined),
-                            );
-                          })
-                        ],
-                      )
-                    ]),
-              ),
-              if (item.itemsDiscount != 0)
-                Positioned(
-                    child: ColorFiltered(
-                  colorFilter: ColorFilter.matrix(colorFilterMatrix),
-                  child: Image.asset(
-                    AppImageAssets.sales,
-                    height: h64,
-                    width: w64,
-                    fit: BoxFit.fill,
-                  ),
-                ))
-            ],
+                        AppSpacing.addHeigh(h10),
+                        Text(translateData(item.itemsNameAr, item.itemsName),
+                            style: const TextStyle(
+                                color: AppColors.black,
+                                fontSize: s16,
+                                fontWeight: FontWeight.bold)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("${"rating".tr} 3.5",
+                                textAlign: TextAlign.center),
+                            Container(
+                              alignment: Alignment.bottomCenter,
+                              height: h24,
+                              child: Row(
+                                children: [
+                                  ...List.generate(
+                                      5,
+                                      (index) => const Icon(
+                                            Icons.star_outlined,
+                                            size: s16,
+                                            color: AppColors.sixthColor,
+                                          ))
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("${item.itemsPriceAfterDiscount} \$",
+                                style: const TextStyle(
+                                    color: AppColors.primaryColor,
+                                    fontSize: s16,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "sans")),
+                            GetBuilder<FavoriteItemsControllerImpl>(
+                                builder: (controller) {
+                              return IconButton(
+                                onPressed: () {
+                                  controller.changeFavorite(item);
+                                },
+                                icon: controller.favoriteItems
+                                        .contains(item.itemsId)
+                                    ? const Icon(
+                                        Icons.favorite,
+                                        color: AppColors.primaryColor,
+                                      )
+                                    : const Icon(
+                                        Icons.favorite_border_outlined),
+                              );
+                            })
+                          ],
+                        ),
+                      ]),
+                ),
+                if (item.itemsDiscount != 0)
+                  Positioned(
+                      child: ColorFiltered(
+                    colorFilter: ColorFilter.matrix(colorFilterMatrix),
+                    child: Image.asset(
+                      AppImageAssets.sales,
+                      height: h64,
+                      width: w64,
+                      fit: BoxFit.fill,
+                    ),
+                  ))
+              ],
+            ),
           ),
         ));
   }

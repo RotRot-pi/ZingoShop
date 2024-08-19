@@ -40,15 +40,18 @@ class OffersScreen extends StatelessWidget {
               !controller.isSeaching
                   ? GetBuilder<OffersController>(builder: (controller) {
                       return HandelingDataView(
-                          requestStatus: controller.requestStatus,
-                          child: Expanded(
-                            child: ListView.builder(
-                                itemCount: controller.data.length,
-                                itemBuilder: (context, index) {
-                                  Item item = controller.data[index];
-                                  return CustomListOffers(item: item);
-                                }),
-                          ));
+                        requestStatus: controller.requestStatus,
+                        child: Expanded(
+                          child: ListView.separated(
+                              itemCount: controller.data.length,
+                              itemBuilder: (context, index) {
+                                Item item = controller.data[index];
+                                return CustomListOffers(item: item);
+                              },
+                              separatorBuilder: (context, index) =>
+                                  AppSpacing.addHeigh(h24)),
+                        ),
+                      );
                     })
                   : SearchedItemsList(
                       listdatamodel: controller.searchedItems,

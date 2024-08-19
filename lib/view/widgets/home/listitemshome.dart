@@ -1,3 +1,4 @@
+import 'package:zingoshop/controller/favorite_items_controller.dart';
 import 'package:zingoshop/controller/home_controller.dart';
 import 'package:zingoshop/core/constants/api_link.dart';
 import 'package:zingoshop/core/constants/colors.dart';
@@ -12,15 +13,20 @@ class ListItemsHome extends GetView<HomeControllerImpl> {
 
   @override
   Widget build(BuildContext context) {
+    FavoriteItemsControllerImpl favoriteItemsControllerImpl =
+        Get.put(FavoriteItemsControllerImpl());
     return SizedBox(
-      height: h196,
+      height: h220,
       child: ListView.builder(
           itemCount: controller.items.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, i) {
             return ProductCard(
+              id: controller.items[i].itemsId,
               press: () => controller.goToProductDetails(controller.items[i]),
               bgColor: AppColors.whiteTextColor,
+              changeFavorite: () => favoriteItemsControllerImpl
+                  .changeFavorite(controller.items[i]),
               price: controller.items[i].itemsPrice,
               title: controller.items[i].itemsName,
               image:
@@ -84,12 +90,15 @@ class ProductCard extends StatelessWidget {
     required this.price,
     required this.press,
     required this.bgColor,
+    required this.changeFavorite,
+    required this.id,
   });
   final String image, title;
   final Function()? press;
   final double price;
   final Color bgColor;
-
+  final Function() changeFavorite;
+  final int id;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -99,17 +108,18 @@ class ProductCard extends StatelessWidget {
         padding: EdgeInsets.all(p16 / 2),
         margin: EdgeInsets.only(right: p16),
         decoration: BoxDecoration(
-          color: AppColors.grey.withAlpha(25),
+          color: AppColors.white,
           borderRadius: BorderRadius.all(Radius.circular(r16)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: double.infinity,
               height: h96,
               decoration: BoxDecoration(
-                color: bgColor,
+                color: AppColors.grey.withAlpha(25),
                 borderRadius: BorderRadius.all(Radius.circular(r16)),
               ),
               child: Container(
@@ -131,18 +141,46 @@ class ProductCard extends StatelessWidget {
             ),
             Text(
               title,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  fontSize: s14,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.black),
             ),
             // SizedBox(height: p16 / 4),
             const Spacer(),
-            Text(
-              "\$${price.toStringAsFixed(2)}",
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold, color: AppColors.black),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "\$${price.toStringAsFixed(2)}",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: s16,
+                        color: AppColors.thirdColor),
+                  ),
+                  GetBuilder<FavoriteItemsControllerImpl>(
+                      builder: (controller) {
+                    return InkWell(
+                      onTap: changeFavorite,
+                      child: controller.favoriteItems.contains(id)
+                          ? const Icon(
+                              Icons.favorite,
+                              size: s24,
+                              color: AppColors.primaryColor,
+                            )
+                          : const Icon(
+                              Icons.favorite_border_outlined,
+                              size: s24,
+                            ),
+                    );
+                  }),
+                ],
+              ),
             ),
           ],
         ),

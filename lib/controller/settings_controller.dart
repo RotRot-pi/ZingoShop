@@ -10,9 +10,10 @@ abstract class SettingsController extends GetxController {
 }
 
 class SettingsControllerImpl extends SettingsController {
-  final AppServices _appServices = Get.find();
+  late final AppServices _appServices;
   bool isNotificationEnabled = false;
-
+  late String username;
+  late String email;
   enableNotification(bool val) {
     //unsubscribe to notifications
     //or
@@ -40,5 +41,13 @@ class SettingsControllerImpl extends SettingsController {
   @override
   goToArchive() {
     Get.toNamed(AppRoutes.archiveOrders);
+  }
+
+  @override
+  void onInit() {
+    _appServices = Get.find();
+    username = _appServices.sharedPreferences.getString("username")!;
+    email = _appServices.sharedPreferences.getString("email")!;
+    super.onInit();
   }
 }
