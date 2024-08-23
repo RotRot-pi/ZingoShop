@@ -9,6 +9,7 @@ const double s10 = 10;
 const double s12 = 12;
 const double s14 = 14;
 const double s16 = 16;
+const double s18 = 18;
 const double s20 = 20;
 const double s24 = 24;
 const double s28 = 28;
