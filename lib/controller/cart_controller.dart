@@ -34,50 +34,31 @@ class CartController extends GetxController {
   add(var itemsid) async {
     // requestStatus = RequestStatus.loading;
     // update();
-    var response = await cartData.addCart(
+    await cartData.addCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid, 1);
 
-    requestStatus = (handelingData(response));
-    if (RequestStatus.success == requestStatus) {
-      // Start backend
-      if (response['status'] == "success") {
-        refreshPage();
-        // Get.rawSnackbar(
-        //     title: "اشعار",
-        //     messageText: const Text("تم اضافة المنتج الى السلة "));
-      } else {
-        requestStatus = (RequestStatus.failure);
-      }
-      // End
-    }
-    update();
+    // Get.rawSnackbar(
+    //     title: "اشعار",
+    //     messageText: const Text("تم اضافة المنتج الى السلة "));
   }
 
   delete(var itemsid) async {
     // requestStatus = (RequestStatus.loading);
     // update();
 
-    var response = await cartData.deleteCart(
+    await cartData.deleteCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid, 1);
 
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == requestStatus) {
-      // Start backend
-      if (response['status'] == "success") {
-        refreshPage();
-        // Get.rawSnackbar(
-        //     title: "اشعار",
-        //     messageText: const Text("تم ازالة المنتج من السلة "));
+    // Start backend
+    // Get.rawSnackbar(
+    //     title: "اشعار",
+    //     messageText: const Text("تم ازالة المنتج من السلة "));
 
-        // data.addAll(response['data']);
-      } else {
-        // requestStatus = RequestStatus.failure as <RequestStatus>;
-        return Get.snackbar("Error", "Can't Delete");
-      }
+    // data.addAll(response['data']);
 
-      // End
-    }
-    update();
+    // requestStatus = RequestStatus.failure as <RequestStatus>
+
+    // End
   }
 
   resetVarCart() {
@@ -86,7 +67,7 @@ class CartController extends GetxController {
     data.clear();
   }
 
-  refreshPage() {
+  Future<void> refreshPage() async {
     resetVarCart();
     view();
   }
@@ -105,6 +86,7 @@ class CartController extends GetxController {
       // Start backend
 
       if (response['status'] == "success") {
+        print("Response:$response");
         List datacart = response['datacart'];
         if (datacart.isEmpty) {
           requestStatus = RequestStatus.failure;
@@ -115,7 +97,7 @@ class CartController extends GetxController {
               data.add(CartModel.fromMap(item));
               totalcountitems += item['cart_item_count'] as int;
             }
-            ordersPrice = response['countprice']['cart_total_price'];
+            ordersPrice = response['countprice']['cart_total_price'].toDouble();
             log("PRICE ORDERS :$ordersPrice");
           } catch (e) {
             throw Exception(e);
@@ -165,6 +147,29 @@ class CartController extends GetxController {
       "ordersPrice": ordersPrice,
       "couponDiscount": discountCoupon
     });
+  }
+
+  Future<void> updateItemCount(int itemsId, int newCount) async {
+    print("newCount: $newCount");
+    print("itemsId: $itemsId");
+    int index = data.indexWhere((item) => item.itemsId == itemsId);
+
+    if (index != -1) {
+      // Update on server
+      if (newCount > data[index].cartItemCount!) {
+        print("New Count: $newCount");
+        print("Old Count: ${data[index].cartItemCount}");
+        await add(itemsId);
+      } else {
+        print("New Count: $newCount");
+        print("Old Count: ${data[index].cartItemCount}");
+        await delete(itemsId);
+      }
+      // Update locally
+      data[index].cartItemCount = newCount;
+
+      // No need to call update() here as we're not updating the whole list
+    }
   }
 
   @override

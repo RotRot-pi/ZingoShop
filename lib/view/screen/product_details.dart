@@ -39,10 +39,9 @@ class ProductDetailsScreen extends StatelessWidget {
                   color: AppColors.secondaryColor,
                   onPressed: () {
                     controller.addItems(controller.item.itemsId);
-                    //Get.toNamed(AppRoutes.cart);
                   },
                   child: Text(
-                    "go_to_cart".tr,
+                    "add_to_cart".tr,
                     style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ))),

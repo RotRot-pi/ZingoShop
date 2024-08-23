@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 const double zero = 0;
 const double s4 = 4;
 const double s8 = 8;
+const double s10 = 10;
 const double s12 = 12;
 const double s14 = 14;
 const double s16 = 16;

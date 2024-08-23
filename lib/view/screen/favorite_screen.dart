@@ -37,9 +37,7 @@ class FavoriteScreen extends StatelessWidget {
                           itemCount: conroller.data.length,
                           itemBuilder: (context, index) {
                             Favorite favorite = conroller.data[index];
-                            return Card(
-                              child: CustomFavoriteWidget(favorite: favorite),
-                            );
+                            return CustomFavoriteWidget(favorite: favorite);
                           },
                         ),
                       ),

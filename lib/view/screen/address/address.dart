@@ -1,3 +1,4 @@
+import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/data/model/address.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,11 @@ class AddressScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () => controller.goToAddAddress(),
           shape: const CircleBorder(),
-          child: const Icon(Icons.add),
+          backgroundColor: AppColors.primaryColor,
+          child: const Icon(
+            Icons.add,
+            color: AppColors.white,
+          ),
         ),
         body: Padding(
             padding: AppSpacing.addEdgeInsetsAll(p12),
@@ -60,6 +65,7 @@ class AddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: AppColors.white,
       elevation: 4.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
@@ -72,7 +78,7 @@ class AddressCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(Icons.location_on, color: Theme.of(context).primaryColor),
+                const Icon(Icons.location_on, color: AppColors.primaryColor),
                 const SizedBox(width: 8.0),
                 Expanded(
                   child: Text(

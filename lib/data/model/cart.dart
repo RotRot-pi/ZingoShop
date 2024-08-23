@@ -5,7 +5,7 @@ class CartModel {
   int? itemsId;
   String itemsName = '';
   String itemsNameAr = '';
-  dynamic itemsPrice;
+  double? itemsPrice;
   int? itemsDiscount;
   int? itemsActive;
   int? itemsCount;
@@ -18,13 +18,13 @@ class CartModel {
   int? cartId;
   int? cartUsersid;
   int? cartItemsid;
-  dynamic totalPrice;
+  double? totalPrice;
 
   CartModel({
     int? itemsId,
     String? itemsName,
     String? itemsNameAr,
-    dynamic itemsPrice,
+    double? itemsPrice,
     int? itemsDiscount,
     int? itemsActive,
     int? itemsCount,
@@ -37,12 +37,12 @@ class CartModel {
     int? cartId,
     int? cartUsersid,
     int? cartItemsid,
-    dynamic totalPrice,
+    double? totalPrice,
   }) {
     this.itemsId = itemsId ?? 0;
     this.itemsName = itemsName ?? '';
     this.itemsNameAr = itemsNameAr ?? '';
-    // this.itemsPrice = itemsPrice ;
+    this.itemsPrice = itemsPrice ?? 0.0;
     this.itemsDiscount = itemsDiscount ?? 0;
     this.itemsActive = itemsActive ?? 0;
     this.itemsCount = itemsCount ?? 0;
@@ -55,7 +55,7 @@ class CartModel {
     this.cartId = cartId ?? 0;
     this.cartUsersid = cartUsersid ?? 0;
     this.cartItemsid = cartItemsid ?? 0;
-    // this.totalPrice = totalPrice;
+    this.totalPrice = totalPrice ?? 0.0;
   }
 
   // CartModel copyWith({
@@ -164,7 +164,7 @@ class CartModel {
       itemsId: map['items_id'] as int?,
       itemsName: map['items_name'] as String?,
       itemsNameAr: map['items_name_ar'] as String?,
-      itemsPrice: map['items_price'] as dynamic,
+      itemsPrice: map['items_price']?.toDouble(),
       itemsDiscount: map['items_discount'] as int?,
       itemsActive: map['items_active'] as int?,
       itemsCount: map['items_count'] as int?,
@@ -177,7 +177,7 @@ class CartModel {
       cartId: map['cart_id'] as int?,
       cartUsersid: map['cart_user_id'] as int?,
       cartItemsid: map['cart_items_id'] as int?,
-      totalPrice: map['total_price'] as dynamic,
+      totalPrice: map['total_price']?.toDouble(),
     );
   }
   String toJson() => json.encode(toMap());

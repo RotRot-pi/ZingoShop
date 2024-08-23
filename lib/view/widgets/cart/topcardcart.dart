@@ -11,14 +11,18 @@ class TopCardCart extends StatelessWidget {
     return Container(
       padding: AppSpacing.addEdgeInsetsOnly(bottom: p4),
       margin: AppSpacing.addEdgeInsetsSymmetric(horizontal: m20),
-      // height: 20,
+      height: 20,
       decoration: BoxDecoration(
-        color: AppColors.thirdColor,
+        color: AppColors.sixthColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(message,
           textAlign: TextAlign.center,
-          style: const TextStyle(color: AppColors.primaryColor)),
+          style: const TextStyle(
+            color: AppColors.black,
+            fontSize: s12,
+            fontWeight: FontWeight.w600,
+          )),
     );
   }
 }

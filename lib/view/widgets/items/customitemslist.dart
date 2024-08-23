@@ -68,7 +68,7 @@ class EnhancedProductCard extends StatelessWidget {
                       left: 8,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
+                            horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(12),
@@ -76,7 +76,9 @@ class EnhancedProductCard extends StatelessWidget {
                         child: Text(
                           '${item.itemsDiscount}% OFF',
                           style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              fontSize: s10,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -135,12 +137,12 @@ class EnhancedProductCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green,
+                            color: AppColors.black,
                           ),
                         ),
                         if (item.itemsDiscount != 0)
                           Text(
-                            '\$${item.itemsPrice?.toStringAsFixed(2)}',
+                            '\$${item.itemsPrice.toStringAsFixed(2)}',
                             style: const TextStyle(
                               fontSize: 14,
                               decoration: TextDecoration.lineThrough,
@@ -188,7 +190,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
             color: isFavorite ? Colors.red : Colors.white,
             shape: BoxShape.circle,

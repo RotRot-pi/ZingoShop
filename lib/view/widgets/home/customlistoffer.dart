@@ -78,12 +78,28 @@ class CustomListOffers extends GetView<OffersController> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("${item.itemsPriceAfterDiscount} \$",
-                                style: const TextStyle(
-                                    color: AppColors.primaryColor,
-                                    fontSize: s16,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "sans")),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                    "${item.itemsPriceAfterDiscount?.toStringAsFixed(2)} \$",
+                                    style: const TextStyle(
+                                        color: AppColors.primaryColor,
+                                        fontSize: s16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "OpenSans")),
+                                AppSpacing.addWidth(h8),
+                                if (item.itemsDiscount != 0)
+                                  Text(
+                                    '\$${item.itemsPrice.toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                              ],
+                            ),
                             GetBuilder<FavoriteItemsControllerImpl>(
                                 builder: (controller) {
                               return IconButton(
@@ -106,15 +122,33 @@ class CustomListOffers extends GetView<OffersController> {
                 ),
                 if (item.itemsDiscount != 0)
                   Positioned(
-                      child: ColorFiltered(
-                    colorFilter: ColorFilter.matrix(colorFilterMatrix),
-                    child: Image.asset(
-                      AppImageAssets.sales,
-                      height: h64,
-                      width: w64,
-                      fit: BoxFit.fill,
+                    top: 8,
+                    left: 8,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        '${item.itemsDiscount}% OFF',
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ))
+                  ),
+                // if (item.itemsDiscount != 0)
+                //   Positioned(
+                //       child: ColorFiltered(
+                //     colorFilter: ColorFilter.matrix(colorFilterMatrix),
+                //     child: Image.asset(
+                //       AppImageAssets.sales,
+                //       height: h64,
+                //       width: w64,
+                //       fit: BoxFit.fill,
+                //     ),
+                //   ))
               ],
             ),
           ),

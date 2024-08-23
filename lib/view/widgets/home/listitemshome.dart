@@ -21,17 +21,41 @@ class ListItemsHome extends GetView<HomeControllerImpl> {
           itemCount: controller.items.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, i) {
-            return ProductCard(
-              id: controller.items[i].itemsId,
-              press: () => controller.goToProductDetails(controller.items[i]),
-              bgColor: AppColors.whiteTextColor,
-              changeFavorite: () => favoriteItemsControllerImpl
-                  .changeFavorite(controller.items[i]),
-              price: controller.items[i].itemsPrice,
-              title: controller.items[i].itemsName,
-              image:
-                  "${ApiLink.itemsImageFolder}${controller.items[i].itemsImage}",
-              // press: controller.goToProductDetails(controller.items[i]),
+            Item item = controller.items[i];
+            return Stack(
+              children: [
+                ProductCard(
+                  id: item.itemsId,
+                  press: () => controller.goToProductDetails(item),
+                  bgColor: AppColors.whiteTextColor,
+                  changeFavorite: () =>
+                      favoriteItemsControllerImpl.changeFavorite(item),
+                  price: item.itemsPrice,
+                  title: item.itemsName,
+                  image: "${ApiLink.itemsImageFolder}${item.itemsImage}",
+                  // press: controller.goToProductDetails(controller.items[i]),
+                ),
+                if (item.itemsDiscount != 0)
+                  Positioned(
+                    top: 8,
+                    left: 8,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 4, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        '${item.itemsDiscount}% OFF',
+                        style: const TextStyle(
+                            fontSize: s10,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+              ],
             );
           }),
     );

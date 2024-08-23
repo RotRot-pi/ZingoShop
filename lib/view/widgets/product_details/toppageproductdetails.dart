@@ -13,7 +13,7 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImpl> {
   Widget build(BuildContext context) {
     return SlideTransition(
         position: Tween<Offset>(
-          begin: const Offset(0, -1),
+          begin: const Offset(0, -0.75),
           end: Offset.zero,
         ).animate(
           CurvedAnimation(

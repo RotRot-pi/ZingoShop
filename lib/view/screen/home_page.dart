@@ -101,31 +101,33 @@ class SearchedItemsList extends GetView<HomeControllerImpl> {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              controller.goToProductDetails(listdatamodel[index]);
-            },
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
+          var item = listdatamodel[index];
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            child: InkWell(
+              onTap: () {
+                controller.goToProductDetails(item);
+              },
               child: Card(
+                  color: AppColors.white,
+                  elevation: 0,
                   child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: CachedNetworkImage(
-                            imageUrl:
-                                "${ApiLink.itemsImageFolder}/${listdatamodel[index].itemsImage}")),
-                    Expanded(
-                        flex: 2,
-                        child: ListTile(
-                          title: Text(listdatamodel[index].itemsName!),
-                          subtitle:
-                              Text(listdatamodel[index].itemsDescription!),
-                        )),
-                  ],
-                ),
-              )),
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: CachedNetworkImage(
+                                imageUrl:
+                                    "${ApiLink.itemsImageFolder}/${item.itemsImage}")),
+                        Expanded(
+                            flex: 2,
+                            child: ListTile(
+                              title: Text(item.itemsName!),
+                              subtitle: Text(item.itemsDescription!),
+                            )),
+                      ],
+                    ),
+                  )),
             ),
           );
         });

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:zingoshop/controller/cart_controller.dart';
 import 'package:zingoshop/core/constants/api_link.dart';
+import 'package:zingoshop/core/constants/colors.dart';
+import 'package:zingoshop/data/model/cart.dart';
 import 'package:zingoshop/view/widgets/cart/bottomnavbarcard.dart';
 import 'package:zingoshop/view/widgets/cart/customitemscartlist.dart';
 import 'package:zingoshop/view/widgets/cart/topcardcart.dart';
@@ -30,46 +32,45 @@ class CartScreen extends StatelessWidget {
                   totalprice: controller.ordersPrice.toStringAsFixed(2),
                 )),
         body: GetBuilder<CartController>(
-            builder: (controller) => HandelingDataView(
-                requestStatus: controller.requestStatus,
-                child: ListView(
-                  children: [
-                    SizedBox(height: 10),
-                    TopCardCart(
-                        message:
-                            "${"you_have".tr} ${controller.totalcountitems} ${"items_in_your_list".tr}"),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          ...List.generate(
-                            controller.data.length,
-                            (index) => GetBuilder<CartController>(
-                                builder: (controller) {
-                              return CustomItemsCartList(
-                                  onAdd: () async {
-                                    await controller
-                                        .add(controller.data[index].itemsId!);
-                                    //cartController.refreshPage();
-                                  },
-                                  onRemove: () async {
-                                    await controller.delete(
-                                        controller.data[index].itemsId!);
-                                    //cartController.refreshPage();
-                                  },
-                                  imageName:
-                                      "${ApiLink.itemsImageFolder}${controller.data[index].itemsImage}",
-                                  name: "${controller.data[index].itemsName}",
-                                  price:
-                                      "${controller.data[index].itemsPrice} \$",
-                                  count:
-                                      "${controller.data[index].cartItemCount}");
-                            }),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ))));
+            builder: (controller) => RefreshIndicator(
+                  color: AppColors.thirdColor,
+                  backgroundColor: AppColors.white,
+                  onRefresh: () => controller.refreshPage(),
+                  triggerMode: RefreshIndicatorTriggerMode.anywhere,
+                  child: HandelingDataView(
+                    requestStatus: controller.requestStatus,
+                    child: ListView(
+                      children: [
+                        SizedBox(height: 10),
+                        TopCardCart(
+                            message:
+                                "${"you_have".tr} ${controller.totalcountitems} ${"items_in_your_list".tr}"),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              ...List.generate(
+                                controller.data.length,
+                                (index) => GetBuilder<CartController>(
+                                    builder: (controller) {
+                                  CartModel item = controller.data[index];
+                                  return CustomItemsCartList(
+                                      onCountChanged: (newCount) =>
+                                          controller.updateItemCount(
+                                              item.itemsId!, newCount),
+                                      imageName:
+                                          "${ApiLink.itemsImageFolder}${item.itemsImage}",
+                                      name: "${item.itemsName}",
+                                      price: "${item.itemsPrice} \$",
+                                      count: "${item.cartItemCount}");
+                                }),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )));
   }
 }

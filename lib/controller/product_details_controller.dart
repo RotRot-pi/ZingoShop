@@ -32,24 +32,25 @@ class ProductDetailsControllerImpl extends ProductDetailsController
   }
 
   addItems(var itemsid) async {
-    requestStatus = RequestStatus.loading;
-    update();
+    // requestStatus = RequestStatus.loading;
+    // update();
     var response = await cartData.addCart(
         _appServices.sharedPreferences.getInt("id"), itemsid, countitems);
+    print("response $response");
+    // print("response status ${response['status']}");
+    // requestStatus = handelingData(response);
+    // if (RequestStatus.success == requestStatus) {
+    //Start backend
 
-    requestStatus = handelingData(response);
-    if (RequestStatus.success == requestStatus) {
-      //Start backend
-      if (response['status'] == "success") {
-        Get.offAllNamed(AppRoutes.home);
-        // Get.rawSnackbar(
-        //     title: "اشعار",
-        //     messageText: const Text("تم اضافة المنتج الى السلة "));
-        // data.add(response['data']);
-      }
-    } else {
-      requestStatus = RequestStatus.failure;
-    }
+    Get.offAllNamed(AppRoutes.home);
+    // Get.rawSnackbar(
+    //     title: "اشعار",
+    //     messageText: const Text("تم اضافة المنتج الى السلة "));
+    // data.add(response['data']);
+
+    // else {
+    //   requestStatus = RequestStatus.failure;
+    // }
     // End
   }
 
@@ -75,14 +76,12 @@ class ProductDetailsControllerImpl extends ProductDetailsController
 
   @override
   void onInit() {
-    productAnimationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500))
-      ..forward();
     productInfoWidgetAnimationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
-    Future.delayed(const Duration(milliseconds: 250), () {
-      productInfoWidgetAnimationController.forward();
-    });
+    productAnimationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+    productAnimationController.forward();
+    productInfoWidgetAnimationController.forward();
 
     intialData();
 
