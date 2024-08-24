@@ -21,6 +21,7 @@ class NotificationScreen extends StatelessWidget {
       //           fontWeight: FontWeight.bold, color: AppColors.white)),
       // ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GetBuilder<NotificationController>(
             builder: (controller) {

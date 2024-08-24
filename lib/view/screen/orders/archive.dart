@@ -17,7 +17,6 @@ class ArchiveOrdersScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "archive".tr,
-            style: const TextStyle(color: AppColors.primaryColor),
           ),
           centerTitle: true,
         ),

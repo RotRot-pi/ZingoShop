@@ -34,9 +34,9 @@ class ProductDetailsControllerImpl extends ProductDetailsController
   addItems(var itemsid) async {
     // requestStatus = RequestStatus.loading;
     // update();
-    var response = await cartData.addCart(
+    await cartData.addCart(
         _appServices.sharedPreferences.getInt("id"), itemsid, countitems);
-    print("response $response");
+
     // print("response status ${response['status']}");
     // requestStatus = handelingData(response);
     // if (RequestStatus.success == requestStatus) {

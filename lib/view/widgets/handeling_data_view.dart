@@ -45,8 +45,13 @@ class HandelingDataView extends StatelessWidget {
         return Center(child: Text('format_error'.tr));
       case RequestStatus.failure:
         return Center(
-            child:
-                Lottie.asset(AppImageAssets.noData, width: 250, repeat: false));
+            child: Lottie.network(
+          "https://lottie.host/8eb8988c-323d-45f6-b5b1-db84c1028b1e/Z71PnuokrT.json",
+          width: 250,
+          repeat: true,
+          alignment: Alignment.center,
+          // reverse: true,
+        ));
       case RequestStatus.notInitialized:
         return child;
     }

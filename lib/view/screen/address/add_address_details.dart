@@ -14,7 +14,7 @@ class AddAddressDetailsScreen extends StatelessWidget {
     var controller = Get.put(AddAddressDetailsControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AddAddressDetailsScreen'),
+        title: const Text('Add Address Details'),
       ),
       body: Padding(
         padding: AppSpacing.addEdgeInsetsAll(p12),
