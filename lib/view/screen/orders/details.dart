@@ -19,7 +19,7 @@ class OrdersDetailsScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "order_details".tr,
-            style: const TextStyle(color: AppColors.primaryColor),
+            style: const TextStyle(color: AppColors.white),
           ),
           centerTitle: true,
         ),
@@ -31,51 +31,77 @@ class OrdersDetailsScreen extends StatelessWidget {
               requestStatus: controller.requestStatus,
               child: Column(
                 children: [
-                  Card(
-                    color: AppColors.whiteTextColor,
-                    child: Container(
-                      padding: AppSpacing.addEdgeInsetsAll(p12),
-                      child: Table(children: [
-                        TableRow(children: [
-                          Text("item".tr,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryColor)),
-                          Text("qty".tr,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryColor)),
-                          Text("price".tr,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryColor))
+                  Container(
+                    padding: AppSpacing.addEdgeInsetsAll(p12),
+                    child: Table(
+                        border: TableBorder.all(
+                          color: AppColors.primaryColor,
+                          borderRadius: BorderRadius.circular(r8),
+                          width: 1.5,
+                        ),
+                        children: [
+                          TableRow(children: [
+                            Text("item".tr,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: s16,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryColor)),
+                            Text("qty".tr,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: s16,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryColor)),
+                            Text("price".tr,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: s16,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primaryColor))
+                          ]),
+                          ...List.generate(controller.data.length, (index) {
+                            OrderDetails order = controller.data[index];
+                            return TableRow(children: [
+                              Text(
+                                "${order.itemsName}",
+                                style: const TextStyle(
+                                  color: AppColors.black,
+                                  fontSize: s14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "${order.cartItemCount}",
+                                style: const TextStyle(
+                                  color: AppColors.black,
+                                  fontSize: s14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "${order.itemsPriceAtPurchase}",
+                                style: const TextStyle(
+                                  color: AppColors.black,
+                                  fontSize: s14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ]);
+                          })
                         ]),
-                        ...List.generate(controller.data.length, (index) {
-                          OrderDetails order = controller.data[index];
-                          return TableRow(children: [
-                            Text(
-                              "${order.itemsName}",
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              "${order.cartItemCount}",
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              "${order.itemsPriceAtPurchase}",
-                              textAlign: TextAlign.center,
-                            ),
-                          ]);
-                        })
-                      ]),
-                    ),
                   ),
                   AppSpacing.addHeigh(h10),
                   Card(
-                    color: AppColors.whiteTextColor,
+                    color: AppColors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(r8),
+                      side: const BorderSide(
+                          color: AppColors.primaryColor, width: 1.5),
+                    ),
                     child: Container(
                       padding: AppSpacing.addEdgeInsetsAll(p12),
                       child: Container(
@@ -83,27 +109,32 @@ class OrdersDetailsScreen extends StatelessWidget {
                         child: Text(
                           "${"total".tr}: ${controller.orderDetails.orderPrice}\$",
                           textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.primaryColor),
+                          style: const TextStyle(
+                              color: AppColors.black,
+                              fontSize: s16,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   ),
                   AppSpacing.addHeigh(h10),
                   if (controller.orderDetails.orderType == 0)
-                    Card(
-                      color: AppColors.whiteTextColor,
-                      child: ListTile(
-                          title: Text(
-                            "shipping_address".tr,
-                            style: const TextStyle(
-                                color: AppColors.primaryColor,
-                                fontWeight: FontWeight.bold),
+                    ListTile(
+                        title: Text(
+                          "shipping_address".tr,
+                          style: const TextStyle(
+                              color: AppColors.primaryColor,
+                              fontSize: s16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          "${controller.orderDetails.addressStreet}, ${controller.orderDetails.addressCity}",
+                          style: const TextStyle(
+                            color: AppColors.black,
+                            fontSize: s14,
+                            fontWeight: FontWeight.w500,
                           ),
-                          subtitle: Text(
-                            "${controller.orderDetails.addressStreet}, ${controller.orderDetails.addressCity}",
-                            style: const TextStyle(color: AppColors.greyColor),
-                          )),
-                    ),
+                        )),
                   AppSpacing.addHeigh(h10),
                   if (controller.orderDetails.orderType == 0)
                     SizedBox(
@@ -143,30 +174,67 @@ class OrdersDetailsScreen extends StatelessWidget {
                               ],
                             ),
                             Positioned(
-                                bottom: 10,
-                                left: 10,
+                                bottom: 2,
+                                left: 4,
                                 child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          shape: const CircleBorder(),
+                                          backgroundColor:
+                                              AppColors.primaryColor,
+                                        ),
                                         onPressed: () {
                                           controller.zoomIn();
                                         },
-                                        child: const Icon(Icons.add),
+                                        child: const Icon(
+                                          Icons.add,
+                                          color: AppColors.white,
+                                        ),
                                       ),
                                       ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          shape: const CircleBorder(),
+                                          backgroundColor:
+                                              AppColors.primaryColor,
+                                        ),
                                         onPressed: () {
                                           controller.zoomOut();
                                         },
-                                        child: const Icon(Icons.remove),
+                                        child: const Icon(
+                                          Icons.remove,
+                                          color: AppColors.white,
+                                        ),
                                       ),
                                       AppSpacing.addHeigh(h12),
-                                      TextButton(
+                                      FilledButton(
                                           onPressed: () {
                                             controller.goToOrderTracking(
                                                 controller.orderDetails);
                                           },
-                                          child: Text("track_order".tr))
+                                          style: FilledButton.styleFrom(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: p12,
+                                            ),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(r20),
+                                              ),
+                                            ),
+                                            backgroundColor:
+                                                AppColors.primaryColor,
+                                          ),
+                                          child: Text(
+                                            "track_order".tr,
+                                            style: const TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: s14,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ))
                                     ]))
                           ],
                         ),

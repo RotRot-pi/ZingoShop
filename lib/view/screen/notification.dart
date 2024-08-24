@@ -15,6 +15,11 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(NotificationController());
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('notifications'.tr,
+      //       style: const TextStyle(
+      //           fontWeight: FontWeight.bold, color: AppColors.white)),
+      // ),
       body: Column(
         children: [
           GetBuilder<NotificationController>(

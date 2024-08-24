@@ -9,14 +9,14 @@ final ThemeData appEnglishTheme = ThemeData(
     appBarTheme: AppBarTheme(
       centerTitle: true,
       elevation: 0,
-      iconTheme: const IconThemeData(color: AppColors.secondaryColor),
+      iconTheme: const IconThemeData(color: AppColors.white),
       titleTextStyle: TextStyle(
-          color: AppColors.secondaryColor,
+          color: AppColors.white,
           // fontWeight: FontWeight.bold,
           fontFamily: "OpenSans",
           fontWeight: FontWeight.w500,
           fontSize: 24.sp),
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryColor,
     ),
     textTheme: TextTheme(
         displayLarge: TextStyle(
