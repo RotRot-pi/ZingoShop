@@ -24,8 +24,17 @@ class SettingsControllerImpl extends SettingsController {
 
   @override
   logout() {
-    _appServices.sharedPreferences.clear();
-    Get.offAllNamed(AppRoutes.language);
+    Get.defaultDialog(
+      title: "Logout",
+      middleText: "Are you sure you want to logout?",
+      textConfirm: "Yes",
+      textCancel: "No",
+      onConfirm: () {
+        _appServices.sharedPreferences.clear();
+        Get.offAllNamed(AppRoutes.language);
+      },
+      onCancel: () => Get.back(),
+    );
   }
 
   @override
