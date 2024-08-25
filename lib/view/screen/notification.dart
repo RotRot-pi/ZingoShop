@@ -1,6 +1,7 @@
 import 'package:zingoshop/controller/notification_controller.dart';
 import 'package:zingoshop/core/constants/colors.dart';
 import 'package:zingoshop/core/constants/routes_name.dart';
+import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/data/model/notification.dart';
 import 'package:zingoshop/view/widgets/customappbar.dart';
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
@@ -20,44 +21,43 @@ class NotificationScreen extends StatelessWidget {
       //       style: const TextStyle(
       //           fontWeight: FontWeight.bold, color: AppColors.white)),
       // ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GetBuilder<NotificationController>(
-            builder: (controller) {
-              return HandelingDataView(
-                  requestStatus: controller.requestStatus,
-                  child: ListView.builder(
-                    itemCount: controller.data.length,
-                    itemBuilder: (context, i) {
-                      final Notifications notification = controller.data[i];
-                      return ListTile(
-                          title: Text(
-                            notification.notificationTitle,
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: AppColors.black,
-                            ),
+      body: GetBuilder<NotificationController>(
+        builder: (controller) {
+          return HandelingDataView(
+              requestStatus: controller.requestStatus,
+              child: ListView.builder(
+                itemCount: controller.data.length,
+                itemBuilder: (context, i) {
+                  final Notifications notification = controller.data[i];
+                  return Card(
+                    elevation: 5,
+                    color: AppColors.white,
+                    child: ListTile(
+                        title: Text(
+                          notification.notificationTitle,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            color: AppColors.black,
                           ),
-                          subtitle: Text(
-                            notification.notificationBody,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: AppColors.greyColor,
-                            ),
+                        ),
+                        subtitle: Text(
+                          notification.notificationBody,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: AppColors.greyColor,
                           ),
-                          trailing: Text(
-                            '${Jiffy.parse(notification.notificationTime, pattern: 'yyyy-MM-dd HH:mm:ss').fromNow()} ${'ago'.tr}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: AppColors.primaryColor,
-                            ),
-                          ));
-                    },
-                  ));
-            },
-          ),
-        ],
+                        ),
+                        trailing: Text(
+                          '${Jiffy.parse(notification.notificationTime, pattern: 'yyyy-MM-dd HH:mm:ss').fromNow()} ${'ago'.tr}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: AppColors.primaryColor,
+                          ),
+                        )),
+                  );
+                },
+              ));
+        },
       ),
     );
   }
