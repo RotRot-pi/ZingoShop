@@ -136,7 +136,7 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
 
 **Notifications:**
 
-<img src="screens/notification_no_data.png.png" alt="User App - Notifications" width="200"/> 
+<img src="screens/notifications.png" alt="User App - Notifications" width="200"/> 
 
 **Settings:**
 
