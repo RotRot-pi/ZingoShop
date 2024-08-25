@@ -19,7 +19,7 @@ This project is a fully functional single-vendor e-commerce application built wi
 ## Project Overview
 
 <div align="center">
-  <img src="assets/images/zingo_shop_brand.png" alt="ZingoShop Logo" width="150"/> 
+  <img src="assets/images/zingo_shop_brand.png" alt="ZingoShop Logo" width="400"/> 
   <!-- <img src="[Admin app screenshot]" alt="Admin App" width="200"/>
   <img src="[Delivery app screenshot]" alt="Delivery App" width="200"/>  -->
 </div>
