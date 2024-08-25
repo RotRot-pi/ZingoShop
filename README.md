@@ -219,29 +219,21 @@ This documentation outlines the RESTful API endpoints for the ZingoShop backend.
 
 **Language Selection:**
 
-<img src="screens/language1.png" alt="User App - Language Selection" width="200"/> 
-<img src="screens/language2.png" alt="User App - Language Selection (Alternate)" width="200"/> 
+<img src="screens/language1.png" alt="User App - Language Selection" width="200"/> <img src="screens/language2.png" alt="User App - Language Selection (Alternate)" width="200"/> 
 
 **Onboarding:** 
 
-<img src="screens/onboarding1.png" alt="User App - Onboarding Screen 1" width="200"/>
-<img src="screens/onboarding2.png" alt="User App - Onboarding Screen 2" width="200"/>
-<img src="screens/onboarding3.png" alt="User App - Onboarding Screen 3" width="200"/>
+<img src="screens/onboarding1.png" alt="User App - Onboarding Screen 1" width="200"/> <img src="screens/onboarding2.png" alt="User App - Onboarding Screen 2" width="200"/> <img src="screens/onboarding3.png" alt="User App - Onboarding Screen 3" width="200"/>
+
 
 **User Authentication:**
 
-<img src="screens/login.png" alt="User App - Login" width="200"/> 
-<img src="screens/login2.png" alt="User App - Login (Alternate)" width="200"/>
-<img src="screens/signup.png" alt="User App - Sign Up" width="200"/> 
-<img src="screens/check_email.png" alt="User App - Check Email" width="200"/>
-<img src="screens/verify_code.png" alt="User App - Verify Code" width="200"/>
-<img src="screens/reset_password.png" alt="User App - Reset Password" width="200"/> 
-<img src="screens/reset_password2.png" alt="User App - Reset Password (Alternate)" width="200"/> 
-<img src="screens/reset_password_success.png" alt="User App - Reset Password Success" width="200"/> 
+<img src="screens/login.png" alt="User App - Login" width="200"/> <img src="screens/login2.png" alt="User App - Login (Alternate)" width="200"/> <img src="screens/signup.png" alt="User App - Sign Up" width="200"/> <img src="screens/check_email.png" alt="User App - Check Email" width="200"/> 
+<img src="screens/verify_code.png" alt="User App - Verify Code" width="200"/> <img src="screens/reset_password.png" alt="User App - Reset Password" width="200"/> <img src="screens/reset_password2.png" alt="User App - Reset Password (Alternate)" width="200"/> <img src="screens/reset_password_success.png" alt="User App - Reset Password Success" width="200"/> 
 
 **Home:**
 
-<img src="screens/home.png" alt="User App - Home Screen" width="200"/> 
+<img src="screens/home.png" alt="User App - Home Screen" width="200"/>
 
 **Offers:**
 
@@ -249,10 +241,7 @@ This documentation outlines the RESTful API endpoints for the ZingoShop backend.
 
 **Product Browsing:**
 
-<img src="screens/products.png" alt="User App - Products" width="200"/> 
-<img src="screens/products2.png" alt="User App - Products (Alternate)" width="200"/>
-<img src="screens/products3.png" alt="User App - Products (Alternate)" width="200"/> 
-<img src="screens/products4.png" alt="User App - Products (Alternate)" width="200"/>
+<img src="screens/products.png" alt="User App - Products" width="200"/> <img src="screens/products2.png" alt="User App - Products (Alternate)" width="200"/><img src="screens/products3.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products4.png" alt="User App - Products (Alternate)" width="200"/> 
 <img src="screens/products5.png" alt="User App - Products (Alternate)" width="200"/> 
 
 **Product Details:**
@@ -261,14 +250,11 @@ This documentation outlines the RESTful API endpoints for the ZingoShop backend.
 
 **Cart:**
 
-<img src="screens/cart.png" alt="User App - Cart" width="200"/> 
-<img src="screens/cart2.png" alt="User App - Cart (Alternate)" width="200"/>
-<img src="screens/cart3.png" alt="User App - Cart (Alternate)" width="200"/> 
+<img src="screens/cart.png" alt="User App - Cart" width="200"/> <img src="screens/cart2.png" alt="User App - Cart (Alternate)" width="200"/> <img src="screens/cart3.png" alt="User App - Cart (Alternate)" width="200"/> 
 
 **Addresses:**
 
-<img src="screens/addresses.png" alt="User App - Addresses" width="200"/> 
-<img src="screens/addresses2.png" alt="User App - Addresses (Alternate)" width="200"/> 
+<img src="screens/addresses.png" alt="User App - Addresses" width="200"/> <img src="screens/addresses2.png" alt="User App - Addresses (Alternate)" width="200"/> 
 
 **Add Address:**
 
@@ -276,9 +262,7 @@ This documentation outlines the RESTful API endpoints for the ZingoShop backend.
 
 **Checkout:**
 
-<img src="screens/checkout.png" alt="User App - Checkout" width="200"/> 
-<img src="screens/checkout2.png" alt="User App - Checkout (Alternate)" width="200"/>
-<img src="screens/checkout3.png" alt="User App - Checkout (Alternate)" width="200"/> 
+<img src="screens/checkout.png" alt="User App - Checkout" width="200"/> <img src="screens/checkout2.png" alt="User App - Checkout (Alternate)" width="200"/> <img src="screens/checkout3.png" alt="User App - Checkout (Alternate)" width="200"/> 
 
 **Orders:**
 
