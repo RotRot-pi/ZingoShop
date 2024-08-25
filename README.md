@@ -6,13 +6,13 @@ This project is a fully functional single-vendor e-commerce application built wi
 
 * [Project Overview](#project-overview)
 * [Features](#features)
+* [Screenshots](#screenshots)
 * [Architecture](#architecture)
 * [Frontend (Flutter)](#frontend-flutter)
 * [Backend (PHP/MySQL)](#backend-phpmysql)
 * [Firebase Integration](#firebase-integration)
 * [Installation and Setup](#installation-and-setup)
 * [ZingoShop Backend API Documentation](#zingoshop-backend-api-documentation) 
-* [Screenshots](#screenshots)
 * [Future Improvements](#future-improvements)
 * [Contributing](#contributing) 
 
