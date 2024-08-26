@@ -1,6 +1,12 @@
 # ZingoShop: A Complete Flutter E-commerce Solution (Single-Vendor)
 
-This project is a fully functional single-vendor e-commerce application built with Flutter for the frontend (user app, admin app, and delivery app) and PHP with MySQL for the backend. It's designed to be cross-platform, working seamlessly on both Android and iOS devices. 
+<div align="center">
+  <img src="assets/images/zingo_shop_brand.png" alt="ZingoShop Logo" width="400"/> 
+  <!-- <img src="[Admin app screenshot]" alt="Admin App" width="200"/>
+  <img src="[Delivery app screenshot]" alt="Delivery App" width="200"/>  -->
+</div>
+
+This project is a fully functional single-vendor e-commerce application built with Flutter for the frontend (user app, admin app, and delivery app) and PHP with MySQL for the backend. It's designed to be cross-platform, working seamlessly on both Android and iOS devices.
 
 ## Table of Contents
 
@@ -12,17 +18,12 @@ This project is a fully functional single-vendor e-commerce application built wi
 * [Backend (PHP/MySQL)](#backend-phpmysql)
 * [Firebase Integration](#firebase-integration)
 * [Installation and Setup](#installation-and-setup)
-* [ZingoShop Backend API Documentation](#zingoshop-backend-api-documentation) 
+* [Backend and API](#backend-and-api)
 * [Future Improvements](#future-improvements)
-* [Contributing](#contributing) 
+* [Contributing](#contributing)
 
 ## Project Overview
 
-<div align="center">
-  <img src="assets/images/zingo_shop_brand.png" alt="ZingoShop Logo" width="400"/> 
-  <!-- <img src="[Admin app screenshot]" alt="Admin App" width="200"/>
-  <img src="[Delivery app screenshot]" alt="Delivery App" width="200"/>  -->
-</div>
 
 ZingoShop empowers a single vendor to establish a complete online store, providing tools to manage products, process orders, track deliveries, and engage with customers. This robust system comprises three distinct Flutter applications:
 
@@ -190,104 +191,11 @@ Firebase Cloud Messaging (FCM) seamlessly integrates into the project to enable 
     * Integrate the Firebase configuration into each of the Flutter applications (user, admin, and delivery).
 5. **Run the Flutter apps:** `flutter run` (run this command in each Flutter app's directory to launch the app on an emulator or a connected device).
 
-## ZingoShop Backend API Documentation
+## Backend and API
 
-This documentation outlines the RESTful API endpoints for the ZingoShop backend. The API facilitates communication between the Flutter frontend applications (user, admin, and delivery) and the PHP/MySQL backend.
+This app communicates with a PHP/MySQL backend to manage product data, user accounts, orders, and other e-commerce functionalities. The interaction between the app and the backend is facilitated through a RESTful API. 
 
-**Base URL:** [Your Base URL] (e.g., `http://yourdomain.com/ecommerce_from_host/`)
-
-**Data Format:** JSON
-
-**Authentication:** 
-- Some endpoints may require authentication using API keys or tokens.
-- You can implement a basic authentication mechanism using headers (e.g., `Authorization: Basic base64_encoded(username:password)`).
-
-**Error Handling:** 
-- The API will return a JSON response with a `status` field indicating "success" or "failure."
-- In case of errors, a `message` field will provide details about the error.
-
-## Endpoints
-
-### 1. Authentication Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/auth/signup.php` | `POST` | Registers a new user. | `name`, `email`, `phone`, `password` | `{ "status": "success" }` |
-| `/auth/verifycode.php` | `POST` | Verifies a user's email using a code. | `email`, `verifyCode` | `{ "status": "success" }` |
-| `/auth/login.php` | `POST` | Logs in an existing user. | `email`, `password` | `{ "status": "success", "data": { "user_id": 123, "user_name": "John Doe", ...} }` |
-| `/auth/resentverifycode.php` | `POST` | Resends the verification code. | `email` | `{ "status": "success" }` |
-| `/auth/forget_password/checkemail.php` | `POST` | Checks if an email exists for password reset. | `email` | `{ "status": "success" }` |
-| `/auth/forget_password/reset_password.php` | `POST` | Resets the user's password. | `email`, `password` | `{ "status": "success" }` |
-| `/auth/forget_password/verifycode.php` | `POST` | Verifies the password reset code. | `email`, `verifyCode` | `{ "status": "success" }` |
-
-- **Admin and Delivery Authentication:** 
-    - You have similar endpoints for admin (`/admin/auth/...`) and delivery personnel (`/delivery/auth/...`) with corresponding parameters and responses.
-
-### 2. Home and Product Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/home.php` | `GET` | Retrieves home screen data (categories, top-selling items, settings). |  None | `{ "status": "success", "categories": [...], "itemsTopSellingView": [...], "home_cart_settings": [...] }` |
-| `/search.php` | `POST` | Searches for products. | `search` | `{ "status": "success", "data": [...] }` |
-| `/items/items.php` | `POST` | Retrieves items for a specific category. | `users_id`, `categories_id` | `{ "status": "success", "data": [...] }` |
-| `/offers.php` | `GET` | Retrieves products with discounts. |  None | `{ "status": "success", "data": [...] }` |
-
-### 3. Favorite Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/favorite/addtofavorite.php` | `POST` | Adds an item to a user's favorites. | `users_id`, `items_id` | `{ "status": "success" }` |
-| `/favorite/removefromfavorite.php` | `POST` | Removes an item from favorites. | `users_id`, `items_id` | `{ "status": "success" }` |
-| `/favorite/view.php` | `POST` | Retrieves a user's favorite items. | `users_id` | `{ "status": "success", "data": [...] }` |
-| `/favorite/deletefavorite.php` | `POST` | Deletes a favorite item. | `favorite_id` | `{ "status": "success" }` |
-
-### 4. Cart Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/cart/add.php` | `POST` | Adds an item to the cart. | `user_id`, `item_id`, `item_count` | `{ "status": "success" }` |
-| `/cart/delete.php` | `POST` | Deletes an item from the cart. | `user_id`, `item_id` | `{ "status": "success" }` |
-| `/cart/view.php` | `POST` | Retrieves the user's cart items and total price. | `user_id` | `{ "status": "success", "countprice": {...}, "datacart": [...] }` |
-
-### 5. Address Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/address/add.php` | `POST` | Adds a new address. | `user_id`, `name`, `city`, `street`, `lat`, `long` | `{ "status": "success" }` |
-| `/address/delete.php` | `POST` | Deletes an address. | `address_id` | `{ "status": "success" }` |
-| `/address/view.php` | `POST` | Retrieves a user's addresses. | `user_id` | `{ "status": "success", "data": [...] }` |
-| `/address/update.php` | `POST` | Updates an address. | `address_id`, `name`, `city`, `street`, `lat`, `long` | `{ "status": "success" }` | 
-
-### 6. Coupon Endpoint
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/coupon/checkCoupon.php` | `POST` | Checks if a coupon is valid and retrieves details. | `coupon_name` | `{ "status": "success", "data": {...} }` |
-
-### 7. Order Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/order/checkout.php` | `POST` | Creates a new order. | `user_id`, `address_id`, `order_type`, `delivery_price`, `order_price`, `coupon_id`, `coupon_discount`, `payment_type` | `{ "status": "success" }` |
-| `/order/pending.php` | `POST` | Retrieves pending orders for a user. | `user_id` | `{ "status": "success", "data": [...] }` |
-| `/order/archive.php` | `POST` | Retrieves archived orders for a user. | `user_id` | `{ "status": "success", "data": [...] }` |
-| `/order/details.php` | `POST` | Retrieves details of a specific order. | `order_id` | `{ "status": "success", "data": [...] }` |
-| `/order/delete.php` | `POST` | Deletes an order (if allowed). | `order_id` | `{ "status": "success" }` |
-| `/order/rating.php` | `POST` | Adds a rating to an order. | `order_id`, `order_rating`, `order_notating` | `{ "status": "success" }` |
-
-- **Admin Order Endpoints:** 
-    - You have specific endpoints for admin order management (`/admin/order/...`), such as approve, prepare, and archive.
-- **Delivery Order Endpoints:** 
-    - Similarly, you have endpoints for delivery personnel (`/delivery/order/...`), including done, archive, pending, approve, and accepted.
-
-### 8. Notification Endpoints
-
-| Endpoint | Method | Description | Request Parameters | Response Example |
-|---|---|---|---|---|
-| `/notification/view.php` | `POST` | Retrieves notifications for a user. | `user_id` | `{ "status": "success", "data": [...] }` |
-
-**[Add more endpoints as needed based on your backend functionality]**
-
+For detailed API documentation, please refer to the [ZingoShop Backend repository](https://github.com/RotRot-pi/ZingoShop-Backend).
 
 ## Future Improvements
 
