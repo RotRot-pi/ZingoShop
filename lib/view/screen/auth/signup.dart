@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,9 +8,7 @@ import 'package:zingoshop/core/functions/exit_app_alert.dart';
 import 'package:zingoshop/core/functions/validate_auth_inputs.dart';
 import 'package:zingoshop/view/widgets/auth/custom_switch_auth_text.dart';
 import 'package:zingoshop/view/widgets/auth/custombuttonauth.dart';
-import 'package:zingoshop/view/widgets/auth/customtextbodyauth.dart';
 import 'package:zingoshop/view/widgets/auth/customtextformauth.dart';
-import 'package:zingoshop/view/widgets/auth/customtexttitleauth.dart';
 import 'package:zingoshop/view/widgets/auth/logoauth.dart';
 import 'package:zingoshop/view/animation/wave_animation_widget.dart';
 import 'package:zingoshop/view/widgets/handeling_data_view.dart';
@@ -93,11 +90,9 @@ class _SingupPage extends StatelessWidget {
                               val!, 25, 6, AuthInputType.username);
                           return null;
                         },
-
                         hinttext: "enter_username".tr,
                         iconData: Icons.person_outline,
                         labeltext: "username".tr,
-                        // mycontroller: ,
                       ),
                       CustonTextFormAuth(
                         controller: controller.emailController,
@@ -108,7 +103,6 @@ class _SingupPage extends StatelessWidget {
                         hinttext: "enter_email".tr,
                         iconData: Icons.email_outlined,
                         labeltext: "email".tr,
-                        // mycontroller: ,
                       ),
                       CustonTextFormAuth(
                         controller: controller.phoneController,
@@ -120,7 +114,6 @@ class _SingupPage extends StatelessWidget {
                         hinttext: "enter_phone".tr,
                         iconData: Icons.phone_android_outlined,
                         labeltext: "phone".tr,
-                        // mycontroller: ,
                       ),
                       GetBuilder<SignUpControllerImpl>(builder: (controller) {
                         return CustonTextFormAuth(
@@ -137,7 +130,6 @@ class _SingupPage extends StatelessWidget {
                             controller.showPassword();
                           },
                           labeltext: "password".tr,
-                          // mycontroller: ,
                         );
                       }),
                       AppSpacing.addHeigh(h12),

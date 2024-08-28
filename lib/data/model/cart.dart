@@ -58,46 +58,6 @@ class CartModel {
     this.totalPrice = totalPrice ?? 0.0;
   }
 
-  // CartModel copyWith({
-  //   int? itemsId,
-  //   String? itemsName,
-  //   String? itemsNameAr,
-  //   int? itemsPrice,
-  //   int? itemsDiscount,
-  //   int? itemsActive,
-  //   int? itemsCount,
-  //   String? itemsImage,
-  //   String? itemsDescription,
-  //   String? itemsDescriptionAr,
-  //   String? itemsDatetime,
-  //   int? itemsCategory,
-  //   int? totalPrice,
-  //   int? cartId,
-  //   int? cartUsersid,
-  //   int? cartItemsid,
-  //   int? cartItemCount,
-  // }) {
-  //   return CartModel(
-  //     itemsId: itemsId ?? this.itemsId,
-  //     itemsName: itemsName ?? this.itemsName,
-  //     itemsNameAr: itemsNameAr ?? this.itemsNameAr,
-  //     itemsPrice: itemsPrice ?? this.itemsPrice,
-  //     itemsDiscount: itemsDiscount ?? this.itemsDiscount,
-  //     itemsActive: itemsActive ?? this.itemsActive,
-  //     itemsCount: itemsCount ?? this.itemsCount,
-  //     itemsImage: itemsImage ?? this.itemsImage,
-  //     itemsDescription: itemsDescription ?? this.itemsDescription,
-  //     itemsDescriptionAr: itemsDescriptionAr ?? this.itemsDescriptionAr,
-  //     itemsDatetime: itemsDatetime ?? this.itemsDatetime,
-  //     itemsCategory: itemsCategory ?? this.itemsCategory,
-  //     cartItemCount: cartItemCount ?? this.cartItemCount,
-  //     cartId: cartId ?? this.cartId,
-  //     cartUsersid: cartUsersid ?? this.cartUsersid,
-  //     cartItemsid: cartItemsid ?? this.cartItemsid,
-  //     totalPrice: totalPrice ?? this.totalPrice,
-  //   );
-  // }
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'items_id': itemsId,
@@ -120,45 +80,6 @@ class CartModel {
     };
   }
 
-// var j ={"items_id": 2,
-//       "items_name": "camera",
-//       "items_name_ar": "كاميرا",
-//       "items_price": 234,
-//       "items_discount": 0,
-//       "items_active": 1,
-//       "items_count": 12,
-//       "items_image": "camera.png",
-//       "items_description": "A camera",
-//       "items_description_ar": "كاميرا",
-//       "items_datetime": "2024-02-06 17:14:49",
-//       "items_category": 2,
-//       "total_price": 468,
-//       "cart_id": 5,
-//       "cart_user_id": 21,
-//       "cart_item_id": 2,
-//       "cart_item_count": 2,
-//       }
-  // factory CartModel.fromMap(Map<String, dynamic> map) {
-  //   return CartModel(
-  //     itemsId: map['items_id'] as int?,
-  //     itemsName: map['items_name'] as String? ?? '',
-  //     itemsNameAr: map['items_name_ar'] as String? ?? '',
-  //     itemsPrice: map['items_price'] as int?,
-  //     itemsDiscount: map['items_discount'] as int?,
-  //     itemsActive: map['items_active'] as int?,
-  //     itemsCount: map['items_count'] as int?,
-  //     itemsImage: map['items_image'] as String? ?? '',
-  //     itemsDescription: map['items_description'] as String? ?? '',
-  //     itemsDescriptionAr: map['items_description_ar'] as String? ?? '',
-  //     itemsDatetime: map['items_datetime'] as String? ?? '',
-  //     itemsCategory: map['items_category'] as int?,
-  //     cartItemCount: map['cart_item_count'] as int?,
-  //     cartId: map['cart_id'] as int?,
-  //     cartUsersid: map['cart_user_id'] as int?,
-  //     cartItemsid: map['cart_items_id'] as int?,
-  //     totalPrice: map['total_price'] as int?,
-  //   );
-  // }
   factory CartModel.fromMap(Map<String, dynamic> map) {
     return CartModel(
       itemsId: map['items_id'] as int?,

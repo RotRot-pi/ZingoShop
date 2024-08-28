@@ -12,7 +12,6 @@ final ThemeData appEnglishTheme = ThemeData(
       iconTheme: const IconThemeData(color: AppColors.white),
       titleTextStyle: TextStyle(
           color: AppColors.white,
-          // fontWeight: FontWeight.bold,
           fontFamily: "OpenSans",
           fontWeight: FontWeight.w500,
           fontSize: 24.sp),

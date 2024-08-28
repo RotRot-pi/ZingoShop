@@ -23,11 +23,6 @@ import 'package:zingoshop/view/screen/screen_barrel.dart';
 
 List<GetPage> getPages() {
   List<GetPage> getPages = [
-    // GetPage(
-    //   name: '/',
-    //   page: () => Test(),
-    // )
-
     // ========================= Auth ========================= //
     GetPage(
       name: AppRoutes.language,

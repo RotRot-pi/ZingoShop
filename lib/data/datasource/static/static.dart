@@ -19,26 +19,3 @@ List<OnboardingModel> onboardingList = [
     image: AppImageAssets.onboardingThree,
   ),
 ];
-
-
-// List<OnboardingModel> onboardingList = [
-//   const OnboardingModel(
-//     title: 'Find your dream house',
-//     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     image: AppImageAssets.onboardingone,
-//   ),
-//   const OnboardingModel(
-//       title: 'Find your dream house',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//       image: AppImageAssets.onboardingTwo),
-//   const OnboardingModel(
-//     title: 'Find your dream house',
-//     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     image: AppImageAssets.onboardingThree,
-//   ),
-//   const OnboardingModel(
-//     title: 'Find your dream house',
-//     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//     image: AppImageAssets.onboardingFour,
-//   ),
-// ];

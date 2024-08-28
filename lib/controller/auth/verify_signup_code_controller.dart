@@ -11,7 +11,6 @@ abstract class VerifySignUpCodeController extends GetxController {
 }
 
 class VerifySignUpCodeControllerImpl extends VerifySignUpCodeController {
-  //Work on The conroller of VerifySignUpCode
   late String email;
   VerfiySinUpCodeData verfiySinUpCodeData =
       VerfiySinUpCodeData(crud: Get.find());

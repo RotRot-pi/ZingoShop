@@ -20,8 +20,6 @@ class OrdersDetailsController extends GetxController {
   double zoom = 10;
 
   List<Marker> markers = [];
-  // late double lat;
-  // late double lng;
 
   List data = [];
   late RequestStatus requestStatus;
@@ -49,22 +47,6 @@ class OrdersDetailsController extends GetxController {
     }
     update();
   }
-
-  // setMarker([LatLng? latLng]) {
-  //   if (orderDetails.orderType == 0) {
-  //     markers.clear();
-  //     lat = orderDetails.addressLat!;
-  //     lng = orderDetails.addressLong!;
-
-  //     markers.add(
-  //       Marker(
-  //         point: LatLng(lng, lat),
-  //         child: const Icon(Icons.location_on),
-  //       ),
-  //     );
-  //   }
-  //   update();
-  // }
 
   zoomIn() {
     if (zoom < 150) {

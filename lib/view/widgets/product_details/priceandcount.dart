@@ -34,18 +34,14 @@ class PriceAndCountItems extends StatelessWidget {
                       Icons.add,
                       size: s20,
                     )),
-                // AppSpacing.addWidth(h12),
                 Container(
                     alignment: Alignment.center,
                     padding: AppSpacing.addEdgeInsetsOnly(bottom: h2),
                     width: w56,
-                    // decoration:
-                    //     BoxDecoration(border: Border.all(color: AppColors.black)),
                     child: Text(
                       count,
                       style: TextStyle(fontSize: s16.sp, height: 1.1.h),
                     )),
-                // AppSpacing.addWidth(w4),
                 InkWell(
                     onTap: onRemove,
                     child: const Icon(

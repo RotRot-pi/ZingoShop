@@ -42,14 +42,6 @@ class AddressScreen extends StatelessWidget {
                         Address address = controller.addressList[index];
                         return AddressCard(
                             address: address, controller: controller);
-                        // return ListTile(
-                        //     title: Text(address.addressName!),
-                        //     subtitle:
-                        //         Text(address.addressStreet!),
-                        //     trailing: IconButton(
-                        //       onPressed: () {},
-                        //       icon: const Icon(Icons.delete),
-                        //     ));
                       }));
             })));
   }

@@ -58,7 +58,6 @@ class CheckEmailPage extends StatelessWidget {
           hinttext: "enter_email".tr,
           iconData: Icons.email_outlined,
           labeltext: "email".tr,
-          // mycontroller: ,
         ),
         AppSpacing.addHeigh(h32),
         CustomButtomAuth(

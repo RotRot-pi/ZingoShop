@@ -34,7 +34,6 @@ class ItemsScreen extends StatelessWidget {
                 fistActionOnPressed: () => Get.toNamed(AppRoutes.favorite),
                 secondActionIcon: Icons.shopping_cart,
                 secondActionOnPressed: () => Get.toNamed(AppRoutes.cart),
-                // goBack: true,
                 onPressedSearch: () => controller.onItemsSearch(),
                 onChanged: (value) => controller.isSearching(value),
               ),
@@ -58,8 +57,6 @@ class ItemsScreen extends StatelessWidget {
                               childAspectRatio: 1 / 1.4,
                             ),
                             itemBuilder: (BuildContext context, index) {
-                              // favoriteController
-                              //     .addItemToFavorite(controller.items[index]);
                               return EnhancedProductCard(
                                 item: controller.items[index],
                                 onTap: () => controller.goToProductDetails(
@@ -76,20 +73,6 @@ class ItemsScreen extends StatelessWidget {
               }),
             )
           ],
-        )
-        // Column(
-        //     children: [
-        //       CustomAppBar(
-        //           titleappbar: "find_product".tr,
-        //           onPressedIcon: () {},
-        //           onPressedFavorite: () =>
-        //               Get.toNamed(AppRoutes.favorite),
-        //           onPressedSearch: () => controller.searchItems()),
-        //       Expanded(
-        //           child: ),
-        //     ],
-        //   );
-
-        );
+        ));
   }
 }

@@ -50,7 +50,6 @@ class HandelingDataView extends StatelessWidget {
           width: 250,
           repeat: true,
           alignment: Alignment.center,
-          // reverse: true,
         ));
       case RequestStatus.notInitialized:
         return child;

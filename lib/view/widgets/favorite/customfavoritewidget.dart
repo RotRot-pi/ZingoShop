@@ -53,23 +53,7 @@ class CustomFavoriteWidget extends GetView<FavoriteControllerImpl> {
                           color: AppColors.black,
                           fontSize: s16,
                           fontWeight: FontWeight.w500)),
-
                   AppSpacing.addHeigh(h4),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.start,
-                  //   children: [
-                  //     Text("${controller.deliveryTime}",
-                  //         style: const TextStyle(fontSize: s16),
-                  //         textAlign: TextAlign.center),
-                  //     AppSpacing.addWidth(h4),
-                  //     const Icon(
-                  //       Icons.timer_sharp,
-                  //       size: s16,
-                  //     ),
-                  //   ],
-                  // ),
-                  //Rating stars
-                  //
                   Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,34 +95,14 @@ class CustomFavoriteWidget extends GetView<FavoriteControllerImpl> {
                               fontSize: s16,
                               fontWeight: FontWeight.w600,
                               fontFamily: "OpenSans")),
-                      //      GetBuilder<FavoriteItemsControllerImpl>(
-                      //     builder: (controller) {
-                      //   return InkWell(
-                      //     onTap: controller.changeFavorite(favorite),
-                      //     child: controller.favoriteItems.contains(id)
-                      //         ? const Icon(
-                      //             Icons.favorite,
-                      //             size: s24,
-                      //             color: AppColors.primaryColor,
-                      //           )
-                      //         : const Icon(
-                      //             Icons.favorite_border_outlined,
-                      //             size: s24,
-                      //           ),
-                      //   );
-                      // }),
                     ],
                   )
                 ]),
           ),
           if (favorite.itemsDiscount != 0)
-            //TODO: Make it directional (rtl,ltr)
-
             Positioned(
                 child: ColorFiltered(
               colorFilter: ColorFilter.matrix(colorFilterMatrix),
-              // colorFilter: ColorFilter.mode(
-              //     AppColors.secondaryColor, BlendMode.colorBurn),
               child: Image.asset(
                 AppImageAssets.sales,
                 height: h48,

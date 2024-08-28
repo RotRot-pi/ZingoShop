@@ -10,11 +10,9 @@ class CustomPageTransitionLeftAndRight extends CustomTransition {
       Animation<double> animation,
       Animation<double> secondaryAnimation,
       Widget child) {
-    // Get the current language
     final locale = Get.locale;
     final isRTL = locale?.languageCode == 'ar';
 
-    // Create a slide transition based on the language direction
     return SlideTransition(
       position: Tween<Offset>(
         begin: Offset(isRTL ? -1.0 : 1.0, 0.0),

@@ -64,6 +64,8 @@ class _CustonTextFormAuthState extends State<CustonTextFormAuth> {
         keyboardType: widget.inputType == AuthInputType.phone
             ? TextInputType.phone
             : TextInputType.text,
+        cursorColor: AppColors.primaryColor,
+        cursorHeight: 24.h,
         style: const TextStyle(
             color: AppColors.black, fontWeight: FontWeight.w500),
         decoration: InputDecoration(

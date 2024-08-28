@@ -66,7 +66,6 @@ class ResetPasswordPage extends StatelessWidget {
               hinttext: "enter_password".tr,
               iconData: Icons.lock_outlined,
               labeltext: "new_password".tr,
-              // mycontroller: ,
             );
           }),
           CustonTextFormAuth(
@@ -82,7 +81,6 @@ class ResetPasswordPage extends StatelessWidget {
             hinttext: "confirm_new_password".tr,
             iconData: Icons.lock_outline,
             labeltext: "confirm_new_password".tr,
-            // mycontroller: ,
           ),
           AppSpacing.addHeigh(h32),
           CustomButtomAuth(

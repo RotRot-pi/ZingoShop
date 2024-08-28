@@ -20,7 +20,6 @@ class OrderDetails {
   int? cartItemId;
   int? cartItemCount;
   int? cartOrderId;
-  // double totalPrice;
 
   // Order
   int? orderId;
@@ -67,7 +66,6 @@ class OrderDetails {
     this.cartItemId,
     this.cartItemCount,
     this.cartOrderId,
-    //  this.totalPrice,
     this.orderId,
     this.orderAddressId,
     this.orderUserId,
@@ -112,7 +110,6 @@ class OrderDetails {
       cartItemId: map['cart_item_id'] as int?,
       cartItemCount: map['cart_item_count'] as int?,
       cartOrderId: map['cart_order_id'] as int?,
-      // totalPrice: (map['total_price'] as int).toDouble(),
       orderId: map['order_id'] as int?,
       orderAddressId: map['order_address_id'] as int?,
       orderUserId: map['order_user_id'] as int?,

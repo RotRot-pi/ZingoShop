@@ -22,43 +22,20 @@ class CartController extends GetxController {
 
   double ordersPrice = 0.0;
   var totalOrdersPrice;
-  //var totalPrice;
   int totalcountitems = 0;
 
   var discountCoupon = 0;
   var couponName;
   var couponId;
 
-  //TODO: add a proper adding and deleting from cart methods to better handle the UI
-
   add(var itemsid) async {
-    // requestStatus = RequestStatus.loading;
-    // update();
     await cartData.addCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid, 1);
-
-    // Get.rawSnackbar(
-    //     title: "اشعار",
-    //     messageText: const Text("تم اضافة المنتج الى السلة "));
   }
 
   delete(var itemsid) async {
-    // requestStatus = (RequestStatus.loading);
-    // update();
-
     await cartData.deleteCart(
         _appServices.sharedPreferences.getInt("id")!, itemsid, 1);
-
-    // Start backend
-    // Get.rawSnackbar(
-    //     title: "اشعار",
-    //     messageText: const Text("تم ازالة المنتج من السلة "));
-
-    // data.addAll(response['data']);
-
-    // requestStatus = RequestStatus.failure as <RequestStatus>
-
-    // End
   }
 
   resetVarCart() {
@@ -83,8 +60,6 @@ class CartController extends GetxController {
 
     requestStatus = handelingData(response);
     if (requestStatus == RequestStatus.success) {
-      // Start backend
-
       if (response['status'] == "success") {
         print("Response:$response");
         List datacart = response['datacart'];
@@ -167,8 +142,6 @@ class CartController extends GetxController {
       }
       // Update locally
       data[index].cartItemCount = newCount;
-
-      // No need to call update() here as we're not updating the whole list
     }
   }
 

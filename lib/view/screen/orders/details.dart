@@ -146,7 +146,6 @@ class OrdersDetailsScreen extends StatelessWidget {
                             FlutterMap(
                               mapController: controller.mapController,
                               options: MapOptions(
-                                // onMapReady: () => controller.setMarker(),
                                 initialCenter: LatLng(
                                   controller.orderDetails.addressLat ?? 0.0,
                                   controller.orderDetails.addressLong ?? 0.0,

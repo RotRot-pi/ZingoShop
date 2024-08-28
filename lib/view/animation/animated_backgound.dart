@@ -42,12 +42,7 @@ class _AnimatedBackgroundState extends State<AnimatedBackground>
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                // Color(0xFF6A11CB),
-                // Color(0xFF2575FC),
-                AppColors.primaryColor,
-                AppColors.fifthColor
-              ],
+              colors: [AppColors.primaryColor, AppColors.fifthColor],
             ),
           ),
           child: CustomPaint(

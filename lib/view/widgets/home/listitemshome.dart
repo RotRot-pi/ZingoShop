@@ -33,7 +33,6 @@ class ListItemsHome extends GetView<HomeControllerImpl> {
                   price: item.itemsPrice,
                   title: item.itemsName,
                   image: "${ApiLink.itemsImageFolder}${item.itemsImage}",
-                  // press: controller.goToProductDetails(controller.items[i]),
                 ),
                 if (item.itemsDiscount != 0)
                   Positioned(
@@ -61,50 +60,6 @@ class ListItemsHome extends GetView<HomeControllerImpl> {
     );
   }
 }
-
-// class ItemsHomeWidget extends StatelessWidget {
-//   final Item item;
-//   const ItemsHomeWidget(
-//       {super.key, required this.item, required this.controller});
-//   final HomeControllerImpl controller;
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: () => controller.goToProductDetails(item),
-//       child: Stack(
-//         children: [
-//           Container(
-//             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-//             margin: const EdgeInsets.symmetric(horizontal: 10),
-//             child: Image.network(
-//               "${ApiLink.itemsImageFolder}${item.itemsImage}",
-//               height: 100,
-//               width: 150,
-//               fit: BoxFit.scaleDown,
-//             ),
-//           ),
-//           Container(
-//             decoration: BoxDecoration(
-//                 color: AppColors.black.withOpacity(0.3),
-//                 borderRadius: BorderRadius.circular(20)),
-//             height: 120,
-//             width: 200,
-//           ),
-//           Positioned(
-//               left: 10,
-//               bottom: 30,
-//               child: Text(
-//                 translateData(item.itemsNameAr, item.itemsName),
-//                 style: const TextStyle(
-//                     color: Colors.white,
-//                     // fontWeight: FontWeight.bold,
-//                     fontSize: 14),
-//               ))
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -152,7 +107,6 @@ class ProductCard extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Image.network(
                   image,
-                  // height: 100,
                   width: 150,
                   fit: BoxFit.scaleDown,
                 ),
@@ -173,7 +127,6 @@ class ProductCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: AppColors.black),
             ),
-            // SizedBox(height: p16 / 4),
             const Spacer(),
             Expanded(
               child: Row(

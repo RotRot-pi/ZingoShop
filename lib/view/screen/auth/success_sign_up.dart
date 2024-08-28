@@ -14,17 +14,6 @@ class SuccessSignUp extends StatelessWidget {
     SuccessPasswordResetControllerImpl controller =
         Get.put(SuccessPasswordResetControllerImpl());
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   backgroundColor: AppColors.whiteTextColor,
-      //   elevation: 0.0,
-      //   title: Text('success'.tr,
-      //       style: Theme.of(context)
-      //           .textTheme
-      //           .displayLarge!
-      //           .copyWith(color: AppColors.greyColor)),
-      // ),
-
       body: PopScope(
         onPopInvokedWithResult: (didPop, result) {
           if (didPop) {

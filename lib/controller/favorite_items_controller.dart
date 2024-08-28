@@ -8,7 +8,6 @@ abstract class FavoriteItemsController extends GetxController {}
 class FavoriteItemsControllerImpl extends FavoriteItemsController {
   final AppServices _appServices = Get.find();
   FavoriteItemsData favoriteData = FavoriteItemsData(Get.find());
-  //add the favorite items in a Set
   Set favoriteItems = {};
   addItemToFavorite(Item item) {
     if (item.favorite == 1) {

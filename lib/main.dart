@@ -1,4 +1,5 @@
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zingoshop/bindings/init_binding.dart';
 import 'package:zingoshop/core/localization/change_local.dart';
 import 'package:zingoshop/core/localization/translation.dart';
@@ -7,25 +8,18 @@ import 'package:zingoshop/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await ScreenUtil.ensureScreenSize();
-  // var s = await SharedPreferences.getInstance();
-  // s.clear();
-
   await initializeServices();
   FlutterNativeSplash.remove();
   runApp(const MyApp());
 }
 
-//
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.sizeOf(context).height;
@@ -36,8 +30,6 @@ class MyApp extends StatelessWidget {
     );
     return ScreenUtilInit(
       designSize: Size(width, height),
-
-      // minTextAdapt: true,
       builder: (context, widget) {
         return Directionality(
           textDirection: Get.locale == const Locale('ar')

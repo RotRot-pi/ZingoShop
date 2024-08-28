@@ -10,7 +10,6 @@ class CustomButtonCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: const EdgeInsets.symmetric(horizontal: 20),
       width: w300,
       height: h40,
       decoration: BoxDecoration(

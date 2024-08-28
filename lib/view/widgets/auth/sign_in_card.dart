@@ -71,7 +71,6 @@ class _SignInCardState extends State<SignInCard> with TickerProviderStateMixin {
                   hinttext: "enter_email".tr,
                   iconData: Icons.email_outlined,
                   labeltext: "email".tr,
-                  // mycontroller: ,
                 ),
                 GetBuilder<LogInControllerImpl>(builder: (controller) {
                   return CustonTextFormAuth(
@@ -88,7 +87,6 @@ class _SignInCardState extends State<SignInCard> with TickerProviderStateMixin {
                       controller.showPassword();
                     },
                     labeltext: "password".tr,
-                    // mycontroller: ,
                   );
                 }),
                 InkWell(

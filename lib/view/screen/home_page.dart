@@ -67,25 +67,7 @@ class HomePage extends StatelessWidget {
                       )
               ],
             ),
-          )
-          // : Column(
-          //     children: [
-          //       CustomAppBar(
-          //           titleappbar: "find_product".tr,
-          //           searchController: controller.searchController,
-          //           onPressedIcon: () {},
-          //           onPressedFavorite: () =>
-          //               Get.toNamed(AppRoutes.favorite),
-          //           onPressedSearch: () =>
-          //               controller.searchItems()),
-          //       Expanded(
-          //           child: SearchedItemsList(
-          //         listdatamodel: controller.searchedItems,
-          //       )),
-          //     ],
-          //   ),
-          ),
-      // Add additional widgets here as per your requirements
+          )),
     );
   }
 }
@@ -133,55 +115,3 @@ class SearchedItemsList extends GetView<HomeControllerImpl> {
         });
   }
 }
-
-// class CustomListCategory extends StatelessWidget {
-//   const CustomListCategory({
-//     super.key,
-//     required this.controller,
-//   });
-
-//   final HomeControllerImpl controller;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: h100,
-//       child: ListView.separated(
-//         scrollDirection: Axis.horizontal,
-//         separatorBuilder: (context, index) => AppSpacing.addWidth(w16),
-//         itemCount: controller.categories.length,
-//         itemBuilder: (context, index) {
-//           print(
-//               "Image name :${controller.categories[index]['categories_image']}");
-//           return Container(
-//             margin: EdgeInsets.only(right: p8),
-//             child: Column(
-//               children: [
-//                 Container(
-//                   width: w56,
-//                   height: h56,
-//                   padding: EdgeInsets.all(p8),
-//                   decoration: BoxDecoration(
-//                       color: Colors.grey[200],
-//                       borderRadius: BorderRadius.circular(r12)),
-//                   child: SvgPicture.network(
-//                     "${ApiLink.categoriesImageFolder}${controller.categories[index]['categories_image']}",
-
-//                     // colorFilter:
-//                     //     ColorFilter.mode(AppColors.black, BlendMode.colorBurn),
-//                   ),
-//                 ),
-//                 AppSpacing.addHeigh(h8),
-//                 Text(controller.categories[index]['categories_name'],
-//                     style: TextStyle(
-//                         color: Colors.grey[600],
-//                         fontSize: s12,
-//                         fontWeight: FontWeight.bold)),
-//               ],
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }

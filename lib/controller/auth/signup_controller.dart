@@ -40,7 +40,6 @@ class SignUpControllerImpl extends SignUpController {
       if (requestStatus == RequestStatus.success &&
           response['status'] == 'success') {
         goVerifySignUpCode();
-        //signupData.addAll(response['data']);
       } else {
         Get.defaultDialog(
           title: "warning".tr,
@@ -54,13 +53,12 @@ class SignUpControllerImpl extends SignUpController {
 
   @override
   goVerifySignUpCode() {
-    Get.off(AppRoutes.verifySignUpCode,
+    Get.offNamed(AppRoutes.verifySignUpCode,
         arguments: {'email': emailController.text});
   }
 
   @override
   goTologin() {
-    // Get.offNamed(AppRoutes.login);
     Get.off(const LoginScreen(),
         transition: Transition.size, routeName: AppRoutes.login);
   }

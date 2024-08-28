@@ -15,7 +15,7 @@ class CheckEmailControllerImpl extends CheckEmailController {
 
   late TextEditingController emailController;
   RequestStatus requestStatus = RequestStatus.notInitialized;
-  @override // Add your method for checking email here
+  @override
   void checkEmail() async {
     requestStatus = RequestStatus.loading;
     update();

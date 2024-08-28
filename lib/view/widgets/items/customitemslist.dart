@@ -15,15 +15,11 @@ import 'package:shimmer/shimmer.dart';
 class EnhancedProductCard extends StatelessWidget {
   final Item item;
   final VoidCallback onTap;
-  // final VoidCallback onFavoriteTap;
-  // final bool isFavorite;
 
   const EnhancedProductCard({
     super.key,
     required this.item,
     required this.onTap,
-    // required this.onFavoriteTap,
-    // required this.isFavorite,
   });
 
   @override
@@ -86,7 +82,6 @@ class EnhancedProductCard extends StatelessWidget {
                     top: 8,
                     right: 8,
                     child: FavoriteButton(
-                      // isFavorite: isFavorite,
                       item: item,
                     ),
                   ),
@@ -245,163 +240,3 @@ class ShimmerLoading extends StatelessWidget {
     );
   }
 }
-
-// class CustomListItems extends GetView<ItemsControllerImpl> {
-//   final Item item;
-//   const CustomListItems({super.key, required this.item});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//         onTap: () => controller.goToProductDetails(item),
-//         child: Card(
-//           color: AppColors.white,
-//           elevation: 5,
-//           shape: RoundedRectangleBorder(
-//             borderRadius: BorderRadius.circular(r20),
-//           ),
-//           child: Stack(
-//             children: [
-//               Padding(
-//                 padding: AppSpacing.addEdgeInsetsAll(p12),
-//                 child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.center,
-//                     crossAxisAlignment: CrossAxisAlignment.center,
-//                     children: [
-//                       CachedNetworkImage(
-//                         imageUrl:
-//                             "${ApiLink.itemsImageFolder}/${item.itemsImage}",
-//                         height: h64,
-//                         fit: BoxFit.scaleDown,
-//                         fadeInDuration: const Duration(milliseconds: 400),
-//                         fadeOutDuration: const Duration(milliseconds: 400),
-//                       ),
-//                       AppSpacing.addHeigh(h4),
-//                       Text(translateData(item.itemsNameAr, item.itemsName),
-//                           maxLines: 1,
-//                           overflow: TextOverflow.ellipsis,
-//                           style: const TextStyle(
-//                               color: AppColors.black,
-//                               fontSize: s16,
-//                               fontWeight: FontWeight.w500)),
-
-//                       AppSpacing.addHeigh(h4),
-//                       Row(
-//                         mainAxisAlignment: MainAxisAlignment.start,
-//                         children: [
-//                           Text("${controller.deliveryTime}",
-//                               style: const TextStyle(fontSize: s16),
-//                               textAlign: TextAlign.center),
-//                           AppSpacing.addWidth(h4),
-//                           const Icon(
-//                             Icons.timer_sharp,
-//                             size: s16,
-//                           ),
-//                         ],
-//                       ),
-//                       //Rating stars
-//                       //
-//                       Expanded(
-//                         child: Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                           children: [
-//                             Text(
-//                               "${"rating".tr} 3.5",
-//                               textAlign: TextAlign.center,
-//                               style: const TextStyle(
-//                                 color: AppColors.black,
-//                                 fontSize: 10,
-//                                 fontWeight: FontWeight.w500,
-//                                 fontFamily: "OpenSans",
-//                               ),
-//                             ),
-//                             Container(
-//                               alignment: Alignment.bottomCenter,
-//                               height: h24,
-//                               child: Row(
-//                                 children: [
-//                                   ...List.generate(
-//                                       math.Random().nextInt(6),
-//                                       (index) => const Icon(
-//                                             Icons.star_outlined,
-//                                             size: s16,
-//                                             color: AppColors.sixthColor,
-//                                           ))
-//                                 ],
-//                               ),
-//                             )
-//                           ],
-//                         ),
-//                       ),
-//                       Row(
-//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                         children: [
-//                           Text(
-//                               "${item.itemsPriceAfterDiscount?.toStringAsFixed(2)} \$",
-//                               style: const TextStyle(
-//                                   color: AppColors.black,
-//                                   fontSize: s16,
-//                                   fontWeight: FontWeight.w600,
-//                                   fontFamily: "OpenSans")),
-//                           GetBuilder<FavoriteItemsControllerImpl>(
-//                               builder: (controller) {
-//                             return IconButton(
-//                               onPressed: () {
-//                                 controller.changeFavorite(item);
-//                               },
-//                               icon: controller.favoriteItems
-//                                       .contains(item.itemsId)
-//                                   ? const Icon(
-//                                       Icons.favorite,
-//                                       color: AppColors.primaryColor,
-//                                     )
-//                                   : const Icon(Icons.favorite_border_outlined),
-//                             );
-//                           })
-//                         ],
-//                       )
-//                     ]),
-//               ),
-//               if (item.itemsDiscount != 0)
-//                 //TODO: Make it directional (rtl,ltr)
-
-//                 Positioned(
-//                     child: ColorFiltered(
-//                   colorFilter: ColorFilter.matrix(colorFilterMatrix),
-//                   // colorFilter: ColorFilter.mode(
-//                   //     AppColors.secondaryColor, BlendMode.colorBurn),
-//                   child: Image.asset(
-//                     AppImageAssets.sales,
-//                     height: h48,
-//                     width: w48,
-//                     fit: BoxFit.cover,
-//                   ),
-//                 ))
-//             ],
-//           ),
-//         ));
-//   }
-
-//   final List<double> colorFilterMatrix = const <double>[
-//     0.5126,
-//     1.0,
-//     0.7722,
-//     0.125,
-//     1,
-//     0.2126,
-//     1.2152,
-//     0.0722,
-//     0,
-//     0,
-//     0.2126,
-//     0.7152,
-//     0.0722,
-//     0,
-//     1,
-//     1,
-//     1,
-//     0,
-//     1,
-//     0
-//   ];
-// }

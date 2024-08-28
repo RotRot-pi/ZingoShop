@@ -34,24 +34,3 @@ validateAuthInputs(String val, int max, int min, AuthInputType type) {
 
   return null;
 }
-
-//Refactored and Shortened function 
-//
-// String? validateAuthInputs(String val, int max, int min, AuthInputType type) {
-//   if (val.isEmpty) return "required field";
-//   final Map<AuthInputType, bool Function(String)> validators = {
-//     AuthInputType.username: GetUtils.isUsername,
-//     AuthInputType.email: GetUtils.isEmail,
-//     AuthInputType.phone: GetUtils.isPhoneNumber,
-//     AuthInputType.password: (v) => RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$').hasMatch(v),
-//   };
-  
-//   if (!validators[type]!(val)) {
-//     return "Invalid ${type.name}";
-//   } else if (val.length < min) {
-//     return "Minimum length is $min";
-//   } else if (val.length > max) {
-//     return "Maximum length is $max";
-//   }
-//   return null; // Indicates validation passed
-// }

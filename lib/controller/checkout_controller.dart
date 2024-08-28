@@ -46,14 +46,12 @@ class CheckoutController extends GetxController {
     var response = await addressData
         .getAddress(myServices.sharedPreferences.getInt("id")!);
 
-    // Start backend
     if (response['status'] == "success") {
       List listdata = response['data'];
       dataaddress.addAll(listdata.map((e) => Address.fromJson(e)));
     }
     statusRequest = RequestStatus.success;
     update();
-    // End
   }
 
   goToAddress() {
@@ -103,11 +101,7 @@ class CheckoutController extends GetxController {
     statusRequest = handelingData(response);
 
     if (RequestStatus.success == statusRequest) {
-      // Start backend
-
       Get.offAllNamed(AppRoutes.home);
-
-      // End
     } else {
       Get.snackbar(
         "Error",

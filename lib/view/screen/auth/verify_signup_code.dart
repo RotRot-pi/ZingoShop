@@ -55,16 +55,9 @@ class _VerifySignUpCodePage extends StatelessWidget {
             borderColor: AppColors.greyColor,
             showFieldAsBox: true,
             borderRadius: BorderRadius.circular(r16),
-            //set to true to show as box or false to show as dash
             onSubmit: (String verificationCode) {
               controller.verfiyCode(verificationCode);
-            }
-            // showDialog(
-            //     context: context,
-            //     builder: (context) => AlertDialog(
-            //           title: Text("Verification Code"),
-
-            ),
+            }),
         AppSpacing.addHeigh(h20),
         Center(
           child: InkWell(

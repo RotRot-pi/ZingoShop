@@ -15,10 +15,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Test this widget with and without ScreenUtil
-    //TODO: Test Text size with and without sp
-    //TODO: Test Text with and without FittedBox widget
-
     HomeScreenControllerImpl controller = Get.put(HomeScreenControllerImpl());
 
     return Scaffold(

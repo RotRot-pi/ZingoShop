@@ -14,7 +14,6 @@ class OrderTrackingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(TrackingController());
-    // TrackingController trackingController = Get.put(TrackingController());
     return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -34,11 +33,8 @@ class OrderTrackingScreen extends StatelessWidget {
                   FlutterMap(
                     mapController: controller.mapController,
                     options: MapOptions(
-                      // onMapReady: () => controller.setMarker(LatLng(
-                      //     controller.destLat, controller.destLng)),
                       initialCenter:
                           controller.getInitialCenter() ?? const LatLng(0, 0),
-
                       initialZoom: controller.zoom,
                       minZoom: controller.zoom,
                       maxZoom: controller.zoom,

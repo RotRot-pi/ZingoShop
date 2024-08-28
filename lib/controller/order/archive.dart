@@ -43,25 +43,6 @@ class ArchivingOrderController extends GetxController {
       Get.snackbar("Error", "Rating not added");
     }
   }
-  // deleteOrder(var orderId) async {
-  //
-  //   try {
-  //     var response = await archiveOrderData.deleteData(orderId.toString());
-  //     if (response['status'] == 'success') {
-  //       data.clear();
-  //       getArchivedOrders();
-  //       Get.snackbar("Success", "order deleted");
-  //       update();
-  //     } else {
-  //       Get.snackbar("Error", "order not deleted");
-  //       update();
-  //     }
-  //   } catch (e) {
-  //
-  //   }
-
-  //
-  // }
 
   printOrderType(var orderType) {
     if (orderType == 0) {
@@ -100,7 +81,6 @@ class ArchivingOrderController extends GetxController {
   ratingDialog(var orderId) {
     final dialog = RatingDialog(
       initialRating: 1.0,
-      // your app's name?
       title: const Text(
         'Rate Your Order',
         textAlign: TextAlign.center,
@@ -109,13 +89,11 @@ class ArchivingOrderController extends GetxController {
           fontWeight: FontWeight.bold,
         ),
       ),
-      // encourage your user to leave a high rating?
       message: const Text(
         'Tap a star to set your rating. Add more description here if you want.',
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 15),
       ),
-      // your app's logo?
       image: const LogoAuth(),
       submitButtonText: 'Submit',
       commentHint: 'Set your custom comment hint',

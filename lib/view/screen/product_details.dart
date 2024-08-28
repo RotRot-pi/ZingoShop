@@ -20,9 +20,6 @@ class ProductDetailsScreen extends StatelessWidget {
       child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
-            // title: Text("product_details".tr),
-            // centerTitle: true,
-
             elevation: 0,
             backgroundColor: AppColors.transparent,
             leading: IconButton(

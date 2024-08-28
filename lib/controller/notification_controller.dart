@@ -29,12 +29,6 @@ class NotificationController extends GetxController {
     update();
   }
 
-  // isEnlish() {
-  //   bool isEn =
-  //       _appServices.sharedPreferences.getString('lang') == 'en' ? true : false;
-  //   return isEn;
-  // }
-
   @override
   void onInit() {
     getData();

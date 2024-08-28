@@ -5,8 +5,4 @@ handelingData(response) {
     return response;
   }
   return RequestStatus.success;
-  // if (response is! RequestStatus) {
-  //   return RequestStatus.success;
-  // }
-  // return response;
 }

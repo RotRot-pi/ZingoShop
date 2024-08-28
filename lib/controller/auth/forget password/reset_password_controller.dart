@@ -39,7 +39,6 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
           middleText: "reset_password_fail".tr,
           content: Text(newPasswordMustBeDiffrent),
         );
-        //requestStatus = RequestStatus.failure;
       }
     } else {
       Get.defaultDialog(

@@ -15,21 +15,17 @@ class CustomAppBar extends GetView<HomeControllerImpl> {
   final void Function()? fistActionOnPressed;
   final IconData? secondActionIcon;
   final void Function()? secondActionOnPressed;
-  // final void Function()? onPressedIcon;
-  // final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
   final void Function(String)? onChanged;
   final TextEditingController? searchController;
   final bool goBack;
   const CustomAppBar({
     super.key,
-    // this.onPressedIcon,
     required this.searchHintText,
     this.fistActionIcon,
     this.fistActionOnPressed,
     this.secondActionIcon,
     this.secondActionOnPressed,
-    // this.onPressedFavorite,
     this.onPressedSearch,
     this.onChanged,
     this.searchController,
@@ -42,7 +38,6 @@ class CustomAppBar extends GetView<HomeControllerImpl> {
       margin: AppSpacing.addEdgeInsetsOnly(top: p12),
       height: 54.h,
       child: Row(children: [
-        //Optional Go Back Button
         goBack == true
             ? IconButton(
                 onPressed: () => Navigator.pop(context),
@@ -59,7 +54,6 @@ class CustomAppBar extends GetView<HomeControllerImpl> {
               onPressedSearch: onPressedSearch,
               searchHintText: searchHintText),
         ),
-
         fistActionIcon != null
             ? IconButton(
                 onPressed: fistActionOnPressed,
@@ -69,7 +63,6 @@ class CustomAppBar extends GetView<HomeControllerImpl> {
                 ),
               )
             : const SizedBox(),
-
         secondActionIcon != null
             ? IconButton(
                 onPressed: secondActionOnPressed,

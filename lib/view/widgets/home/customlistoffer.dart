@@ -138,17 +138,6 @@ class CustomListOffers extends GetView<OffersController> {
                       ),
                     ),
                   ),
-                // if (item.itemsDiscount != 0)
-                //   Positioned(
-                //       child: ColorFiltered(
-                //     colorFilter: ColorFilter.matrix(colorFilterMatrix),
-                //     child: Image.asset(
-                //       AppImageAssets.sales,
-                //       height: h64,
-                //       width: w64,
-                //       fit: BoxFit.fill,
-                //     ),
-                //   ))
               ],
             ),
           ),

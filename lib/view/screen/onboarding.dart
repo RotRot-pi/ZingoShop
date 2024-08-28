@@ -55,9 +55,6 @@ class OnBoardingScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const CustomOnboardingDots(),
-                  // Spacer(
-                  //   flex: 2,
-                  // ),
                   AppSpacing.addHeigh(24),
                   const CustomOnboardingButton(),
                   AppSpacing.addHeigh(h24),

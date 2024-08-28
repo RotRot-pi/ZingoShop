@@ -38,9 +38,6 @@ class ItemsControllerImpl extends ItemsController {
 
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      // response['categories'].forEach((element) {
-      //   categories.add(Item.fromMap(element));
-      // });
       response['data'].forEach((element) {
         items.add(Item.fromMap(element));
       });

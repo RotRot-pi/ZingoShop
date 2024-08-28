@@ -39,15 +39,6 @@ class AddressControllerImpl extends AddressController {
     await addressData.deleteAddress(id);
     addressList.removeWhere((element) => element.addressId! == id);
     update();
-
-    // if (requestStatus == RequestStatus.success &&
-    //     response['status'] == 'success') {
-    //   update();
-    // } else {
-    //
-    //   update();
-    // }
-    // update();
   }
 
   @override

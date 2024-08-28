@@ -38,6 +38,7 @@ class LogInControllerImpl extends LogInController {
       requestStatus = handelingData(response);
 
       if (requestStatus == RequestStatus.success) {
+        print("response['status'] ${response['status']}");
         if (response['status'] == 'success') {
           var data = response['data'];
           if (data['user_approve'] == 1) {
@@ -70,7 +71,6 @@ class LogInControllerImpl extends LogInController {
 
   @override
   goToSignUp() {
-    // Get.offNamed(AppRoutes.signup);
     Get.off(const SignUpScreen(),
         transition: Transition.size, routeName: AppRoutes.signup);
   }

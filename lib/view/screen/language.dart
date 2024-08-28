@@ -1,7 +1,4 @@
-// lib/view/screen/language.dart
-import 'package:flutter/scheduler.dart';
 import 'package:zingoshop/core/constants/colors.dart';
-import 'package:zingoshop/core/constants/routes_name.dart';
 import 'package:zingoshop/core/constants/spaces.dart';
 import 'package:zingoshop/core/localization/change_local.dart';
 import 'package:zingoshop/view/widgets/language/custom_language_button.dart';

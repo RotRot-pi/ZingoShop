@@ -21,9 +21,6 @@ class FavoriteScreen extends StatelessWidget {
           children: [
             CustomAppBar(
               searchHintText: "favorite".tr,
-              // fistActionIcon: Icons.notifications_outlined,
-              // fistActionOnPressed: () => Get.toNamed(AppRoutes.notification),
-
               goBack: true,
             ),
             GetBuilder<FavoriteControllerImpl>(

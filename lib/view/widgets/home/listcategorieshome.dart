@@ -62,7 +62,6 @@ class CategoyWidget extends GetView<HomeControllerImpl> {
             ),
             AppSpacing.addHeigh(h8),
             SizedBox(
-              // width: w80,
               child: Text(
                   translateData(
                       category.categoriesNameAr, category.categoriesName),

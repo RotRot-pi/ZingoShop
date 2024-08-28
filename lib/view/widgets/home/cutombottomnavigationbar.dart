@@ -13,8 +13,6 @@ class CustomNavigationAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      // surfaceTintColor: AppColors.secondaryColor,
-      // shadowColor: AppColors.secondaryColor,
       elevation: 100,
       clipBehavior: Clip.antiAlias,
       color: AppColors.white,

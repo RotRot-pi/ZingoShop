@@ -32,26 +32,9 @@ class ProductDetailsControllerImpl extends ProductDetailsController
   }
 
   addItems(var itemsid) async {
-    // requestStatus = RequestStatus.loading;
-    // update();
     await cartData.addCart(
         _appServices.sharedPreferences.getInt("id"), itemsid, countitems);
-
-    // print("response status ${response['status']}");
-    // requestStatus = handelingData(response);
-    // if (RequestStatus.success == requestStatus) {
-    //Start backend
-
     Get.offAllNamed(AppRoutes.home);
-    // Get.rawSnackbar(
-    //     title: "اشعار",
-    //     messageText: const Text("تم اضافة المنتج الى السلة "));
-    // data.add(response['data']);
-
-    // else {
-    //   requestStatus = RequestStatus.failure;
-    // }
-    // End
   }
 
   List subitems = [
@@ -61,14 +44,12 @@ class ProductDetailsControllerImpl extends ProductDetailsController
   ];
 
   add() {
-    // addItems(item.itemsId);
     countitems++;
     update();
   }
 
   remove() {
     if (countitems > 0) {
-      // deleteitems(item.itemsId);
       countitems--;
       update();
     }

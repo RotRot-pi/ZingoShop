@@ -1,14 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-// class ItemsModel {
-//   List<Item> items;
-
-//   ItemsModel({
-//     required this.items,
-//   });
-// }
-
 class Item {
   int itemsId;
   String itemsName;
