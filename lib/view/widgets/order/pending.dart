@@ -75,7 +75,7 @@ class OrderCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${"total".tr}: ${order.orderTotalPrice}",
+                  "${"total".tr}: ${order.orderTotalPrice!.toStringAsFixed(2)}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor,

@@ -206,7 +206,8 @@ class CheckoutScreen extends StatelessWidget {
             _buildSummaryRow("shipping".tr, "\$${0.0}"),
             _buildSummaryRow("tax".tr, "\$${0.0}"),
             const Divider(),
-            _buildSummaryRow("total".tr, "\$${controller.ordersPrice}",
+            _buildSummaryRow(
+                "total".tr, "\$${controller.ordersPrice.toStringAsFixed(2)}",
                 isBold: true),
           ],
         ),
