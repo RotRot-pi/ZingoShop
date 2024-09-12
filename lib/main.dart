@@ -1,5 +1,4 @@
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zingoshop/bindings/init_binding.dart';
 import 'package:zingoshop/core/localization/change_local.dart';
 import 'package:zingoshop/core/localization/translation.dart';
