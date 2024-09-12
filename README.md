@@ -72,54 +72,30 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
 
 ## Screenshots
 
-### Language Selection & Onboarding
-
-| Language Selection | Onboarding |
-|:---:|:---:|
-| <img src="screens/language1.png" alt="User App - Language Selection" width="200"/> <img src="screens/language2.png" alt="User App - Language Selection (Alternate)" width="200"/> | <img src="screens/onboarding1.png" alt="User App - Onboarding Screen 1" width="200"/> <img src="screens/onboarding2.png" alt="User App - Onboarding Screen 2" width="200"/> <img src="screens/onboarding3.png" alt="User App - Onboarding Screen 3" width="200"/> |
-
-### User Authentication
-
-| Login & Sign Up | Password Reset |
-|:---:|:---:|
-| <img src="screens/login.png" alt="User App - Login" width="200"/> <img src="screens/login2.png" alt="User App - Login (Alternate)" width="200"/> <img src="screens/signup.png" alt="User App - Sign Up" width="200"/> <img src="screens/check_email.png" alt="User App - Check Email" width="200"/> | <img src="screens/verify_code.png" alt="User App - Verify Code" width="200"/> <img src="screens/reset_password.png" alt="User App - Reset Password" width="200"/> <img src="screens/reset_password2.png" alt="User App - Reset Password (Alternate)" width="200"/> <img src="screens/reset_password_success.png" alt="User App - Reset Password Success" width="200"/> |
-
-### Home & Offers
-
-| Home | Offers |
-|:---:|:---:|
-| <img src="screens/home.png" alt="User App - Home Screen" width="200"/> | <img src="screens/offer.png" alt="User App - Offers" width="200"/> |
-
-### Product Browsing & Details
-
-| Product Browsing | Product Details |
-|:---:|:---:|
-| <img src="screens/products.png" alt="User App - Products" width="200"/> <img src="screens/products2.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products3.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products4.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products5.png" alt="User App - Products (Alternate)" width="200"/> | <img src="screens/product_details.png" alt="User App - Product Details" width="200"/> |
-
-### Cart & Checkout
-
-| Cart | Checkout |
-|:---:|:---:|
-| <img src="screens/cart.png" alt="User App - Cart" width="200"/> <img src="screens/cart2.png" alt="User App - Cart (Alternate)" width="200"/> <img src="screens/cart3.png" alt="User App - Cart (Alternate)" width="200"/> | <img src="screens/checkout.png" alt="User App - Checkout" width="200"/> <img src="screens/checkout2.png" alt="User App - Checkout (Alternate)" width="200"/> <img src="screens/checkout3.png" alt="User App - Checkout (Alternate)" width="200"/> |
-
-### Addresses
-
-| Address List | Add Address |
-|:---:|:---:|
-| <img src="screens/addresses.png" alt="User App - Addresses" width="200"/> <img src="screens/addresses2.png" alt="User App - Addresses (Alternate)" width="200"/> | <img src="screens/add_address.png" alt="User App - Add Address" width="200"/> |
-
-### Orders
-
-| Order List | Order Details | Order Tracking |
+### User Onboarding
+| Language Selection | Onboarding | Authentication |
 |:---:|:---:|:---:|
-| <img src="screens/orders.png" alt="User App - Orders" width="200"/> | <img src="screens/order_details.png" alt="User App - Order Details" width="200"/> | <img src="screens/order_tracking.png" alt="User App - Order Tracking" width="200"/> |
+| ![Language Selection](screens/language1.png) | ![Onboarding](screens/onboarding1.png) | ![Login](screens/login.png) |
+
+### Core Functionality
+| Home | Product Browsing | Product Details |
+|:---:|:---:|:---:|
+| ![Home](screens/home.png) | ![Products](screens/products.png) | ![Product Details](screens/product_details.png) |
+
+### Shopping Experience
+| Cart | Checkout | Orders |
+|:---:|:---:|:---:|
+| ![Cart](screens/cart.png) | ![Checkout](screens/checkout.png) | ![Orders](screens/orders.png) |
+
+### User Management
+| Addresses | Favorites | Settings |
+|:---:|:---:|:---:|
+| ![Addresses](screens/addresses.png) | ![Favorites](screens/favorite.png) | ![Settings](screens/settings.png) |
 
 ### Additional Features
-
-| Favorites | Notifications | Settings |
+| Offers | Notifications | Order Tracking |
 |:---:|:---:|:---:|
-| <img src="screens/favorite.png" alt="User App - Favorites" width="200"/> | <img src="screens/notifications.png" alt="User App - Notifications" width="200"/> | <img src="screens/settings.png" alt="User App - Settings" width="200"/> |
-
+| ![Offers](screens/offer.png) | ![Notifications](screens/notifications.png) | ![Order Tracking](screens/order_tracking.png) |
 ## Architecture 
 
 * **Frontend (Flutter):**  The Flutter apps adhere to the Model-View-Controller (MVC) pattern, promoting clean code organization and separation of concerns. The `Get` package provides powerful state management and navigation capabilities. 
