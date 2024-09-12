@@ -70,78 +70,55 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
     * Real-time updates to order statuses (e.g., picked up, on the way, delivered).
     * Seamless order tracking using integrated Google Maps for efficient delivery.
 
-## Screenshots 
+## Screenshots
 
-**Language Selection:**
+### Language Selection & Onboarding
 
-<img src="screens/language1.png" alt="User App - Language Selection" width="200"/> <img src="screens/language2.png" alt="User App - Language Selection (Alternate)" width="200"/> 
+| Language Selection | Onboarding |
+|:---:|:---:|
+| <img src="screens/language1.png" alt="User App - Language Selection" width="200"/> <img src="screens/language2.png" alt="User App - Language Selection (Alternate)" width="200"/> | <img src="screens/onboarding1.png" alt="User App - Onboarding Screen 1" width="200"/> <img src="screens/onboarding2.png" alt="User App - Onboarding Screen 2" width="200"/> <img src="screens/onboarding3.png" alt="User App - Onboarding Screen 3" width="200"/> |
 
-**Onboarding:** 
+### User Authentication
 
-<img src="screens/onboarding1.png" alt="User App - Onboarding Screen 1" width="200"/> <img src="screens/onboarding2.png" alt="User App - Onboarding Screen 2" width="200"/> <img src="screens/onboarding3.png" alt="User App - Onboarding Screen 3" width="200"/>
+| Login & Sign Up | Password Reset |
+|:---:|:---:|
+| <img src="screens/login.png" alt="User App - Login" width="200"/> <img src="screens/login2.png" alt="User App - Login (Alternate)" width="200"/> <img src="screens/signup.png" alt="User App - Sign Up" width="200"/> <img src="screens/check_email.png" alt="User App - Check Email" width="200"/> | <img src="screens/verify_code.png" alt="User App - Verify Code" width="200"/> <img src="screens/reset_password.png" alt="User App - Reset Password" width="200"/> <img src="screens/reset_password2.png" alt="User App - Reset Password (Alternate)" width="200"/> <img src="screens/reset_password_success.png" alt="User App - Reset Password Success" width="200"/> |
 
+### Home & Offers
 
-**User Authentication:**
+| Home | Offers |
+|:---:|:---:|
+| <img src="screens/home.png" alt="User App - Home Screen" width="200"/> | <img src="screens/offer.png" alt="User App - Offers" width="200"/> |
 
-<img src="screens/login.png" alt="User App - Login" width="200"/> <img src="screens/login2.png" alt="User App - Login (Alternate)" width="200"/> <img src="screens/signup.png" alt="User App - Sign Up" width="200"/> <img src="screens/check_email.png" alt="User App - Check Email" width="200"/> 
-<img src="screens/verify_code.png" alt="User App - Verify Code" width="200"/> <img src="screens/reset_password.png" alt="User App - Reset Password" width="200"/> <img src="screens/reset_password2.png" alt="User App - Reset Password (Alternate)" width="200"/> <img src="screens/reset_password_success.png" alt="User App - Reset Password Success" width="200"/> 
+### Product Browsing & Details
 
-**Home:**
+| Product Browsing | Product Details |
+|:---:|:---:|
+| <img src="screens/products.png" alt="User App - Products" width="200"/> <img src="screens/products2.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products3.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products4.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products5.png" alt="User App - Products (Alternate)" width="200"/> | <img src="screens/product_details.png" alt="User App - Product Details" width="200"/> |
 
-<img src="screens/home.png" alt="User App - Home Screen" width="200"/>
+### Cart & Checkout
 
-**Offers:**
+| Cart | Checkout |
+|:---:|:---:|
+| <img src="screens/cart.png" alt="User App - Cart" width="200"/> <img src="screens/cart2.png" alt="User App - Cart (Alternate)" width="200"/> <img src="screens/cart3.png" alt="User App - Cart (Alternate)" width="200"/> | <img src="screens/checkout.png" alt="User App - Checkout" width="200"/> <img src="screens/checkout2.png" alt="User App - Checkout (Alternate)" width="200"/> <img src="screens/checkout3.png" alt="User App - Checkout (Alternate)" width="200"/> |
 
-<img src="screens/offer.png" alt="User App - Offers" width="200"/> 
+### Addresses
 
-**Product Browsing:**
+| Address List | Add Address |
+|:---:|:---:|
+| <img src="screens/addresses.png" alt="User App - Addresses" width="200"/> <img src="screens/addresses2.png" alt="User App - Addresses (Alternate)" width="200"/> | <img src="screens/add_address.png" alt="User App - Add Address" width="200"/> |
 
-<img src="screens/products.png" alt="User App - Products" width="200"/> <img src="screens/products2.png" alt="User App - Products (Alternate)" width="200"/><img src="screens/products3.png" alt="User App - Products (Alternate)" width="200"/> <img src="screens/products4.png" alt="User App - Products (Alternate)" width="200"/> 
-<img src="screens/products5.png" alt="User App - Products (Alternate)" width="200"/> 
+### Orders
 
-**Product Details:**
+| Order List | Order Details | Order Tracking |
+|:---:|:---:|:---:|
+| <img src="screens/orders.png" alt="User App - Orders" width="200"/> | <img src="screens/order_details.png" alt="User App - Order Details" width="200"/> | <img src="screens/order_tracking.png" alt="User App - Order Tracking" width="200"/> |
 
-<img src="screens/product_details.png" alt="User App - Product Details" width="200"/>
+### Additional Features
 
-**Cart:**
-
-<img src="screens/cart.png" alt="User App - Cart" width="200"/> <img src="screens/cart2.png" alt="User App - Cart (Alternate)" width="200"/> <img src="screens/cart3.png" alt="User App - Cart (Alternate)" width="200"/> 
-
-**Addresses:**
-
-<img src="screens/addresses.png" alt="User App - Addresses" width="200"/> <img src="screens/addresses2.png" alt="User App - Addresses (Alternate)" width="200"/> 
-
-**Add Address:**
-
-<img src="screens/add_address.png" alt="User App - Add Address" width="200"/> 
-
-**Checkout:**
-
-<img src="screens/checkout.png" alt="User App - Checkout" width="200"/> <img src="screens/checkout2.png" alt="User App - Checkout (Alternate)" width="200"/> <img src="screens/checkout3.png" alt="User App - Checkout (Alternate)" width="200"/> 
-
-**Orders:**
-
-<img src="screens/orders.png" alt="User App - Orders" width="200"/> 
-
-**Order Details:**
-
-<img src="screens/order_details.png" alt="User App - Order Details" width="200"/> 
-
-**Order Tracking:**
-
-<img src="screens/order_tracking.png" alt="User App - Order Tracking" width="200"/> 
-
-**Favorites:**
-
-<img src="screens/favorite.png" alt="User App - Favorites" width="200"/> 
-
-**Notifications:**
-
-<img src="screens/notifications.png" alt="User App - Notifications" width="200"/> 
-
-**Settings:**
-
-<img src="screens/settings.png" alt="User App - Settings" width="200"/> 
+| Favorites | Notifications | Settings |
+|:---:|:---:|:---:|
+| <img src="screens/favorite.png" alt="User App - Favorites" width="200"/> | <img src="screens/notifications.png" alt="User App - Notifications" width="200"/> | <img src="screens/settings.png" alt="User App - Settings" width="200"/> |
 
 ## Architecture 
 
