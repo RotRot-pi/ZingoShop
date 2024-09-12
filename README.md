@@ -72,30 +72,98 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
 
 ## Screenshots
 
-### User Onboarding
-| Language Selection | Onboarding | Authentication |
-|:---:|:---:|:---:|
-| ![Language Selection](screens/language1.png) | ![Onboarding](screens/onboarding1.png) | ![Login](screens/login.png) |
+### Language Selection & Onboarding
+<details>
+<summary>View Screenshots</summary>
 
-### Core Functionality
-| Home | Product Browsing | Product Details |
-|:---:|:---:|:---:|
-| ![Home](screens/home.png) | ![Products](screens/products.png) | ![Product Details](screens/product_details.png) |
+| Language Selection | Language Selection (Alt) | Onboarding 1 | Onboarding 2 | Onboarding 3 |
+|:---:|:---:|:---:|:---:|:---:|
+| ![Language 1](screens/language1.png) | ![Language 2](screens/language2.png) | ![Onboarding 1](screens/onboarding1.png) | ![Onboarding 2](screens/onboarding2.png) | ![Onboarding 3](screens/onboarding3.png) |
 
-### Shopping Experience
-| Cart | Checkout | Orders |
-|:---:|:---:|:---:|
-| ![Cart](screens/cart.png) | ![Checkout](screens/checkout.png) | ![Orders](screens/orders.png) |
+</details>
 
-### User Management
-| Addresses | Favorites | Settings |
+### User Authentication
+<details>
+<summary>View Screenshots</summary>
+
+| Login | Login (Alt) | Sign Up | Check Email |
+|:---:|:---:|:---:|:---:|
+| ![Login](screens/login.png) | ![Login 2](screens/login2.png) | ![Sign Up](screens/signup.png) | ![Check Email](screens/check_email.png) |
+
+| Verify Code | Reset Password | Reset Password (Alt) | Reset Success |
+|:---:|:---:|:---:|:---:|
+| ![Verify Code](screens/verify_code.png) | ![Reset Password](screens/reset_password.png) | ![Reset Password 2](screens/reset_password2.png) | ![Reset Success](screens/reset_password_success.png) |
+
+</details>
+
+### Home & Offers
+<details>
+<summary>View Screenshots</summary>
+
+| Home | Offers |
+|:---:|:---:|
+| ![Home](screens/home.png) | ![Offers](screens/offer.png) |
+
+</details>
+
+### Product Browsing & Details
+<details>
+<summary>View Screenshots</summary>
+
+| Products | Products (Alt 1) | Products (Alt 2) | Products (Alt 3) | Products (Alt 4) |
+|:---:|:---:|:---:|:---:|:---:|
+| ![Products](screens/products.png) | ![Products 2](screens/products2.png) | ![Products 3](screens/products3.png) | ![Products 4](screens/products4.png) | ![Products 5](screens/products5.png) |
+
+| Product Details |
+|:---:|
+| ![Product Details](screens/product_details.png) |
+
+</details>
+
+### Cart & Checkout
+<details>
+<summary>View Screenshots</summary>
+
+| Cart | Cart (Alt 1) | Cart (Alt 2) |
 |:---:|:---:|:---:|
-| ![Addresses](screens/addresses.png) | ![Favorites](screens/favorite.png) | ![Settings](screens/settings.png) |
+| ![Cart](screens/cart.png) | ![Cart 2](screens/cart2.png) | ![Cart 3](screens/cart3.png) |
+
+| Checkout | Checkout (Alt 1) | Checkout (Alt 2) |
+|:---:|:---:|:---:|
+| ![Checkout](screens/checkout.png) | ![Checkout 2](screens/checkout2.png) | ![Checkout 3](screens/checkout3.png) |
+
+</details>
+
+### Addresses
+<details>
+<summary>View Screenshots</summary>
+
+| Addresses | Addresses (Alt) | Add Address |
+|:---:|:---:|:---:|
+| ![Addresses](screens/addresses.png) | ![Addresses 2](screens/addresses2.png) | ![Add Address](screens/add_address.png) |
+
+</details>
+
+### Orders & Tracking
+<details>
+<summary>View Screenshots</summary>
+
+| Orders | Order Details | Order Tracking |
+|:---:|:---:|:---:|
+| ![Orders](screens/orders.png) | ![Order Details](screens/order_details.png) | ![Order Tracking](screens/order_tracking.png) |
+
+</details>
 
 ### Additional Features
-| Offers | Notifications | Order Tracking |
+<details>
+<summary>View Screenshots</summary>
+
+| Favorites | Notifications | Settings |
 |:---:|:---:|:---:|
-| ![Offers](screens/offer.png) | ![Notifications](screens/notifications.png) | ![Order Tracking](screens/order_tracking.png) |
+| ![Favorites](screens/favorite.png) | ![Notifications](screens/notifications.png) | ![Settings](screens/settings.png) |
+
+</details>
+
 ## Architecture 
 
 * **Frontend (Flutter):**  The Flutter apps adhere to the Model-View-Controller (MVC) pattern, promoting clean code organization and separation of concerns. The `Get` package provides powerful state management and navigation capabilities. 
