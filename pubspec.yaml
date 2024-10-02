@@ -140,11 +140,11 @@ flutter:
 flutter_native_splash:
 
   android: true
-  image: assets/images/zingo_shop_brand_logo_2x_no_bg_new.png
+  image: assets/images/zingo_shop_logo_200x200.png
   # branding: assets/images/zingo_shop_brand.png
   color: "#FFFFFF"
   android_12:
-    image: assets/images/zingo_shop_brand_logo_2x_no_bg_new.png
+    image: assets/images/zzingo_shop_logo_200x200.png
 
   ios: true
-  web: false
+  web: true
