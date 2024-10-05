@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   await ScreenUtil.ensureScreenSize();
   await initializeServices();
   FlutterNativeSplash.remove();
