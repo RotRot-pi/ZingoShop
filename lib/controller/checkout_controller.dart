@@ -1,5 +1,6 @@
 import 'package:zingoshop/core/functions/handing_data.dart';
 import 'package:zingoshop/core/services/services.dart';
+import 'package:zingoshop/core/services/stripe_services.dart';
 import 'package:zingoshop/data/datasource/remote/checkout.dart';
 import 'package:zingoshop/data/model/address.dart';
 
@@ -96,18 +97,42 @@ class CheckoutController extends GetxController {
       "coupon_discount": couponDiscount!.toString(),
       "payment_type": paymentMethod!.toString(),
     };
+    if (paymentMethod == 0) {
+      var response = await checkoutData.checkout(map);
+      statusRequest = handelingData(response);
 
-    var response = await checkoutData.checkout(map);
-    statusRequest = handelingData(response);
+      if (RequestStatus.success == statusRequest) {
+        Get.offAllNamed(AppRoutes.home);
+      } else {
+        Get.snackbar(
+          "Error",
+          "Something went wrong",
+        );
+      }
+    } else if (paymentMethod == 1) {
+      var response = await checkoutData.checkout(map);
+      print("Response: $response");
+      var clientSecret = response['client_secret'];
 
-    if (RequestStatus.success == statusRequest) {
-      Get.offAllNamed(AppRoutes.home);
-    } else {
-      Get.snackbar(
-        "Error",
-        "Something went wrong",
-      );
+      if (clientSecret != null) {
+        var result = await StripeServices.instance.payWithStripe(clientSecret);
+
+        if (result == true) {
+          Get.offAllNamed(AppRoutes.home);
+        } else {
+          Get.snackbar(
+            "Error",
+            "Payment failed",
+          );
+        }
+      } else {
+        Get.snackbar(
+          "Error",
+          "Client secret is null",
+        );
+      }
     }
+
     update();
   }
 
