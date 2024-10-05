@@ -1,3 +1,5 @@
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:zingoshop/core/constants/api_link.dart';
 import 'package:zingoshop/core/functions/fcm_config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -21,6 +23,7 @@ class AppServices extends GetxService {
     messaging = await requestNotificationPermission();
     fcmConfig();
     position = await getCurrentPosition();
+    initStripe();
     return this;
   }
 }
@@ -56,4 +59,8 @@ Future<Position> getCurrentPosition() async {
   }
 
   return Geolocator.getCurrentPosition();
+}
+
+initStripe() {
+  Stripe.publishableKey = ApiLink.stripePublishableKey;
 }
