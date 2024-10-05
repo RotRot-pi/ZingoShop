@@ -1,4 +1,6 @@
 class ApiLink {
+  static const String stripePublishableKey =
+      "pk_test_51Q5uITRxA46rh2n2gHFNhh4Y162HcrFlZiuxd21s86dqs751IVhhFOG7Xf2XCyj9TsQzFFUjtRbFJc2zwuRjsmJI00rnin5Lj4";
   static String server = "http://10.0.2.2/ecommerce_from_host";
   static String categoriesImageFolder = "$server/upload/categories/";
   static String itemsImageFolder = "$server/upload/items/";
