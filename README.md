@@ -73,7 +73,7 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
 
 ## Video Demo
 
-![Video Demo](screens/zingoshop-demo.mp4)
+![Video Demo](screens/zingoshop-demo.gif)
 
 ## Screenshots
 
