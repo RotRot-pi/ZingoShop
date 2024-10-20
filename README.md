@@ -12,6 +12,7 @@ This project is a fully functional single-vendor e-commerce application built wi
 
 * [Project Overview](#project-overview)
 * [Features](#features)
+* [Video Demo](#video-demo)
 * [Screenshots](#screenshots)
 * [Architecture](#architecture)
 * [Frontend (Flutter)](#frontend-flutter)
@@ -69,6 +70,10 @@ ZingoShop empowers a single vendor to establish a complete online store, providi
     * View assigned orders for clear visibility.
     * Real-time updates to order statuses (e.g., picked up, on the way, delivered).
     * Seamless order tracking using integrated Google Maps for efficient delivery.
+
+## Video Demo
+
+![Video Demo](screens/zingoshop-demo.mp4)
 
 ## Screenshots
 
